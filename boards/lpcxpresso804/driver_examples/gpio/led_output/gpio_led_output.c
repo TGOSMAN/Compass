@@ -70,7 +70,7 @@ void configureSWM(void) {
     // Assign pin 8 to T0_MAT0 function
     volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
     *AHBCLK |= (1<<7);
-    SWM_PINASSIGN4 = (SWM_PINASSIGN4 & ~SWM_PINASSIGN4_T0_MAT0_MASK) | SWM_PINASSIGN4_T0_MAT0(8);
+    //SWM_PINASSIGN4 = (SWM_PINASSIGN4 & ~SWM_PINASSIGN4_T0_MAT0_MASK) | SWM_PINASSIGN4_T0_MAT0(8);
 }
 
 /////////////////////////////Brief/////////////////////////////
@@ -142,12 +142,12 @@ int main(void)
 		//GPIO_PortInit(GPIO, BOARD_LED_PORT);
 		initPort();
 		//DIR
-		x = (uint32_t *)(GPIO_BASE|0x2000);
+		x = (uint32_t *)(GPIO|0x2000);
 		pin = *x;
 		pin |= 0x3<<8;
 		*x = pin;
 		//GPIO output
-		x = (uint32_t *)(GPIO_BASE|0x1024);
+		x = (uint32_t *)(GPIO|0x1024);
 		pin = *x;
 		pin |= (0x1<<9);
 		*x = pin;
