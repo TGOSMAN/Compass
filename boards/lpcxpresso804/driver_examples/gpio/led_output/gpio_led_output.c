@@ -57,9 +57,19 @@
 // Macro for PINASSIGN4 Register Access
 #define SWM_PINASSIGN4 (*(volatile uint32_t *)(SWM_BASE_ADDRESS + 0x010)) // Offset for PINASSIGN4
 volatile int change = 1;
-
+/////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This Function Configures The Switch Matrix:
+    -   Turns on the AHB clock to the GPIO port
+    -   Clears the Preset on the GPIO port to operate
+Parameters:
+-   None
+*/// Might be redundant
 void configureSWM(void) {
     // Assign pin 8 to T0_MAT0 function
+    volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
+    *AHBCLK |= (1<<7);
     SWM_PINASSIGN4 = (SWM_PINASSIGN4 & ~SWM_PINASSIGN4_T0_MAT0_MASK) | SWM_PINASSIGN4_T0_MAT0(8);
 }
 
@@ -88,10 +98,6 @@ This function initialises the PWM Feature by
     -   Setting MR0 to 0 to start with duty cycle at 0%
     -   Setting MR3 to 1000 to give a 1khz PWM frequency
     -   Enables the internal PWM register on MR0
-Usage:
-    - MR0
-    - MR3
-    - CTIMER0
 Parameters:
 -   None -> maybe add frequency
 */
@@ -105,7 +111,7 @@ void initPWM(void) {
     volatile uint32_t *PWMC = (volatile uint32_t *) (CTIMER+0x74);
     //volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
 	*AHBCLK |= (1<<25);// Set AHB clock on for CTIMER
-	*AHBCLK |= (1<<7); //SWM CLOCK ENABLED -> why ?
+	//*AHBCLK |= (1<<7); //SWM CLOCK ENABLED -> why ?
 
     // Configure timer
     *TCR = 0x02;    // Reset timer
