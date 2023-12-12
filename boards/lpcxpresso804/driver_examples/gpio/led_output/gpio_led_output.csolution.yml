@@ -1,0 +1,20 @@
+---
+solution:
+  created-for: cmsis-toolbox@2.0.0
+  packs:
+  - pack: NXP::LPC804_DFP
+  - pack: ARM::CMSIS
+  target-types:
+  - type: iar
+    compiler: IAR
+  - type: mdk
+    compiler: AC6
+  - type: armgcc
+    compiler: GCC
+  output-dirs:
+    outdir: "./$TargetType$/$BuildType$"
+  build-types:
+  - type: release
+  - type: debug
+  projects:
+  - project: gpio_led_output.cproject.yml
