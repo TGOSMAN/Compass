@@ -17,62 +17,6 @@
  * Code
  ******************************************************************************/
 
-// Register Offsets
-#define IR_OFFSET    0x00
-#define TCR_OFFSET   0x04
-#define TC_OFFSET    0x08
-#define PR_OFFSET    0x0C
-#define PC_OFFSET    0x10
-#define MCR_OFFSET   0x14
-#define MR0_OFFSET   0x18
-#define MR1_OFFSET   0x1C
-#define MR2_OFFSET   0x20
-#define MR3_OFFSET   0x24
-#define CCR_OFFSET   0x28
-#define EMR_OFFSET   0x3C
-#define PWMC_OFFSET  0x74
-#define CTIMER0_CLOCK_ENABLE (1 << 25)
-#define SYSAHBCLKCTRL0 (*(volatile unsigned int *)(SYSAHBCLKCTRL0_ADDRESS))
-#define PINASSIGN4 	0x4000C010
-
-// Macros for Register Access
-#define CTIMER_IR    (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + IR_OFFSET))
-#define CTIMER_TCR   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + TCR_OFFSET))
-#define CTIMER_TC    (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + TC_OFFSET))
-#define CTIMER_PR    (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + PR_OFFSET))
-#define CTIMER_PC    (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + PC_OFFSET))
-#define CTIMER_MCR   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + MCR_OFFSET))
-#define CTIMER_MR0   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + MR0_OFFSET))
-#define CTIMER_MR1   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + MR1_OFFSET))
-#define CTIMER_MR2   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + MR2_OFFSET))
-#define CTIMER_MR3   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + MR3_OFFSET))
-#define CTIMER_CCR   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + CCR_OFFSET))
-#define CTIMER_EMR   (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + EMR_OFFSET))
-#define CTIMER_PWMC  (*(volatile unsigned int *)(CTIMER_BASE_ADDRESS + PWMC_OFFSET))
-#define TOMAT  (*(volatile unsigned int *)(0x4000C010)))
-#define SYSAHBCLKCTRL0_ADDRESS 0x40048080
-
-#define SWM_BASE_ADDRESS 0x4000C000
-
-// Macro for PINASSIGN4 Register Access
-#define SWM_PINASSIGN4 (*(volatile uint32_t *)(SWM_BASE_ADDRESS + 0x010)) // Offset for PINASSIGN4
-volatile int change = 1;
-/////////////////////////////Brief/////////////////////////////
-/*
-Description:
-This Function Configures The Switch Matrix:
-    -   Turns on the AHB clock to the GPIO port
-    -   Clears the Preset on the GPIO port to operate
-Parameters:
--   None
-*/// Might be redundant
-void configureSWM(void) {
-    // Assign pin 8 to T0_MAT0 function
-    volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
-    *AHBCLK |= (1<<7);
-    //SWM_PINASSIGN4 = (SWM_PINASSIGN4 & ~SWM_PINASSIGN4_T0_MAT0_MASK) | SWM_PINASSIGN4_T0_MAT0(8);
-}
-
 /////////////////////////////Brief/////////////////////////////
 /*
 Description:
@@ -111,7 +55,6 @@ void initPWM(void) {
     volatile uint32_t *PWMC = (volatile uint32_t *) (CTIMER+0x74);
     //volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
 	*AHBCLK |= (1<<25);// Set AHB clock on for CTIMER
-	//*AHBCLK |= (1<<7); //SWM CLOCK ENABLED -> why ?
 
     // Configure timer
     *TCR = 0x02;    // Reset timer
