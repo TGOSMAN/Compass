@@ -1,18 +1,11 @@
-/*
- * Copyright 2019 NXP
- * All rights reserved.
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
-#include "pin_mux.h"
-#include "board.h"
-#include "fsl_swm.h"
-#include "LPC804.h"
+#include <stdint.h>
+#include <stdlib.h>
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
-#define	CTIMER (0x40038000)
+#define	CTIMER  (0x40038000)
+#define GPIO    (0xA0000000)
+#define SYSCON  (0x40048000)
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -20,28 +13,9 @@
 /*******************************************************************************
  * Variables
  ******************************************************************************/
-volatile uint32_t g_systickCounter;
-
 /*******************************************************************************
  * Code
  ******************************************************************************/
-/*void SysTick_Handler(void)
-{
-    if (g_systickCounter != 0U)
-    {
-        g_systickCounter--;
-    }
-}
-
-void SysTick_DelayTicks(uint32_t n)
-{
-    g_systickCounter = n;
-    while (g_systickCounter != 0U)
-    {
-    }
-}
-*/
-#define CTIMER_BASE_ADDRESS 0x40038000
 
 // Register Offsets
 #define IR_OFFSET    0x00
@@ -84,62 +58,52 @@ void SysTick_DelayTicks(uint32_t n)
 #define SWM_PINASSIGN4 (*(volatile uint32_t *)(SWM_BASE_ADDRESS + 0x010)) // Offset for PINASSIGN4
 volatile int change = 1;
 
-
-
-
-
 void configureSWM(void) {
     // Assign pin 8 to T0_MAT0 function
     SWM_PINASSIGN4 = (SWM_PINASSIGN4 & ~SWM_PINASSIGN4_T0_MAT0_MASK) | SWM_PINASSIGN4_T0_MAT0(8);
 }
-/*void assign_MAT0_to_P0_8(void) {
-    uint32_t pinassign4 = LPC_SWM->PINASSIGN4; // Read the current value of PINASSIGN4
-    pinassign4 &= ~(0xFF << 0); // Clear the bits corresponding to T0_MAT0
-    pinassign4 |= (8 << 0);     // Set the pin number for P0_8 in the T0_MAT0 field
 
-    LPC_SWM->PINASSIGN4 = pinassign4; // Write the modified value back to PINASSIGN4
-}*/
+/////////////////////////////Brief/////////////////////////////
 /*
-void pwm_match_callback(uint32_t flags)
-{
-    static uint32_t count    = 0;
-    static uint8_t decrement = 1;
-
-        count = 0;
-        /* Update pulse width match value after the PWM duty cycle is changed */
-        /*
-				CTIMER_UpdatePwmPulsePeriod(CTIMER, CTIMER_MAT_OUT, g_pulsePeriod);
-        dutyCycle = dutyCycle + 1 - decrement * 2;
-        if (dutyCycle == 69)
-        {
-            decrement = 0;
-        }
-        else if (dutyCycle == 99)
-        {
-            decrement = 1;
-        }
-    }
-}
+Description:
+This Function initialises the GPIO Port by:
+    -   Turns on the AHB clock to the GPIO port
+    -   Clears the Preset on the GPIO port to operate
+Parameters:
+-   None
 */
 void initPort(void) { 
-	volatile uint32_t *AHBCLK = (volatile uint32_t *) 0x40048080;//AHBCLK Control Register
-	volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
+	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
+	volatile uint32_t *PRESET0 = (volatile uint32_t *) (SYSCON+0x88);//Port Presets Control Register
 	*AHBCLK |= (1<<6); // enable port clock
 	*PRESET0 |= (1<<6);
 	return;
-	//clocks
-	//Presets
-	
 }
+/////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This function initialises the PWM Feature by
+    -   Setting the TCR Register to Reset and Enables at the End of function to start
+    -   Setting the Prescaler to 11 to give a 1Mhz Clock into CTIMER0
+    -   Setting MR0 to 0 to start with duty cycle at 0%
+    -   Setting MR3 to 1000 to give a 1khz PWM frequency
+    -   Enables the internal PWM register on MR0
+Usage:
+    - MR0
+    - MR3
+    - CTIMER0
+Parameters:
+-   None -> maybe add frequency
+*/
 void initPWM(void) {
-		SYSAHBCLKCTRL0 |= CTIMER0_CLOCK_ENABLE;
-		SYSAHBCLKCTRL0 |= (1<<7); //SWM CLOCK ENABLED
+    //volatile uint32_t *AHBCLK = (volatile uint32_t *) 0x40048080;//AHBCLK Control Register
+	//volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
+	SYSAHBCLKCTRL0 |= CTIMER0_CLOCK_ENABLE;
+	SYSAHBCLKCTRL0 |= (1<<7); //SWM CLOCK ENABLED
     // Configure timer
     CTIMER_TCR = 0x02; // Reset timer
-    //CTIMER_TCR = 0x01; // Enable timer
-
-    // Set prescaler (for example, for 1 MHz PWM frequency)
-    CTIMER_PR = 100; // Assuming a 12 MHz clock
+    
+    CTIMER_PR = 11; // Set Prescaler Assuming a 12 MHz clock to 1Mhz//
 
     // Set PWM cycle (e.g., 1000 for 1 kHz PWM)
     CTIMER_MR3 = 1000;
@@ -148,7 +112,7 @@ void initPWM(void) {
     CTIMER_MCR = (1 << 10) | (1 << 9) ;
 
     // Set duty cycle (e.g., 50%)
-    CTIMER_MR0 = 900;
+    CTIMER_MR0 = 1000;/
 
     // Enable PWM on MR0
     CTIMER_PWMC = 0x01;
@@ -163,7 +127,7 @@ void initPWM(void) {
  */
 int main(void)
 {
-		uint32_t *poll = 0;
+		//uint32_t *poll = 0;
 		int change = 0;
 		uint32_t pin;
 		uint32_t *x = 0;
