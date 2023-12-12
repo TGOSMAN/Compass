@@ -96,31 +96,32 @@ Parameters:
 -   None -> maybe add frequency
 */
 void initPWM(void) {
-    //volatile uint32_t *AHBCLK = (volatile uint32_t *) 0x40048080;//AHBCLK Control Register
-	//volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
-	SYSAHBCLKCTRL0 |= CTIMER0_CLOCK_ENABLE;
-	SYSAHBCLKCTRL0 |= (1<<7); //SWM CLOCK ENABLED
-    // Configure timer
-    CTIMER_TCR = 0x02; // Reset timer
-    
-    CTIMER_PR = 11; // Set Prescaler Assuming a 12 MHz clock to 1Mhz//
+    volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
+	volatile uint32_t *TCR = (volatile uint32_t *) (CTIMER+0x04);
+    volatile uint32_t *PR = (volatile uint32_t *) (CTIMER+0x0C);
+    volatile uint32_t *MCR = (volatile uint32_t *) (CTIMER+0x14);
+    volatile uint32_t *MR0 = (volatile uint32_t *) (CTIMER+0x18);
+    volatile uint32_t *MR3 = (volatile uint32_t *) (CTIMER+0x24);
+    volatile uint32_t *PWMC = (volatile uint32_t *) (CTIMER+0x74);
+    //volatile uint32_t *PRESET0 = (volatile uint32_t *) 0x40048088;//Port Presets Control Register
+	*AHBCLK |= (1<<25);// Set AHB clock on for CTIMER
+	*AHBCLK |= (1<<7); //SWM CLOCK ENABLED -> why ?
 
-    // Set PWM cycle (e.g., 1000 for 1 kHz PWM)
-    CTIMER_MR3 = 1000;
+    // Configure timer
+    *TCR = 0x02;    // Reset timer
+    *PR = 11;       // Set Prescaler Assuming a 12 MHz clock to 1Mhz
+    *MR3 = 1000;    // Set PWM cycle (e.g., 1000 for 1 kHz PWM)
 
     // Configure match control register (reset on MR3, interrupt)
-    CTIMER_MCR = (1 << 10) | (1 << 9) ;
-
-    // Set duty cycle (e.g., 50%)
-    CTIMER_MR0 = 1000;/
-
+    *MCR = (1 << 10) | (1 << 9) ;
+    // Set duty cycle (e.g., 0%)
+    *MR0 = 999;
     // Enable PWM on MR0
-    CTIMER_PWMC = 0x01;
-		
+    *PWMC = 0x01;
 		
     // Start the timer
-    CTIMER_TCR = 0x01;
-		
+    *TCR = 0x01;
+	return;
 }
 /*!
  * @brief Main function
