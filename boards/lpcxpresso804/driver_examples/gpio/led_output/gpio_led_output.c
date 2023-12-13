@@ -7,8 +7,11 @@ int main(void)
 {
 		initPort();
 		changeDIR(8, 1);
-		initPWM();
-		pwmdutycycle(90);
+		changeDIR(9, 1);
+		changeDIR(13, 1);
+		decoder(0x5);
+		//initPWM();
+		//pwmdutycycle(90);
 		while(1){
 		}
     
