@@ -1,5 +1,6 @@
 --cpu Cortex-M0+
 "debug\gpio_led_output.o"
+"debug\layer1.o"
 "debug\pin_mux.o"
 "debug\board.o"
 "debug\clock_config.o"

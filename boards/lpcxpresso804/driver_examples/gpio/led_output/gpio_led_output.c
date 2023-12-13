@@ -5,14 +5,10 @@
  */
 int main(void)
 {
-		int change = 0;
-		uint32_t pin;
-		uint32_t *x = 0;
-		uint32_t *value;
 		initPort();
 		changeDIR(8, 1);
 		initPWM();
-		pwmdutycycle(50);
+		pwmdutycycle(90);
 		while(1){
 		}
     
