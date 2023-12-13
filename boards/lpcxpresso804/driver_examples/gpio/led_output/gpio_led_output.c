@@ -40,11 +40,10 @@ void initPort(void) {
 /////////////////////////////Brief/////////////////////////////
 /*
 Description:
-This Function initialises the GPIO Port by:
-    -   Turns on the AHB clock to the GPIO port
-    -   Clears the Preset on the GPIO port to operate
+This Function sets the direction of a GPIO Pin by directly editing the DIR register:
 Parameters:
--   None
+-   uint32_t PIN: The pin to change directions
+-	int	direction: The direciton to change the pin to (1 for output, 0 for input)
 Return: 
 - 	Nothing
 */
@@ -106,9 +105,10 @@ void initPWM(void) {
 /*
 Description:
 This changes the PWM that is output using MR0 by:
-    -   First calculating the 
+    -   First calculating the match value so that it will stay as an integer
+	- 	Setting the MR0 register value
 Parameters:
--   None -> maybe add frequency
+-   uint32_t percent: this is the percent dutycycle desired
 Return: 
 - 	Nothing
 */
