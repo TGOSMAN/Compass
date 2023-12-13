@@ -1,6 +1,5 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "Layer1.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -120,20 +119,9 @@ void pwmdutycycle(uint32_t percent){
 	*MR0 = matchvalue;
 	return;
 }
-/*!
- * @brief Main function
- */
-int main(void)
-{
-		int change = 0;
-		uint32_t pin;
-		uint32_t *x = 0;
-		uint32_t *value;
-		initPort();
-		changeDIR(21, 1);
-		initPWM();
-		pwmdutycycle(50);
-		while(1){
-		}
-    
+
+void decoder(uint8_t value){
+
+
+
 }
