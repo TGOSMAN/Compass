@@ -132,7 +132,7 @@ int main(void)
 		changeDIR(0x8, 1);
 		changeDIR(0x9, 1);
 		initPWM();
-		pwmdutycycle(10);
+		pwmdutycycle(50);
 		while(1){
 		}
     
