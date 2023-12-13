@@ -110,32 +110,42 @@ void pwmdutycycle(uint32_t percent){
 	*MR0 = matchvalue;
 	return;
 }
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This decoder by :
+		- 	calculating the bit levels of each position then:
+    -   writing to the set and clear registers for an output
+Parameters:
+-   uint32_t Selection: This is the number/bits you would input into the decoder normally
+Return: 
+- 	Nothing
+*/
 void decoder(uint32_t selection){
     uint32_t bit = 0x0;
-    volatile uint32_t *SET0 = (volatile uint32_t *) (GPIO+2200);// Set for register for port 0
-    volatile uint32_t *CLR0 = (volatile uint32_t *) (GPIO+2280);
+    volatile uint32_t *SET0 = (volatile uint32_t *) (GPIO+ 0x2200);// Set for register for port 0
+    volatile uint32_t *CLR0 = (volatile uint32_t *) (GPIO+ 0x2280);
     selection &= 0x7;
     //A0
     bit = selection&(0x1);
 		if(bit){
-				*SET0 = 0x1<<13;//P18 on PCB
+				*SET0 |= 0x1<<13;//P18 on PCB
 		}else{
-				*CLR0 = 0x1<<13;
+				*CLR0 |= 0x1<<13;
 		}
     //A1
     bit = (selection&(0x2))>>1;
 		if(bit){
-				*SET0 = 0x1<<9;//P12 on PCB
+				*SET0 |= 0x1<<9;//P12 on PCB
 		}else{
-				*CLR0 = 0x1<<9;
+				*CLR0 |= 0x1<<9;
 		}
     //A2
     bit = (selection&(0x4))>>2;
 		if(bit){
-				*SET0 = 0x1<<8;//P20 on PCB
+				*SET0 |= 0x1<<8;//P20 on PCB
 		}else{
-				*CLR0 = 0x1<<8;
+				*CLR0 |= 0x1<<8;
 		}
     return;
 }
