@@ -97,8 +97,8 @@ void initPWM(void) {
     // Start the timer
     *TCR = 0x01;
 
-	//Assign the output to P0_8
-	*PINASSIGN4 &= 0x8; 
+	//Assign the output to P0_21
+	*PINASSIGN4 &= 0x12; 
 	return;
 }
 ////////////////////////////Brief/////////////////////////////
@@ -129,8 +129,7 @@ int main(void)
 		uint32_t *x = 0;
 		uint32_t *value;
 		initPort();
-		changeDIR(0x8, 1);
-		changeDIR(0x9, 1);
+		changeDIR(21, 1);
 		initPWM();
 		pwmdutycycle(50);
 		while(1){
