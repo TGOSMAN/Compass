@@ -116,7 +116,7 @@ void pwmdutycycle(uint32_t percent){
 	uint32_t matchvalue = 0;
 	volatile uint32_t *MR0 = (volatile uint32_t *) (CTIMER+0x18);
 	matchvalue = (1000-(10*percent));// this format is to ensure the decimals don't appear and zero out
-	*MR0 |= matchvalue;
+	*MR0 = matchvalue;
 	return;
 }
 /*!
