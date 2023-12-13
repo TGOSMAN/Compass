@@ -41,7 +41,7 @@ Return:
 void changeDIR(uint32_t PIN, int direction){
 	volatile uint32_t *DIR = (volatile uint32_t *) (GPIO+0x2000);//AHBCLK Control Register
 	if (direction){
-		*DIR |= (1<<PIN);
+		*DIR |= (1<<PIN);// adjust this to be the masking and clearing of dir otherwise it will effect input
 	} else {
 		*DIR &= ((0x7FFFFFFF)^(1<<PIN));
 	}
@@ -112,7 +112,13 @@ void pwmdutycycle(uint32_t percent){
 }
 
 void decoder(uint8_t value){
+    int bit = 0;
+    volatile uint32_t *SET0 = (volatile uint32_t *) (GPIO+2200);// Set for register for port 0
+    volatile uint32_t *CLR0 = (volatile uint32_t *) (GPIO+2280);
+    value &= 0x7;
+    if(bit){
+        
+    }else{
 
-
-
+    }
 }
