@@ -99,7 +99,7 @@ void initPWM(void) {
     *TCR = 0x01;
 
 	//Assign the output to P0_21
-	*PINASSIGN4 &= 0x12; 
+	*PINASSIGN4 &= 0x8; 
 	return;
 }
 ////////////////////////////Brief/////////////////////////////
