@@ -116,9 +116,26 @@ void decoder(uint8_t value){
     volatile uint32_t *SET0 = (volatile uint32_t *) (GPIO+2200);// Set for register for port 0
     volatile uint32_t *CLR0 = (volatile uint32_t *) (GPIO+2280);
     value &= 0x7;
-    if(bit){
-        
-    }else{
-
-    }
+    //A0
+    bit = value&(0x1);
+        if(bit){
+            *SET0 |= 0x1<<13;//P18 on PCB
+        }else{
+            *CLR0 |= 0x1<<13;
+        }
+    //A1
+    bit = (value&(0x2))>>1;
+        if(bit){
+            *SET0 |= 0x1<<9;//P12 on PCB
+        }else{
+            *CLR0 |= 0x1<<9;
+        }
+    //A2
+    bit = (value&(0x4))>>2;
+        if(bit){
+            *SET0 |= 0x1<<8;//P20 on PCB
+        }else{
+            *CLR0 |= 0x1<<8;
+        }
+    return;
 }
