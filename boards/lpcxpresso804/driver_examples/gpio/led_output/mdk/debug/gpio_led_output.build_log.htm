@@ -30,34 +30,29 @@ Project File Date:  12/13/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild Project 'gpio_led_output' - Target 'gpio_led_output debug'
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\Layer1.c(114): error: conflicting types for 'decoder'
-void decoder(uint32_t value){
-     ^
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\Layer1.h(9): note: previous declaration is here
-void decoder(uint8_t value);
-     ^
-1 error generated.
 compiling Layer1.c...
-compiling board.c...
-compiling gpio_led_output.c...
-compiling fsl_adapter_miniusart.c...
-compiling pin_mux.c...
-compiling fsl_common.c...
 compiling clock_config.c...
+compiling gpio_led_output.c...
+compiling board.c...
+compiling fsl_common.c...
+compiling pin_mux.c...
+compiling fsl_adapter_miniusart.c...
 compiling fsl_clock.c...
 compiling fsl_common_arm.c...
+compiling fsl_reset.c...
+compiling fsl_power.c...
 compiling fsl_gpio.c...
 compiling fsl_syscon.c...
-compiling fsl_reset.c...
-compiling system_LPC804.c...
 compiling fsl_swm.c...
-compiling fsl_power.c...
+compiling system_LPC804.c...
 compiling fsl_assert.c...
 compiling fsl_usart.c...
 assembling startup_LPC804.S...
 compiling fsl_debug_console.c...
 compiling fsl_str.c...
-"debug\gpio_led_output.out" - 1 Error(s), 0 Warning(s).
+linking...
+Program Size: Code=660 RO-data=228 RW-data=8 ZI-data=136  
+"debug\gpio_led_output.out" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -105,27 +100,27 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
-      Include file:  devices/LPC804/LPC804_features.h
       Include file:  devices/LPC804/fsl_device_registers.h
       Include file:  devices/LPC804/LPC804.h
+      Include file:  devices/LPC804/LPC804_features.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
       Source file:   devices/LPC804/system_LPC804.c
       Include file:  devices/LPC804/system_LPC804.h
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
-      Include file:  devices/LPC804/drivers/fsl_clock.h
       Source file:   devices/LPC804/drivers/fsl_clock.c
+      Include file:  devices/LPC804/drivers/fsl_clock.h
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
-      Source file:   devices/LPC804/drivers/fsl_common_arm.c
+      Include file:  devices/LPC804/drivers/fsl_common.h
       Include file:  devices/LPC804/drivers/fsl_common_arm.h
       Source file:   devices/LPC804/drivers/fsl_common.c
-      Include file:  devices/LPC804/drivers/fsl_common.h
+      Source file:   devices/LPC804/drivers/fsl_common_arm.c
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
-      Include file:  devices/LPC804/drivers/fsl_gpio.h
       Source file:   devices/LPC804/drivers/fsl_gpio.c
+      Include file:  devices/LPC804/drivers/fsl_gpio.h
 
    * Component: NXP::Device:SDK Drivers:iocon:2.0.2
       Include file:  devices/LPC804/drivers/fsl_iocon.h
@@ -146,8 +141,8 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/rom_api.h
 
    * Component: NXP::Device:SDK Drivers:swm:2.1.2
-      Source file:   devices/LPC804/drivers/fsl_swm.c
       Include file:  devices/LPC804/drivers/fsl_swm.h
+      Source file:   devices/LPC804/drivers/fsl_swm.c
 
    * Component: NXP::Device:SDK Drivers:swm_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
@@ -168,16 +163,15 @@ Package Vendor: NXP
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
       Source file:   devices/LPC804/utilities/str/fsl_str.c
+      Include file:  devices/LPC804/utilities/str/fsl_str.h
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
       Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
-      Include file:  devices/LPC804/utilities/str/fsl_str.h
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
 
    * Component: NXP::Device:Startup:1.1.0
       Source file:   devices/LPC804/arm/startup_LPC804.S
-Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

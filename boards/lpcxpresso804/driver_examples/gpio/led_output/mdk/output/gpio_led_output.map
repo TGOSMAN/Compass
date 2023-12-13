@@ -669,13 +669,13 @@ Image Symbol Table
     __arm_cp.1_0                             0x000004f0   Number         4  layer1.o(.text.changeDIR)
     __arm_cp.1_1                             0x000004f4   Number         4  layer1.o(.text.changeDIR)
     [Anonymous Symbol]                       0x000004f8   Section        0  layer1.o(.text.decoder)
-    __arm_cp.4_0                             0x00000538   Number         4  layer1.o(.text.decoder)
-    [Anonymous Symbol]                       0x0000053c   Section        0  layer1.o(.text.initPort)
-    __arm_cp.0_0                             0x00000550   Number         4  layer1.o(.text.initPort)
-    [Anonymous Symbol]                       0x00000554   Section        0  gpio_led_output.o(.text.main)
-    i.__scatterload_copy                     0x0000057a   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000588   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0000058a   Section       14  handlers.o(i.__scatterload_zeroinit)
+    __arm_cp.4_0                             0x00000534   Number         4  layer1.o(.text.decoder)
+    [Anonymous Symbol]                       0x00000538   Section        0  layer1.o(.text.initPort)
+    __arm_cp.0_0                             0x0000054c   Number         4  layer1.o(.text.initPort)
+    [Anonymous Symbol]                       0x00000550   Section        0  gpio_led_output.o(.text.main)
+    i.__scatterload_copy                     0x00000576   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000584   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000586   Section       14  handlers.o(i.__scatterload_zeroinit)
     s_usartIsr                               0x10000004   Data           4  fsl_usart.o(.data.s_usartIsr)
     [Anonymous Symbol]                       0x10000004   Section        0  fsl_usart.o(.data.s_usartIsr)
     s_usartHandle                            0x10000008   Data           8  fsl_usart.o(.bss.s_usartHandle)
@@ -778,14 +778,14 @@ Image Symbol Table
     USART0_DriverIRQHandler                  0x000004a1   Thumb Code    16  fsl_usart.o(.text.USART0_DriverIRQHandler)
     USART1_DriverIRQHandler                  0x000004b5   Thumb Code    16  fsl_usart.o(.text.USART1_DriverIRQHandler)
     changeDIR                                0x000004d1   Thumb Code    32  layer1.o(.text.changeDIR)
-    decoder                                  0x000004f9   Thumb Code    64  layer1.o(.text.decoder)
-    initPort                                 0x0000053d   Thumb Code    20  layer1.o(.text.initPort)
-    main                                     0x00000555   Thumb Code    38  gpio_led_output.o(.text.main)
-    __scatterload_copy                       0x0000057b   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000589   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0000058b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00000598   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000005b8   Number         0  anon$$obj.o(Region$$Table)
+    decoder                                  0x000004f9   Thumb Code    60  layer1.o(.text.decoder)
+    initPort                                 0x00000539   Thumb Code    20  layer1.o(.text.initPort)
+    main                                     0x00000551   Thumb Code    38  gpio_led_output.o(.text.main)
+    __scatterload_copy                       0x00000577   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000585   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000587   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x00000594   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000005b4   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x10000000   Data           4  system_lpc804.o(.data.SystemCoreClock)
     Image$$ARM_LIB_HEAP$$ZI$$Base            0x10000010   Number         0  anon$$obj.o ABSOLUTE
     Image$$ARM_LIB_HEAP$$ZI$$Limit           0x10000050   Number         0  anon$$obj.o ABSOLUTE
@@ -799,7 +799,7 @@ Memory Map of the image
 
   Image Entry point : 0x00000315
 
-  Load Region LR_m_text (Base: 0x00000000, Size: 0x000005c0, Max: 0x00007f00, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x00000000, Size: 0x000005bc, Max: 0x00007f00, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000000c0, Max: 0x00000200, ABSOLUTE)
 
@@ -815,7 +815,7 @@ Memory Map of the image
     0x000002fc   0x000002fc   0x00000004   Data   RO          330    .crp                startup_lpc804.o
 
 
-    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x000002b8, Max: 0x00007c00, ABSOLUTE, FIXED)
+    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x000002b4, Max: 0x00007c00, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -836,32 +836,32 @@ Memory Map of the image
     0x000004a0   0x000004a0   0x00000014   Code   RO          250    .text.USART0_DriverIRQHandler  fsl_usart.o
     0x000004b4   0x000004b4   0x0000001c   Code   RO          252    .text.USART1_DriverIRQHandler  fsl_usart.o
     0x000004d0   0x000004d0   0x00000028   Code   RO           15    .text.changeDIR     layer1.o
-    0x000004f8   0x000004f8   0x00000044   Code   RO           21    .text.decoder       layer1.o
-    0x0000053c   0x0000053c   0x00000018   Code   RO           13    .text.initPort      layer1.o
-    0x00000554   0x00000554   0x00000026   Code   RO            4    .text.main          gpio_led_output.o
-    0x0000057a   0x0000057a   0x0000000e   Code   RO          465    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00000588   0x00000588   0x00000002   Code   RO          466    i.__scatterload_null  mc_p.l(handlers.o)
-    0x0000058a   0x0000058a   0x0000000e   Code   RO          467    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00000598   0x00000598   0x00000020   Data   RO          464    Region$$Table       anon$$obj.o
+    0x000004f8   0x000004f8   0x00000040   Code   RO           21    .text.decoder       layer1.o
+    0x00000538   0x00000538   0x00000018   Code   RO           13    .text.initPort      layer1.o
+    0x00000550   0x00000550   0x00000026   Code   RO            4    .text.main          gpio_led_output.o
+    0x00000576   0x00000576   0x0000000e   Code   RO          465    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00000584   0x00000584   0x00000002   Code   RO          466    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00000586   0x00000586   0x0000000e   Code   RO          467    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00000594   0x00000594   0x00000020   Data   RO          464    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x000005b8, Size: 0x00000010, Max: 0x00000f60, ABSOLUTE)
+    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x000005b4, Size: 0x00000010, Max: 0x00000f60, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x000005b8   0x00000004   Data   RW          273    .data.SystemCoreClock  system_lpc804.o
-    0x10000004   0x000005bc   0x00000004   Data   RW          258    .data.s_usartIsr    fsl_usart.o
+    0x10000000   0x000005b4   0x00000004   Data   RW          273    .data.SystemCoreClock  system_lpc804.o
+    0x10000004   0x000005b8   0x00000004   Data   RW          258    .data.s_usartIsr    fsl_usart.o
     0x10000008        -       0x00000008   Zero   RW          257    .bss.s_usartHandle  fsl_usart.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x10000010, Load base: 0x000005c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x10000010, Load base: 0x000005bc, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x10000010        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x000005c0, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x000005bc, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -877,12 +877,12 @@ Image component sizes
 
         48         16          0          4          8      22664   fsl_usart.o
         38          0          0          0          0        461   gpio_led_output.o
-       132         16          0          0          0       1792   layer1.o
+       128         16          0          0          0       1782   layer1.o
        320        160        196          0          0       1694   startup_lpc804.o
         38         16          0          4          0       2910   system_lpc804.o
 
     ----------------------------------------------------------------------
-       578        208        228          8        136      29521   Object Totals
+       574        208        228          8        136      29511   Object Totals
          0          0         32          0        128          0   (incl. Generated)
          2          0          0          0          0          0   (incl. Padding)
 
@@ -921,15 +921,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       664        224        228          8        136      29733   Grand Totals
-       664        224        228          8        136      29733   ELF Image Totals
-       664        224        228          8          0          0   ROM Totals
+       660        224        228          8        136      29723   Grand Totals
+       660        224        228          8        136      29723   ELF Image Totals
+       660        224        228          8          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  892 (   0.87kB)
+    Total RO  Size (Code + RO Data)                  888 (   0.87kB)
     Total RW  Size (RW Data + ZI Data)               144 (   0.14kB)
-    Total ROM Size (Code + RO Data + RW Data)        900 (   0.88kB)
+    Total ROM Size (Code + RO Data + RW Data)        896 (   0.88kB)
 
 ==============================================================================
 
