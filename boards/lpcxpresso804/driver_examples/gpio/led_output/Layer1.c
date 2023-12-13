@@ -129,23 +129,23 @@ void decoder(uint32_t selection){
     //A0
     bit = selection&(0x1);
 		if(bit){
-				*SET0 |= 0x1<<13;//P18 on PCB
+				*SET0 |= 0x1<<18;//P18 on PCB
 		}else{
-				*CLR0 |= 0x1<<13;
+				*CLR0 |= 0x1<<18;
 		}
     //A1
     bit = (selection&(0x2))>>1;
 		if(bit){
-				*SET0 |= 0x1<<9;//P12 on PCB
+				*SET0 |= 0x1<<12;//P12 on PCB
 		}else{
-				*CLR0 |= 0x1<<9;
+				*CLR0 |= 0x1<<12;
 		}
     //A2
     bit = (selection&(0x4))>>2;
 		if(bit){
-				*SET0 |= 0x1<<8;//P20 on PCB
+				*SET0 |= 0x1<<20;//P20 on PCB
 		}else{
-				*CLR0 |= 0x1<<8;
+				*CLR0 |= 0x1<<20;
 		}
     return;
 }
