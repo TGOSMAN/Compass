@@ -65,7 +65,7 @@ Return:
 */
 void initPWM(void) {
     volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);//AHBCLK Control Register
-	volatile uint32_t *TCR = (volatile uint32_t *) (CTIMER+0x04);
+		volatile uint32_t *TCR = (volatile uint32_t *) (CTIMER+0x04);
     volatile uint32_t *PR = (volatile uint32_t *) (CTIMER+0x0C);
     volatile uint32_t *MCR = (volatile uint32_t *) (CTIMER+0x14);
     volatile uint32_t *MR0 = (volatile uint32_t *) (CTIMER+0x18);
@@ -90,7 +90,7 @@ void initPWM(void) {
     *TCR = 0x01;
 
 	//Assign the output to P0_21
-	*PINASSIGN4 &= 0x8; 
+	*PINASSIGN4 &= 0x21; 
 	return;
 }
 ////////////////////////////Brief/////////////////////////////
@@ -110,7 +110,7 @@ void pwmdutycycle(uint32_t percent){
 	matchvalue = (1000-(10*percent));// this format is to ensure the decimals don't appear and zero out
 	*MR0 = matchvalue;
 	return;
-}
+}//need to disable timer
 ////////////////////////////Brief/////////////////////////////
 /*
 Description:
