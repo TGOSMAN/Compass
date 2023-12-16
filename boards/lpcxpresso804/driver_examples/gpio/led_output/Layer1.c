@@ -8,6 +8,7 @@
 #define GPIO    (0xA0000000)
 #define SYSCON  (0x40048000)
 #define SWM		(0x4000C000)
+#define SYSTIC	(0xE000E000)
 
 /////////////////////////////Brief/////////////////////////////
 /*
@@ -148,4 +149,40 @@ void decoder(uint32_t selection){
 				*CLR0 |= 0x1<<20;
 		}
     return;
+}
+
+void delay(uint32_t ms){
+	//let it run with the systemclock/2 hz == 6Mhz
+	volatile uint32_t *CSR = (volatile uint32_t *) (SYSTIC);
+    volatile uint32_t *CVR = (volatile uint32_t *) (SYSTIC + 0x018);
+	volatile uint32_t *RVR = (volatile uint32_t *) (SYSTIC + 0x018);
+	uint32_t adjustedvalue = (6000*ms) - 1;
+	*RVR |= adjustedvalue;
+	*CVR |= 0x1;
+	*CSR |= 0x1;
+	while(!((*CSR)&(0x1<<16))){
+		//polling version so this will be blocking
+	}
+	*CSR ^= 0x1;
+	return;
+}
+
+
+void usartinit(void){
+
+	return;
+}
+
+void sendcharusart(uint8_t character){
+
+
+
+	return;
+}
+
+uint8_t readcharusart(void){
+	uint8_t character = NULL;
+
+
+	return character;
 }
