@@ -153,11 +153,11 @@ void decoder(uint32_t selection){
 
 void delay(uint32_t ms){
 	//let it run with the systemclock/2 hz == 6Mhz
-	volatile uint32_t *CSR = (volatile uint32_t *) (SYSTIC);
-    volatile uint32_t *CVR = (volatile uint32_t *) (SYSTIC + 0x018);
-	volatile uint32_t *RVR = (volatile uint32_t *) (SYSTIC + 0x018);
-	uint32_t adjustedvalue = (6000*ms) - 1;
-	*RVR |= adjustedvalue;
+	volatile uint32_t *CSR = (volatile uint32_t *) (SYSTIC +0x10);
+   volatile uint32_t *CVR = (volatile uint32_t *) (SYSTIC + 0x18);
+	volatile uint32_t *RVR = (volatile uint32_t *) (SYSTIC + 0x14);
+	uint32_t adjustedvalue = 6000*ms -1;
+	*RVR = adjustedvalue;
 	*CVR |= 0x1;
 	*CSR |= 0x1;
 	while(!((*CSR)&(0x1<<16))){

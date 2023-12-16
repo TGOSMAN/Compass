@@ -8,7 +8,7 @@ Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Thomas Gosman
 UNSW
 User-based license: Keil MDK Community
-Valid until: Jun 1 2033. Cached until: Dec 20 2023
+Valid until: Jun 1 2033. Cached until: Dec 23 2023
  
 Tool Versions:
 Toolchain:       Keil MDK Community  Version: 5.38.0.0
@@ -29,29 +29,29 @@ Project File Date:  12/13/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Rebuild Project 'gpio_led_output' - Target 'gpio_led_output debug'
-compiling Layer1.c...
+Rebuild target 'gpio_led_output debug'
 compiling fsl_common.c...
 compiling gpio_led_output.c...
-compiling pin_mux.c...
+compiling Layer1.c...
 compiling clock_config.c...
+compiling pin_mux.c...
 compiling board.c...
 compiling fsl_adapter_miniusart.c...
 compiling fsl_clock.c...
 compiling fsl_common_arm.c...
-compiling fsl_reset.c...
-compiling fsl_syscon.c...
-compiling fsl_power.c...
-compiling fsl_swm.c...
-compiling system_LPC804.c...
 compiling fsl_gpio.c...
+compiling fsl_power.c...
+compiling fsl_reset.c...
+compiling fsl_swm.c...
+compiling fsl_syscon.c...
+compiling system_LPC804.c...
 compiling fsl_assert.c...
-compiling fsl_usart.c...
 assembling startup_LPC804.S...
+compiling fsl_usart.c...
 compiling fsl_debug_console.c...
 compiling fsl_str.c...
 linking...
-Program Size: Code=676 RO-data=228 RW-data=8 ZI-data=136  
+Program Size: Code=648 RO-data=228 RW-data=8 ZI-data=136  
 "debug\gpio_led_output.out" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -100,9 +100,9 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
-      Include file:  devices/LPC804/fsl_device_registers.h
       Include file:  devices/LPC804/LPC804.h
       Include file:  devices/LPC804/LPC804_features.h
+      Include file:  devices/LPC804/fsl_device_registers.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
       Source file:   devices/LPC804/system_LPC804.c
@@ -113,14 +113,14 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_clock.h
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
-      Include file:  devices/LPC804/drivers/fsl_common.h
-      Include file:  devices/LPC804/drivers/fsl_common_arm.h
-      Source file:   devices/LPC804/drivers/fsl_common.c
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
+      Include file:  devices/LPC804/drivers/fsl_common.h
+      Source file:   devices/LPC804/drivers/fsl_common.c
+      Include file:  devices/LPC804/drivers/fsl_common_arm.h
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
-      Source file:   devices/LPC804/drivers/fsl_gpio.c
       Include file:  devices/LPC804/drivers/fsl_gpio.h
+      Source file:   devices/LPC804/drivers/fsl_gpio.c
 
    * Component: NXP::Device:SDK Drivers:iocon:2.0.2
       Include file:  devices/LPC804/drivers/fsl_iocon.h
@@ -130,8 +130,8 @@ Package Vendor: NXP
       Source file:   components/uart/fsl_adapter_miniusart.c
 
    * Component: NXP::Device:SDK Drivers:power:2.0.0
-      Source file:   devices/LPC804/drivers/fsl_power.c
       Include file:  devices/LPC804/drivers/fsl_power.h
+      Source file:   devices/LPC804/drivers/fsl_power.c
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
       Include file:  devices/LPC804/drivers/fsl_reset.h
@@ -148,23 +148,23 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
 
    * Component: NXP::Device:SDK Drivers:syscon:2.0.1
-      Include file:  devices/LPC804/drivers/fsl_syscon.h
       Source file:   devices/LPC804/drivers/fsl_syscon.c
+      Include file:  devices/LPC804/drivers/fsl_syscon.h
 
    * Component: NXP::Device:SDK Drivers:syscon_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_syscon_connections.h
 
    * Component: NXP::Device:SDK Drivers:usart:2.5.0
-      Include file:  devices/LPC804/drivers/fsl_usart.h
       Source file:   devices/LPC804/drivers/fsl_usart.c
+      Include file:  devices/LPC804/drivers/fsl_usart.h
 
    * Component: NXP::Device:SDK Utilities:assert_lite:1.0.0
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
+      Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
       Source file:   devices/LPC804/utilities/str/fsl_str.c
       Include file:  devices/LPC804/utilities/str/fsl_str.h
-      Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
       Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
