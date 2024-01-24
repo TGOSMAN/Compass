@@ -1,0 +1,378 @@
+Dependencies for Project 'gpio_led_output', Target 'gpio_led_output release': (DO NOT MODIFY !)
+CompilerVersion: 6190000::V6.19::ARMCLANG
+F (../gpio_led_output.c)(0x65949EF6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/gpio_led_output.o -MD)
+I (..\Layer1.h)(0x6590F3DE)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (..\Layer2.h)(0x658AA818)
+F (..\Layer1.h)(0x6590F3DE)()
+F (..\Layer1.c)(0x65949E34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/layer1.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (..\Layer1.h)(0x6590F3DE)
+F (../pin_mux.c)(0x64C1EC8E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/pin_mux.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_swm.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_swm_connections.h)(0x64C1EC90)
+I (..\pin_mux.h)(0x64C1EC8E)
+F (../pin_mux.h)(0x64C1EC8E)()
+F (../board.c)(0x64C1EC8E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/board.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (..\clock_config.h)(0x64C1EC8E)
+I (..\board.h)(0x64C1EC8E)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_gpio.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\utilities\debug_console_lite\fsl_debug_console.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63882CE8)
+F (../board.h)(0x64C1EC8E)()
+F (../clock_config.c)(0x64C1EC8E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/clock_config.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_power.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (..\clock_config.h)(0x64C1EC8E)
+F (../clock_config.h)(0x64C1EC8E)()
+F (../readme.txt)(0x64C1EC8E)()
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart/fsl_adapter_miniusart.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_adapter_miniusart.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_usart.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\components\uart\fsl_adapter_uart.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_clock.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_clock.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\rom_api.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_common.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_common.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_common_arm.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_common_arm.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_gpio.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_gpio.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_gpio.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_power.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_power.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_power.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_reset.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_reset.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_swm.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_swm.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_swm.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_swm_connections.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_syscon.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_syscon.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_syscon.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_syscon_connections.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers/fsl_usart.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_usart.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_usart.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/system_LPC804.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/system_lpc804.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite/fsl_assert.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_assert.o -MD)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\utilities\debug_console_lite\fsl_debug_console.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63882CE8)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_debug_console.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\utilities\debug_console_lite\fsl_debug_console.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\components\uart\fsl_adapter_uart.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\utilities\str\fsl_str.h)(0x64C1EC90)
+F (C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str/fsl_str.c)(0x64C1EC90)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I .. -fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION="538" -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DNDEBUG -DCPU_LPC804 -DCPU_LPC804M101JDH24 -DMCUXPRESSO_SDK-o release/fsl_str.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\errno.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\utilities\str\fsl_str.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common.h)(0x64C1EC90)
+I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x64F6B553)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63882CE8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x63882CE8)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\fsl_device_registers.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F2EBE)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\system_LPC804.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\LPC804_features.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_common_arm.h)(0x64C1EC90)
+I (RTE\_gpio_led_output_release\RTE_Components.h)(0x6594A471)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_clock.h)(0x64C1EC90)
+I (C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\17.0.0\devices\LPC804\drivers\fsl_reset.h)(0x64C1EC90)
+F (RTE/Device/LPC804M101JDH24/startup_LPC804.S)(0x6594A45E)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=gnu -c-D__MICROLIB-I./RTE/_gpio_led_output_release-IC:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str-IC:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/Device/Include-D__UVISION_VERSION=538 -D_RTE_ -DCPU_LPC804M101JDH24 -D_RTE_ -DCPU_LPC845M301 -DNDEBUG -DKEIL -DNDEBUG-o release/startup_lpc804.o)

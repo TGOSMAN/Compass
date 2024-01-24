@@ -1,0 +1,436 @@
+Component: Arm Compiler for Embedded 6.19 Tool: armlink [5e73cb00]
+
+==============================================================================
+
+Section Cross References
+
+    gpio_led_output.o(.ARM.exidx.text.PIN_INT0_DriverIRQHandler) refers to gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler) for [Anonymous Symbol]
+    gpio_led_output.o(.text.USART0_DriverIRQHandler) refers to idiv_div0.o(.text) for __aeabi_idivmod
+    gpio_led_output.o(.text.USART0_DriverIRQHandler) refers to gpio_led_output.o(.bss.buffer1) for buffer1
+    gpio_led_output.o(.ARM.exidx.text.USART0_DriverIRQHandler) refers to gpio_led_output.o(.text.USART0_DriverIRQHandler) for [Anonymous Symbol]
+    gpio_led_output.o(.text.initbuffer) refers to gpio_led_output.o(.bss.buffer1) for buffer1
+    gpio_led_output.o(.text.initbuffer) refers to gpio_led_output.o(.bss.buffer2) for buffer2
+    gpio_led_output.o(.ARM.exidx.text.initbuffer) refers to gpio_led_output.o(.text.initbuffer) for [Anonymous Symbol]
+    gpio_led_output.o(.text.main) refers to layer1.o(.text.initPort) for initPort
+    gpio_led_output.o(.text.main) refers to layer1.o(.text.changeDIR) for changeDIR
+    gpio_led_output.o(.text.main) refers to layer1.o(.text.decoder) for decoder
+    gpio_led_output.o(.text.main) refers to layer1.o(.text.delay) for delay
+    gpio_led_output.o(.ARM.exidx.text.main) refers to gpio_led_output.o(.text.main) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.initPort) refers to layer1.o(.text.initPort) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.changeDIR) refers to layer1.o(.text.changeDIR) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.initPWM) refers to layer1.o(.text.initPWM) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.pwmdutycycle) refers to layer1.o(.text.pwmdutycycle) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.decoder) refers to layer1.o(.text.decoder) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.delay) refers to layer1.o(.text.delay) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.uartinit) refers to layer1.o(.text.uartinit) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.sendcharuart) refers to layer1.o(.text.sendcharuart) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.readcharuart) refers to layer1.o(.text.readcharuart) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Cinit) refers to layer1.o(.text.I2Cinit) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.pininterruptsetup) refers to layer1.o(.text.pininterruptsetup) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Csendframewrite) refers to layer1.o(.text.I2Csendframewrite) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Csendframeread) refers to layer1.o(.text.I2Csendframeread) for [Anonymous Symbol]
+    layer2.o(.text.gpsinit) refers to strlen.o(.text) for strlen
+    layer2.o(.text.gpsinit) refers to layer1.o(.text.sendcharuart) for sendcharuart
+    layer2.o(.text.gpsinit) refers to layer2.o(.rodata.str1.1) for [Anonymous Symbol]
+    layer2.o(.ARM.exidx.text.gpsinit) refers to layer2.o(.text.gpsinit) for [Anonymous Symbol]
+    layer2.o(.text.uartsendstring) refers to strlen.o(.text) for strlen
+    layer2.o(.text.uartsendstring) refers to layer1.o(.text.sendcharuart) for sendcharuart
+    layer2.o(.ARM.exidx.text.uartsendstring) refers to layer2.o(.text.uartsendstring) for [Anonymous Symbol]
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframeread) for I2Csendframeread
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframewrite) for I2Csendframewrite
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.delay) for delay
+    layer2.o(.ARM.exidx.text.IMUinit) refers to layer2.o(.text.IMUinit) for [Anonymous Symbol]
+    layer2.o(.text.getbearingdata) refers to layer1.o(.text.I2Csendframeread) for I2Csendframeread
+    layer2.o(.ARM.exidx.text.getbearingdata) refers to layer2.o(.text.getbearingdata) for [Anonymous Symbol]
+    startup_lpc804.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    startup_lpc804.o(.text) refers to gpio_led_output.o(.text.USART0_DriverIRQHandler) for USART0_DriverIRQHandler
+    startup_lpc804.o(.text) refers to gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler) for PIN_INT0_DriverIRQHandler
+    startup_lpc804.o(.isr_vector) refers to startup_lpc804.o(.text) for Reset_Handler
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry4.o(.ARM.Collect$$$$00000003) for _main_stk
+    idiv.o(.text) refers to uidiv_div0.o(.text) for __aeabi_uidivmod
+    entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
+    entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to gpio_led_output.o(.text.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to gpio_led_output.o(.text.main) for main
+    idiv_div0.o(.text) refers to uidiv_div0.o(.text) for __aeabi_uidivmod
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing gpio_led_output.o(.text), (0 bytes).
+    Removing gpio_led_output.o(.ARM.exidx.text.PIN_INT0_DriverIRQHandler), (8 bytes).
+    Removing gpio_led_output.o(.ARM.exidx.text.USART0_DriverIRQHandler), (8 bytes).
+    Removing gpio_led_output.o(.text.initbuffer), (24 bytes).
+    Removing gpio_led_output.o(.ARM.exidx.text.initbuffer), (8 bytes).
+    Removing gpio_led_output.o(.ARM.exidx.text.main), (8 bytes).
+    Removing gpio_led_output.o(.bss.buffer2), (92 bytes).
+    Removing gpio_led_output.o(.ARM.use_no_argv), (4 bytes).
+    Removing layer1.o(.text), (0 bytes).
+    Removing layer1.o(.ARM.exidx.text.initPort), (8 bytes).
+    Removing layer1.o(.ARM.exidx.text.changeDIR), (8 bytes).
+    Removing layer1.o(.text.initPWM), (76 bytes).
+    Removing layer1.o(.ARM.exidx.text.initPWM), (8 bytes).
+    Removing layer1.o(.text.pwmdutycycle), (24 bytes).
+    Removing layer1.o(.ARM.exidx.text.pwmdutycycle), (8 bytes).
+    Removing layer1.o(.ARM.exidx.text.decoder), (8 bytes).
+    Removing layer1.o(.ARM.exidx.text.delay), (8 bytes).
+    Removing layer1.o(.text.uartinit), (136 bytes).
+    Removing layer1.o(.ARM.exidx.text.uartinit), (8 bytes).
+    Removing layer1.o(.text.sendcharuart), (24 bytes).
+    Removing layer1.o(.ARM.exidx.text.sendcharuart), (8 bytes).
+    Removing layer1.o(.text.readcharuart), (4 bytes).
+    Removing layer1.o(.ARM.exidx.text.readcharuart), (8 bytes).
+    Removing layer1.o(.text.I2Cinit), (104 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Cinit), (8 bytes).
+    Removing layer1.o(.text.pininterruptsetup), (72 bytes).
+    Removing layer1.o(.ARM.exidx.text.pininterruptsetup), (8 bytes).
+    Removing layer1.o(.text.I2Csendframewrite), (56 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Csendframewrite), (8 bytes).
+    Removing layer1.o(.text.I2Csendframeread), (56 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Csendframeread), (8 bytes).
+    Removing layer2.o(.text), (0 bytes).
+    Removing layer2.o(.text.gpsinit), (76 bytes).
+    Removing layer2.o(.ARM.exidx.text.gpsinit), (8 bytes).
+    Removing layer2.o(.text.uartsendstring), (34 bytes).
+    Removing layer2.o(.ARM.exidx.text.uartsendstring), (8 bytes).
+    Removing layer2.o(.text.IMUinit), (82 bytes).
+    Removing layer2.o(.ARM.exidx.text.IMUinit), (8 bytes).
+    Removing layer2.o(.text.getbearingdata), (130 bytes).
+    Removing layer2.o(.ARM.exidx.text.getbearingdata), (8 bytes).
+    Removing layer2.o(.rodata.str1.1), (85 bytes).
+
+41 unused section(s) (total 1247 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdivfast.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdivfast_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv0.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry4.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
+    Layer1.c                                 0x00000000   Number         0  layer1.o ABSOLUTE
+    Layer2.c                                 0x00000000   Number         0  layer2.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    gpio_led_output.c                        0x00000000   Number         0  gpio_led_output.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    .ARM.Collect$$$$00000000                 0x00000300   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000003                 0x00000300   Section        4  entry4.o(.ARM.Collect$$$$00000003)
+    .ARM.Collect$$$$00000004                 0x00000304   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x00000308   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x00000308   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x00000308   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x00000310   Data           4  entry4.o(.ARM.Collect$$$$00002714)
+    .ARM.Collect$$$$0000000D                 0x00000310   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x00000310   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002714                 0x00000310   Section        4  entry4.o(.ARM.Collect$$$$00002714)
+    [Anonymous Symbol]                       0x00000314   Section        0  startup_lpc804.o(.text)
+    .text                                    0x0000044c   Section        0  uidiv_div0.o(.text)
+    .text                                    0x0000048c   Section        0  idiv_div0.o(.text)
+    .text                                    0x000004dc   Section       36  init.o(.text)
+    [Anonymous Symbol]                       0x00000500   Section        0  gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x00000510   Section        0  gpio_led_output.o(.text.USART0_DriverIRQHandler)
+    __arm_cp.1_0                             0x0000052c   Number         4  gpio_led_output.o(.text.USART0_DriverIRQHandler)
+    __arm_cp.1_1                             0x00000530   Number         4  gpio_led_output.o(.text.USART0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x00000534   Section        0  layer1.o(.text.changeDIR)
+    __arm_cp.1_0                             0x00000554   Number         4  layer1.o(.text.changeDIR)
+    __arm_cp.1_1                             0x00000558   Number         4  layer1.o(.text.changeDIR)
+    [Anonymous Symbol]                       0x0000055c   Section        0  layer1.o(.text.decoder)
+    __arm_cp.4_0                             0x000005a4   Number         4  layer1.o(.text.decoder)
+    __arm_cp.4_1                             0x000005a8   Number         4  layer1.o(.text.decoder)
+    [Anonymous Symbol]                       0x000005ac   Section        0  layer1.o(.text.delay)
+    __arm_cp.5_0                             0x000005d4   Number         4  layer1.o(.text.delay)
+    __arm_cp.5_1                             0x000005d8   Number         4  layer1.o(.text.delay)
+    [Anonymous Symbol]                       0x000005dc   Section        0  layer1.o(.text.initPort)
+    __arm_cp.0_0                             0x000005f0   Number         4  layer1.o(.text.initPort)
+    [Anonymous Symbol]                       0x000005f4   Section        0  gpio_led_output.o(.text.main)
+    __arm_cp.3_0                             0x0000065c   Number         4  gpio_led_output.o(.text.main)
+    i.__scatterload_copy                     0x00000660   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0000066e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000670   Section       14  handlers.o(i.__scatterload_zeroinit)
+    CRP_Level                                0xffffffff   Number         0  startup_lpc804.o ABSOLUTE
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Number       192  startup_lpc804.o(.isr_vector)
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __main                                   0x00000301   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x00000301   Thumb Code     0  entry4.o(.ARM.Collect$$$$00000003)
+    _main_scatterload                        0x00000305   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x00000309   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x00000309   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x00000309   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x00000309   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x00000311   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x00000311   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x00000315   Thumb Code     8  startup_lpc804.o(.text)
+    ADC_OVR_DriverIRQHandler                 0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_SEQA_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_SEQB_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_THCMP_DriverIRQHandler               0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    BOD_DriverIRQHandler                     0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    CMP_CAPT_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    CTIMER0_DriverIRQHandler                 0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    DAC0_DriverIRQHandler                    0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    DefaultISR                               0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    FLASH_DriverIRQHandler                   0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    I2C0_DriverIRQHandler                    0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    I2C1_DriverIRQHandler                    0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    MRT0_DriverIRQHandler                    0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT1_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT2_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT3_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT4_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT5_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT6_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT7_DriverIRQHandler                0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved17_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved21_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved22_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved25_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved36_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved37_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved38_DriverIRQHandler              0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    SPI0_DriverIRQHandler                    0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    USART1_DriverIRQHandler                  0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    WDT_DriverIRQHandler                     0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    WKT_DriverIRQHandler                     0x0000031d   Thumb Code     4  startup_lpc804.o(.text)
+    NMI_Handler                              0x00000321   Thumb Code     4  startup_lpc804.o(.text)
+    HardFault_Handler                        0x00000325   Thumb Code     4  startup_lpc804.o(.text)
+    SVC_Handler                              0x00000329   Thumb Code     4  startup_lpc804.o(.text)
+    PendSV_Handler                           0x0000032d   Thumb Code     4  startup_lpc804.o(.text)
+    SysTick_Handler                          0x00000331   Thumb Code     4  startup_lpc804.o(.text)
+    SPI0_IRQHandler                          0x00000335   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved17_IRQHandler                    0x00000339   Thumb Code     4  startup_lpc804.o(.text)
+    DAC0_IRQHandler                          0x0000033d   Thumb Code     4  startup_lpc804.o(.text)
+    USART0_IRQHandler                        0x00000341   Thumb Code     4  startup_lpc804.o(.text)
+    USART1_IRQHandler                        0x00000345   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved21_IRQHandler                    0x00000349   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved22_IRQHandler                    0x0000034d   Thumb Code     4  startup_lpc804.o(.text)
+    I2C1_IRQHandler                          0x00000351   Thumb Code     4  startup_lpc804.o(.text)
+    I2C0_IRQHandler                          0x00000355   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved25_IRQHandler                    0x00000359   Thumb Code     4  startup_lpc804.o(.text)
+    MRT0_IRQHandler                          0x0000035d   Thumb Code     4  startup_lpc804.o(.text)
+    CMP_CAPT_IRQHandler                      0x00000361   Thumb Code     4  startup_lpc804.o(.text)
+    WDT_IRQHandler                           0x00000365   Thumb Code     4  startup_lpc804.o(.text)
+    BOD_IRQHandler                           0x00000369   Thumb Code     4  startup_lpc804.o(.text)
+    FLASH_IRQHandler                         0x0000036d   Thumb Code     4  startup_lpc804.o(.text)
+    WKT_IRQHandler                           0x00000371   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_SEQA_IRQHandler                      0x00000375   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_SEQB_IRQHandler                      0x00000379   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_THCMP_IRQHandler                     0x0000037d   Thumb Code     4  startup_lpc804.o(.text)
+    ADC_OVR_IRQHandler                       0x00000381   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved36_IRQHandler                    0x00000385   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved37_IRQHandler                    0x00000389   Thumb Code     4  startup_lpc804.o(.text)
+    Reserved38_IRQHandler                    0x0000038d   Thumb Code     4  startup_lpc804.o(.text)
+    CTIMER0_IRQHandler                       0x00000391   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT0_IRQHandler                      0x00000395   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT1_IRQHandler                      0x00000399   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT2_IRQHandler                      0x0000039d   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT3_IRQHandler                      0x000003a1   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT4_IRQHandler                      0x000003a5   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT5_IRQHandler                      0x000003a9   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT6_IRQHandler                      0x000003ad   Thumb Code     4  startup_lpc804.o(.text)
+    PIN_INT7_IRQHandler                      0x000003b1   Thumb Code     4  startup_lpc804.o(.text)
+    __aeabi_uidiv$div0                       0x0000044d   Thumb Code     0  uidiv_div0.o(.text)
+    __aeabi_uidivmod                         0x0000044d   Thumb Code    62  uidiv_div0.o(.text)
+    __aeabi_idiv$div0                        0x0000048d   Thumb Code     0  idiv_div0.o(.text)
+    __aeabi_idivmod                          0x0000048d   Thumb Code    74  idiv_div0.o(.text)
+    __scatterload                            0x000004dd   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x000004dd   Thumb Code     0  init.o(.text)
+    PIN_INT0_DriverIRQHandler                0x00000501   Thumb Code    16  gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler)
+    USART0_DriverIRQHandler                  0x00000511   Thumb Code    28  gpio_led_output.o(.text.USART0_DriverIRQHandler)
+    changeDIR                                0x00000535   Thumb Code    32  layer1.o(.text.changeDIR)
+    decoder                                  0x0000055d   Thumb Code    72  layer1.o(.text.decoder)
+    delay                                    0x000005ad   Thumb Code    40  layer1.o(.text.delay)
+    initPort                                 0x000005dd   Thumb Code    20  layer1.o(.text.initPort)
+    main                                     0x000005f5   Thumb Code   104  gpio_led_output.o(.text.main)
+    __scatterload_copy                       0x00000661   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0000066f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000671   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x00000680   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000690   Number         0  anon$$obj.o(Region$$Table)
+    buffer1                                  0x10000000   Data          92  gpio_led_output.o(.bss.buffer1)
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x10000fe0   Number         0  anon$$obj.o ABSOLUTE
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000315
+
+  Load Region LR_m_text (Base: 0x00000000, Size: 0x00000690, Max: 0x00007f00, ABSOLUTE)
+
+    Execution Region VECTOR_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000000c0, Max: 0x00000200, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x000000c0   Data   RO           73    .isr_vector         startup_lpc804.o
+
+
+    Execution Region ER_m_crp (Exec base: 0x000002fc, Load base: 0x000002fc, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, FIXED)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x000002fc   0x000002fc   0x00000004   Data   RO           74    .crp                startup_lpc804.o
+
+
+    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x00000390, Max: 0x00007c00, ABSOLUTE, FIXED)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000300   0x00000300   0x00000000   Code   RO           79  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x00000300   0x00000300   0x00000004   Code   RO           90    .ARM.Collect$$$$00000003  mc_p.l(entry4.o)
+    0x00000304   0x00000304   0x00000004   Code   RO           93    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x00000308   0x00000308   0x00000000   Code   RO           95    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x00000308   0x00000308   0x00000000   Code   RO           97    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x00000308   0x00000308   0x00000008   Code   RO           98    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          100    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          102    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x00000310   0x00000310   0x00000004   Code   RO           91    .ARM.Collect$$$$00002714  mc_p.l(entry4.o)
+    0x00000314   0x00000314   0x00000138   Code   RO           72  * .text               startup_lpc804.o
+    0x0000044c   0x0000044c   0x0000003e   Code   RO          110    .text               mc_p.l(uidiv_div0.o)
+    0x0000048a   0x0000048a   0x00000002   PAD
+    0x0000048c   0x0000048c   0x00000050   Code   RO          112    .text               mc_p.l(idiv_div0.o)
+    0x000004dc   0x000004dc   0x00000024   Code   RO          116    .text               mc_p.l(init.o)
+    0x00000500   0x00000500   0x00000010   Code   RO            4    .text.PIN_INT0_DriverIRQHandler  gpio_led_output.o
+    0x00000510   0x00000510   0x00000024   Code   RO            6    .text.USART0_DriverIRQHandler  gpio_led_output.o
+    0x00000534   0x00000534   0x00000028   Code   RO           24    .text.changeDIR     layer1.o
+    0x0000055c   0x0000055c   0x00000050   Code   RO           30    .text.decoder       layer1.o
+    0x000005ac   0x000005ac   0x00000030   Code   RO           32    .text.delay         layer1.o
+    0x000005dc   0x000005dc   0x00000018   Code   RO           22    .text.initPort      layer1.o
+    0x000005f4   0x000005f4   0x0000006c   Code   RO           10    .text.main          gpio_led_output.o
+    0x00000660   0x00000660   0x0000000e   Code   RO          120    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x0000066e   0x0000066e   0x00000002   Code   RO          121    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00000670   0x00000670   0x0000000e   Code   RO          122    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x0000067e   0x0000067e   0x00000002   PAD
+    0x00000680   0x00000680   0x00000010   Data   RO          119    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x00000690, Size: 0x0000005c, Max: 0x00000f60, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10000000        -       0x0000005c   Zero   RW           12    .bss.buffer1        gpio_led_output.o
+
+
+    Execution Region ARM_LIB_HEAP (Exec base: 0x1000005c, Load base: 0x00000690, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x1000005c        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x00000690, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10000fa0        -       0x00000040   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       160         12          0          0         92       1477   gpio_led_output.o
+       192         28          0          0          0       4253   layer1.o
+       312        156        196          0          0       1692   startup_lpc804.o
+
+    ----------------------------------------------------------------------
+       664        196        212          0        220       7422   Object Totals
+         0          0         16          0        128          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry4.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        80          6          0          0          0         72   idiv_div0.o
+        36          8          0          0          0         68   init.o
+        62          0          0          0          0         72   uidiv_div0.o
+
+    ----------------------------------------------------------------------
+       232         22          0          0          0        212   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       228         22          0          0          0        212   mc_p.l
+
+    ----------------------------------------------------------------------
+       232         22          0          0          0        212   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+       896        218        212          0        220       7774   Grand Totals
+       896        218        212          0        220       7774   ELF Image Totals
+       896        218        212          0          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 1108 (   1.08kB)
+    Total RW  Size (RW Data + ZI Data)               220 (   0.21kB)
+    Total ROM Size (Code + RO Data + RW Data)       1108 (   1.08kB)
+
+==============================================================================
+
