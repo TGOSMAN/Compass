@@ -74,7 +74,7 @@ void USART0_DriverIRQHandler(void){
 	 return;
 }
 */
-
+static int flag = 1;
 
 void initbuffer(void){
 	buffer1.head = 0;
@@ -88,28 +88,27 @@ void initbuffer(void){
 
 
 int main(void){
+	char stringused[90] = {'\0'};
 	initbuffer();
+	uartinit();
 	struct ledorient LED;
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	initPort();
 	changeDIR(21,1);
+	if (buffer1.door == open){
+		for(int i = 0; i < 82; i++){
+			stringused[i] = buffer1.rb[(buffer1.head + i)%BUFFERSIZE];// fix this up 
+		}
+	} else if(buffer2.door == closed){
+		for(int i = 0; i < 82; i++){
+			stringused[i] = buffer2.rb[(buffer2.head + i)%BUFFERSIZE];// fix this up 
+		}
+	}
 //	LED.north = 0;
 //	LED.south = 4;
 //	initbuffer();
 //	I2Cinit();
 	while(1){
-		decoder(0x8);
-		*NOT0 |= 0x1<<21;
-		delay(300);
-		*NOT0 |= 0x1<<21;
-		delay(300);
-		*NOT0 |= 0x1<<21;
-		delay(100);
-		*NOT0 |= 0x1<<21;
-		delay(100);
-		*NOT0 |= 0x1<<21;
-		delay(100);
-		*NOT0 |= 0x1<<21;
-		delay(100);
+		
 	}
 }
