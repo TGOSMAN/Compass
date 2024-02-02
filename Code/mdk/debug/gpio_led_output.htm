@@ -3,7 +3,7 @@
 <title>Static Call Graph - [debug\gpio_led_output.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\gpio_led_output.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sat Jan 20 09:58:25 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sat Feb  3 00:22:34 2024
 <BR><P>
 <H3>Maximum Stack Usage =         48 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -116,7 +116,7 @@ Function Pointers
  <LI><a href="#[10]">MRT0_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[1]">NMI_Handler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[1]">NMI_Handler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
- <LI><a href="#[41]">PIN_INT0_DriverIRQHandler</a> from gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler) referenced from startup_lpc804.o(.text)
+ <LI><a href="#[41]">PIN_INT0_DriverIRQHandler</a> from main.o(.text.PIN_INT0_DriverIRQHandler) referenced from startup_lpc804.o(.text)
  <LI><a href="#[1e]">PIN_INT0_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[42]">PIN_INT1_DriverIRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
  <LI><a href="#[1f]">PIN_INT1_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
@@ -155,7 +155,7 @@ Function Pointers
  <LI><a href="#[3]">SVC_Handler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
  <LI><a href="#[5]">SysTick_Handler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[5]">SysTick_Handler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
- <LI><a href="#[2c]">USART0_DriverIRQHandler</a> from gpio_led_output.o(.text.USART0_DriverIRQHandler) referenced from startup_lpc804.o(.text)
+ <LI><a href="#[2c]">USART0_DriverIRQHandler</a> from main.o(.text.USART0_DriverIRQHandler) referenced from startup_lpc804.o(.text)
  <LI><a href="#[9]">USART0_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[2d]">USART1_DriverIRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
  <LI><a href="#[a]">USART1_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
@@ -164,7 +164,7 @@ Function Pointers
  <LI><a href="#[38]">WKT_DriverIRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
  <LI><a href="#[15]">WKT_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[27]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_lpc804.o(.text)
- <LI><a href="#[26]">main</a> from gpio_led_output.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
+ <LI><a href="#[26]">main</a> from main.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
 <H3>
@@ -173,7 +173,7 @@ Global Symbols
 <P><STRONG><a name="[27]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
-<P><STRONG><a name="[52]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
+<P><STRONG><a name="[54]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
 
 <P><STRONG><a name="[49]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -183,15 +183,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[53]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[55]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[54]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[56]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[55]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[57]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[56]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[58]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[57]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[59]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.isr_vector)
@@ -405,7 +405,11 @@ Global Symbols
 <P><STRONG><a name="[25]"></a>PIN_INT7_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.isr_vector)
 </UL>
-<P><STRONG><a name="[58]"></a>__aeabi_uidiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, uidiv_div0.o(.text), UNUSED)
+<P><STRONG><a name="[52]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+</UL>
+
+<P><STRONG><a name="[5a]"></a>__aeabi_uidiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, uidiv_div0.o(.text), UNUSED)
 
 <P><STRONG><a name="[4c]"></a>__aeabi_uidivmod</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, uidiv_div0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_uidivmod
@@ -413,7 +417,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
-<P><STRONG><a name="[59]"></a>__aeabi_idiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv_div0.o(.text), UNUSED)
+<P><STRONG><a name="[5b]"></a>__aeabi_idiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv_div0.o(.text), UNUSED)
 
 <P><STRONG><a name="[4b]"></a>__aeabi_idivmod</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, idiv_div0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
@@ -429,51 +433,60 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[5a]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[5c]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[41]"></a>PIN_INT0_DriverIRQHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, gpio_led_output.o(.text.PIN_INT0_DriverIRQHandler))
+<P><STRONG><a name="[41]"></a>PIN_INT0_DriverIRQHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text.PIN_INT0_DriverIRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
-<P><STRONG><a name="[2c]"></a>USART0_DriverIRQHandler</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, gpio_led_output.o(.text.USART0_DriverIRQHandler))
+<P><STRONG><a name="[2c]"></a>USART0_DriverIRQHandler</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, main.o(.text.USART0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USART0_DriverIRQHandler &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
-<P><STRONG><a name="[4f]"></a>changeDIR</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, layer1.o(.text.changeDIR))
+<P><STRONG><a name="[50]"></a>changeDIR</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, layer1.o(.text.changeDIR))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>decoder</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, layer1.o(.text.decoder))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = decoder
+<P><STRONG><a name="[4f]"></a>initPort</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.initPort))
+<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = main &rArr; uartsendstring
+</UL>
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartinit
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeDIR
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPort
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
+</UL>
+<P><STRONG><a name="[53]"></a>sendcharuart</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.sendcharuart))
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+</UL>
+
+<P><STRONG><a name="[4e]"></a>uartinit</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, layer1.o(.text.uartinit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = uartinit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[51]"></a>delay</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, layer1.o(.text.delay))
-<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[51]"></a>uartsendstring</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, layer2.o(.text.uartsendstring))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = uartsendstring
+</UL>
+<BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendcharuart
+</UL>
+<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4e]"></a>initPort</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.initPort))
-<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
+<P><STRONG><a name="[5d]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, gpio_led_output.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = main &rArr; decoder
-</UL>
-<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;decoder
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeDIR
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPort
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
-</UL>
-<P><STRONG><a name="[5b]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[5e]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[5c]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
-
-<P><STRONG><a name="[5d]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[5f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
 <H3>
 Local Symbols

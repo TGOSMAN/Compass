@@ -37,7 +37,8 @@ void PIN_INT0_DriverIRQHandler(void){
 void USART0_DriverIRQHandler(void){
 	//volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	volatile uint32_t *INTSTAT = (volatile uint32_t *) (0x40064024);
-	volatile uint32_t *RXDATA = (volatile uint32_t *) (0x40064014);	
+	volatile uint32_t *RXDATA = (volatile uint32_t *) (0x40064014);
+		//must handle condition where both are open, race condition occurs
 	if(((*RXDATA) == '$')&&(buffer2.door == closed)){
 		buffer1.door = closed;
 		buffer2.door = open;
@@ -95,20 +96,27 @@ int main(void){
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	initPort();
 	changeDIR(21,1);
-	if (buffer1.door == open){
-		for(int i = 0; i < 82; i++){
-			stringused[i] = buffer1.rb[(buffer1.head + i)%BUFFERSIZE];// fix this up 
-		}
-	} else if(buffer2.door == closed){
-		for(int i = 0; i < 82; i++){
-			stringused[i] = buffer2.rb[(buffer2.head + i)%BUFFERSIZE];// fix this up 
-		}
-	}
+	uartsendstring("Hello How Are You");
 //	LED.north = 0;
 //	LED.south = 4;
 //	initbuffer();
 //	I2Cinit();
 	while(1){
-		
+		uartsendstring("$Good Thank You");
+		if (buffer1.door == closed){
+			//buffer1.rb = {'\0'};
+			for(int i = 0; i < 90; i++){
+				buffer1.rb[i] = '\0';
+				//stringused[i] = buffer1.rb[(buffer1.head + i)];// fix this up 
+				//buffer1.rb[(buffer1.head + i)%BUFFERSIZE] = '\0';
+			}
+
+		} else if(buffer2.door == closed){
+			for(int i = 0; i < 90; i++){
+				buffer2.rb[i] = '\0';
+			}
+
+		}
+		uartsendstring("$GDAY");
 	}
 }

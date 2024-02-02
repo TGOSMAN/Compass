@@ -385,11 +385,6 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
-              <FileName>gpio_led_output.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../gpio_led_output.c</FilePath>
-            </File>
-            <File>
               <FileName>Layer1.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Layer1.h</FilePath>
@@ -408,6 +403,11 @@
               <FileName>Layer2.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Layer2.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -912,11 +912,6 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
-              <FileName>gpio_led_output.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../gpio_led_output.c</FilePath>
-            </File>
-            <File>
               <FileName>Layer1.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Layer1.h</FilePath>
@@ -935,6 +930,11 @@
               <FileName>Layer2.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Layer2.h</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
