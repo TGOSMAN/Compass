@@ -20,10 +20,7 @@
 #define	IMUADDRESS	0x29
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
-struct gpscoords{
-    double longitude;
-    double latitutde;
-};
+
 
 void gpsinit(void){
     //ENABLE, RESET and etc
@@ -34,6 +31,19 @@ void gpsinit(void){
     return;
 }
 
+void gpsdataextract(struct uartrb currentsentence){
+	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
+	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+		*ISER0 ^= 1<<3;
+		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
+			//take out the coordinates
+			
+			*SET0 |= 0x1<<9;
+			
+		}
+		*ISER0 ^= 1<<3;
+		return;
+};
 //void gpsreceive(struct gpscoords coordinates, char *inputmessage){
 //    char latitude[10]={'\0'};
 //    char longitude[11]={'\0'};

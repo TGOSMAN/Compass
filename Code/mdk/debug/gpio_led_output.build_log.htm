@@ -8,7 +8,7 @@ Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Thomas Gosman
 UNSW
 User-based license: Keil MDK Community
-Valid until: Jun 1 2033. Cached until: Feb 9 2024
+Valid until: Jun 1 2033. Cached until: Feb 13 2024
  
 Tool Versions:
 Toolchain:       Keil MDK Community  Version: 5.38.0.0
@@ -30,29 +30,23 @@ Project File Date:  01/28/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'gpio_led_output debug'
-../Layer2.c(4): warning: In file included from...
-../Layer2.h(10): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
+../main.c(4): warning: In file included from...
+../Layer2.h(28): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
 void gpssendmtk(struct PMTKinstruction instruction);
                        ^
-../Layer2.h(11): warning: declaration of 'struct gpscoords' will not be visible outside of this function [-Wvisibility]
-void gpsreceive(struct gpscoords, char *inputmessage);
-                       ^
-2 warnings generated.
-compiling Layer2.c...
-../main.c(2): warning: In file included from...
-../Layer2.h(10): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
-void gpssendmtk(struct PMTKinstruction instruction);
-                       ^
-../Layer2.h(11): warning: declaration of 'struct gpscoords' will not be visible outside of this function [-Wvisibility]
-void gpsreceive(struct gpscoords, char *inputmessage);
-                       ^
-2 warnings generated.
+1 warning generated.
 compiling main.c...
+../Layer2.c(4): warning: In file included from...
+../Layer2.h(28): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
+void gpssendmtk(struct PMTKinstruction instruction);
+                       ^
+1 warning generated.
+compiling Layer2.c...
 compiling Layer1.c...
 assembling startup_LPC804.S...
 linking...
-Program Size: Code=1072 RO-data=220 RW-data=0 ZI-data=312  
-"debug\gpio_led_output.out" - 0 Error(s), 4 Warning(s).
+Program Size: Code=1060 RO-data=212 RW-data=0 ZI-data=404  
+"debug\gpio_led_output.out" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -96,13 +90,13 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
-      Include file:  devices/LPC804/fsl_device_registers.h
-      Include file:  devices/LPC804/LPC804.h
       Include file:  devices/LPC804/LPC804_features.h
+      Include file:  devices/LPC804/LPC804.h
+      Include file:  devices/LPC804/fsl_device_registers.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
-      Source file:   devices/LPC804/system_LPC804.c
       Include file:  devices/LPC804/system_LPC804.h
+      Source file:   devices/LPC804/system_LPC804.c
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
       Include file:  devices/LPC804/drivers/fsl_clock.h
@@ -110,13 +104,13 @@ Package Vendor: NXP
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
       Include file:  devices/LPC804/drivers/fsl_common_arm.h
-      Include file:  devices/LPC804/drivers/fsl_common.h
       Source file:   devices/LPC804/drivers/fsl_common.c
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
+      Include file:  devices/LPC804/drivers/fsl_common.h
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
-      Source file:   devices/LPC804/drivers/fsl_gpio.c
       Include file:  devices/LPC804/drivers/fsl_gpio.h
+      Source file:   devices/LPC804/drivers/fsl_gpio.c
 
    * Component: NXP::Device:SDK Drivers:iocon:2.0.2
       Include file:  devices/LPC804/drivers/fsl_iocon.h
@@ -126,8 +120,8 @@ Package Vendor: NXP
       Source file:   components/uart/fsl_adapter_miniusart.c
 
    * Component: NXP::Device:SDK Drivers:power:2.0.0
-      Include file:  devices/LPC804/drivers/fsl_power.h
       Source file:   devices/LPC804/drivers/fsl_power.c
+      Include file:  devices/LPC804/drivers/fsl_power.h
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
       Source file:   devices/LPC804/drivers/fsl_reset.c
@@ -137,8 +131,8 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/rom_api.h
 
    * Component: NXP::Device:SDK Drivers:swm:2.1.2
-      Source file:   devices/LPC804/drivers/fsl_swm.c
       Include file:  devices/LPC804/drivers/fsl_swm.h
+      Source file:   devices/LPC804/drivers/fsl_swm.c
 
    * Component: NXP::Device:SDK Drivers:swm_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
@@ -151,8 +145,8 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_syscon_connections.h
 
    * Component: NXP::Device:SDK Drivers:usart:2.5.0
-      Include file:  devices/LPC804/drivers/fsl_usart.h
       Source file:   devices/LPC804/drivers/fsl_usart.c
+      Include file:  devices/LPC804/drivers/fsl_usart.h
 
    * Component: NXP::Device:SDK Utilities:assert_lite:1.0.0
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
@@ -167,7 +161,7 @@ Package Vendor: NXP
 
    * Component: NXP::Device:Startup:1.1.0
       Source file:   devices/LPC804/arm/startup_LPC804.S
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

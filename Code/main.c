@@ -1,3 +1,5 @@
+#include <stdlib.h> 
+#include <string.h>
 #include "Layer1.h"
 #include "Layer2.h"
 /*!
@@ -7,26 +9,16 @@
 #define MAXQUE 256
 #define BUFFERSIZE 82
 
-enum status {
-	open, //0
-	closed //1
-};
 
 
 //struct list *bufferque[256] = NULL;
 //uart ringbuffer
-
-struct uartrb{
-	uint8_t	rb[BUFFERSIZE];
-	enum status door;
-	int head;
-	int tail;
-	/* data */
-};
-
 struct uartrb buffer1;
 struct uartrb buffer2;
+struct uartrb buffer3;
 
+
+static uint8_t usartsentence[BUFFERSIZE];
 void PIN_INT0_DriverIRQHandler(void){
 	volatile uint32_t *PSTAT = (volatile uint32_t *) (0xA000178);
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
@@ -34,24 +26,30 @@ void PIN_INT0_DriverIRQHandler(void){
 	return;
 
 }
+static int flag = 0;
+
 void USART0_DriverIRQHandler(void){
-	//volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
+	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
 	volatile uint32_t *INTSTAT = (volatile uint32_t *) (0x40064024);
 	volatile uint32_t *RXDATA = (volatile uint32_t *) (0x40064014);
 		//must handle condition where both are open, race condition occurs
-	if(((*RXDATA) == '$')&&(buffer2.door == closed)){
-		buffer1.door = closed;
-		buffer2.door = open;
-	} else if(((*RXDATA) == '$')&&(buffer1.door == closed)){
-		buffer1.door = open;
-		buffer2.door = closed;
+	if(((*RXDATA) == '$')){
+		buffer1.door ^= closed;
+		buffer2.door ^= closed;
+		if(!(buffer1.door)){
+			buffer1.head = buffer1.tail;
+		} else {
+			buffer2.head = buffer2.tail;
+		}
+		//*SET0 |= 0x1<<9;
 	}
+
 	if(buffer1.door == open){
-		buffer1.rb[buffer1.head%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
-		buffer1.head += 1;
+		buffer1.rb[buffer1.tail%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
+		buffer1.tail+= 1;
 	} else if (buffer2.door == open){
-		buffer2.rb[buffer2.head%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
-		buffer2.head += 1;
+		buffer2.rb[buffer2.tail%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
+		buffer2.tail += 1;
 	}
 	
 //	*NOT0 |= 0x1<<9;
@@ -75,7 +73,7 @@ void USART0_DriverIRQHandler(void){
 	 return;
 }
 */
-static int flag = 1;
+
 
 void initbuffer(void){
 	buffer1.head = 0;
@@ -84,39 +82,50 @@ void initbuffer(void){
 	buffer2.head = 0;
 	buffer2.tail = 0;
 	buffer2.door = closed;
+	buffer3.head = 0;
+	buffer3.tail = 81;
+	buffer3.door = closed;
 	return;
 }
 
 
-int main(void){
-	char stringused[90] = {'\0'};
+
+
+
+ int main(void){
+
 	initbuffer();
 	uartinit();
+	int k = 0;
+	int j = 0;
 	struct ledorient LED;
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	initPort();
-	changeDIR(21,1);
-	uartsendstring("Hello How Are You");
+	changeDIR(9,1);
+//uartsendstring("$PMTK314,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29<CR><LF>");
 //	LED.north = 0;
 //	LED.south = 4;
 //	initbuffer();
 //	I2Cinit();
 	while(1){
-		uartsendstring("$Good Thank You");
+		//uartsendstring("$PMTK104*37<CR><LF>");
+		//uartsendstring("$Good Thank You");
 		if (buffer1.door == closed){
 			//buffer1.rb = {'\0'};
-			for(int i = 0; i < 90; i++){
-				buffer1.rb[i] = '\0';
-				//stringused[i] = buffer1.rb[(buffer1.head + i)];// fix this up 
-				//buffer1.rb[(buffer1.head + i)%BUFFERSIZE] = '\0';
-			}
-
+			k = 0;
+			j = buffer1.head;
+			gpsdataextract(buffer1);
 		} else if(buffer2.door == closed){
-			for(int i = 0; i < 90; i++){
-				buffer2.rb[i] = '\0';
-			}
+			gpsdataextract(buffer2);
+//			k = 0;
+//			j = buffer2.head;
+//			while (j != buffer1.tail){
+//				buffer3.rb[k] |= buffer2.rb[j];// fix this up 
+//				j = (j+1)%BUFFERSIZE;
+//				k++;
+//				//buffer1.rb[(buffer1.head + i)%BUFFERSIZE] = '\0';
+//			}
 
 		}
-		uartsendstring("$GDAY");
 	}
 }
