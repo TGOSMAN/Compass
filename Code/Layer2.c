@@ -21,6 +21,7 @@
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
 
+static struct gpscoords myloco;
 
 void gpsinit(void){
     //ENABLE, RESET and etc
@@ -31,15 +32,70 @@ void gpsinit(void){
     return;
 }
 
+double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
+    double decimalDegrees = 0.0;
+    double degrees = 0.0;
+    double minutes = 0.0;
+
+    // Convert the string to a double
+    double rawLatitude = atof(latitudeStr);
+
+    // Extract degrees and minutes from the raw latitude
+    // Assumes latitude is in DDMM.MMMM format
+    degrees = (int)(rawLatitude / 100);
+    minutes = rawLatitude - (degrees * 100);
+
+    // Convert to decimal degrees
+    decimalDegrees = degrees + (minutes / 60);
+
+    // If the hemisphere is 'S', make the result negative
+    if (hemisphere == 'S') {
+        decimalDegrees = -decimalDegrees;
+    }
+
+    return decimalDegrees;
+}
+
+double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
+    double decimalDegrees = 0.0;
+    double degrees = 0.0;
+    double minutes = 0.0;
+
+    // Convert the string to a double
+    double rawLongitude = atof(longitudeStr);
+
+    // Extract degrees and minutes from the raw latitude
+    // Assumes latitude is in DDMM.MMMM format
+    degrees = (int)(rawLongitude / 100);
+    minutes = rawLongitude - (degrees * 100);
+
+    // Convert to decimal degrees
+    decimalDegrees = degrees + (minutes / 60);
+
+    // If the hemisphere is 'S', make the result negative
+    if (hemisphere == 'W') {
+        decimalDegrees = -decimalDegrees;
+    }
+
+    return decimalDegrees;
+}
+
 void gpsdataextract(struct uartrb currentsentence){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+    char latitudearray[9];
+    char longitudearray[10];
 		*ISER0 ^= 1<<3;
 		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
+            for(int i = 0; i<9;i++){
+               latitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+20))%82];
+               longitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+33))%82];
+            }
+            longitudearray[10] |= currentsentence.rb[(currentsentence.head + 42)%82];
 			//take out the coordinates
-			
-			*SET0 |= 0x1<<9;
-			
+			myloco.latitude = convertLatitudeToDecimal(latitudearray,currentsentence.rb[(currentsentence.head + 31)%82]);
+			myloco.longitude = convertLongitudeToDecimal(longitudearray, currentsentence.rb[(currentsentence.head + 44)%82]);
+            *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;
 		return;

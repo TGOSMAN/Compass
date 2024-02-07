@@ -8,7 +8,7 @@ struct ledorient{
 };
 struct gpscoords{
     double longitude;
-    double latitutde;
+    double latitude;
 };
 enum status {
 	open, //0
