@@ -22,7 +22,8 @@
 #define CONFIG_MODE 0x3D
 
 static struct gpscoords myloco;
-
+//	double lat;//testing
+//	double longi;//testing
 void gpsinit(void){
     //ENABLE, RESET and etc
 	// will need to change this to match the new device SAM M10Q
@@ -38,7 +39,8 @@ double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
     double minutes = 0.0;
 
     // Convert the string to a double
-    double rawLatitude = atof(latitudeStr);
+    double rawLatitude = 0.0;
+			rawLatitude = atof(latitudeStr);
 
     // Extract degrees and minutes from the raw latitude
     // Assumes latitude is in DDMM.MMMM format
@@ -62,7 +64,8 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
     double minutes = 0.0;
 
     // Convert the string to a double
-    double rawLongitude = atof(longitudeStr);
+    double rawLongitude = 0.0;
+		rawLongitude= atof(longitudeStr);
 
     // Extract degrees and minutes from the raw latitude
     // Assumes latitude is in DDMM.MMMM format
@@ -79,22 +82,46 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
 
     return decimalDegrees;
 }
+double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
+    // Convert latitude and longitude from degrees to radians
+    lat1 = toRadians(lat1);
+    lon1 = toRadians(lon1);
+    lat2 = toRadians(lat2);
+    lon2 = toRadians(lon2);
+
+    // Calculate the difference in longitude
+    double dLon = lon2 - lon1;
+
+    // Calculate the bearing
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+    double bearingRadians = atan2(y, x);
+    return bearingRadians;
+}
 
 void gpsdataextract(struct uartrb currentsentence){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+		volatile double lat;//testing
+		volatile double longi;//testing
     char latitudearray[9];
     char longitudearray[10];
+	char hemi;
 		*ISER0 ^= 1<<3;
 		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
             for(int i = 0; i<9;i++){
-               latitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+20))%82];
-               longitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+33))%82];
+               latitudearray[i] = currentsentence.rb[(currentsentence.head +(i+20))%82];
+               longitudearray[i] = currentsentence.rb[(currentsentence.head +(i+32))%82];
             }
-            longitudearray[10] |= currentsentence.rb[(currentsentence.head + 42)%82];
+            longitudearray[8] = currentsentence.rb[(currentsentence.head + 41)%82];
+						longitudearray[9] = '\0';
+						latitudearray[8] = '\0';
 			//take out the coordinates
-			myloco.latitude = convertLatitudeToDecimal(latitudearray,currentsentence.rb[(currentsentence.head + 31)%82]);
-			myloco.longitude = convertLongitudeToDecimal(longitudearray, currentsentence.rb[(currentsentence.head + 44)%82]);
+			hemi = currentsentence.rb[(currentsentence.head + 31)%82];
+					
+			/*myloco.latitude*/lat = convertLatitudeToDecimal(latitudearray, 'N');
+			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
+			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, 'E');
             *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;

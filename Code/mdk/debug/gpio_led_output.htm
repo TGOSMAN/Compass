@@ -3,11 +3,11 @@
 <title>Static Call Graph - [debug\gpio_led_output.out]</title></head>
 <body><HR>
 <H1>Static Call Graph for image debug\gpio_led_output.out</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Wed Feb  7 18:17:43 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Fri Feb  9 17:14:49 2024
 <BR><P>
-<H3>Maximum Stack Usage =        152 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        400 bytes + Unknown(Functions without stacksize, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; gpsdataextract &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+main &rArr; gpsdataextract &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 <P>
 <H3>
 Functions with no stack information
@@ -164,6 +164,9 @@ Function Pointers
  <LI><a href="#[38]">WKT_DriverIRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.text)
  <LI><a href="#[15]">WKT_IRQHandler</a> from startup_lpc804.o(.text) referenced from startup_lpc804.o(.isr_vector)
  <LI><a href="#[27]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_lpc804.o(.text)
+ <LI><a href="#[4a]">_sbackspace</a> from _sgetc.o(.text) referenced from strtod.o(.text)
+ <LI><a href="#[49]">_sgetc</a> from _sgetc.o(.text) referenced from strtod.o(.text)
+ <LI><a href="#[4b]">isspace</a> from isspace_c.o(.text) referenced from strtod.o(.text)
  <LI><a href="#[26]">main</a> from main.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
@@ -173,25 +176,25 @@ Global Symbols
 <P><STRONG><a name="[27]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
-<P><STRONG><a name="[52]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
+<P><STRONG><a name="[73]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry4.o(.ARM.Collect$$$$00000003))
 
-<P><STRONG><a name="[49]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
-<BR><BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<P><STRONG><a name="[4c]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[4d]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<P><STRONG><a name="[60]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[53]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[74]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[54]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[75]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[55]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[76]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[56]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[77]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[57]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[78]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.isr_vector)
@@ -290,24 +293,24 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
-<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.text)
-<LI> startup_lpc804.o(.isr_vector)
+<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.isr_vector)
+<LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
-<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.text)
-<LI> startup_lpc804.o(.isr_vector)
+<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.isr_vector)
+<LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[3]"></a>SVC_Handler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
-<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.text)
-<LI> startup_lpc804.o(.isr_vector)
+<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.isr_vector)
+<LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[4]"></a>PendSV_Handler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
-<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.text)
-<LI> startup_lpc804.o(.isr_vector)
+<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.isr_vector)
+<LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[5]"></a>SysTick_Handler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
-<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.text)
-<LI> startup_lpc804.o(.isr_vector)
+<BR>[Address Reference Count : 2]<UL><LI> startup_lpc804.o(.isr_vector)
+<LI> startup_lpc804.o(.text)
 </UL>
 <P><STRONG><a name="[6]"></a>SPI0_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.isr_vector)
@@ -405,32 +408,206 @@ Global Symbols
 <P><STRONG><a name="[25]"></a>PIN_INT7_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size unknown bytes, startup_lpc804.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.isr_vector)
 </UL>
-<P><STRONG><a name="[58]"></a>__aeabi_uidiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, uidiv_div0.o(.text), UNUSED)
+<P><STRONG><a name="[6f]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+</UL>
 
-<P><STRONG><a name="[4c]"></a>__aeabi_uidivmod</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, uidiv_div0.o(.text))
+<P><STRONG><a name="[4e]"></a>__aeabi_dadd</STRONG> (Thumb, 328 bytes, Stack size 48 bytes, dadd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+</UL>
+
+<P><STRONG><a name="[53]"></a>__aeabi_dsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
+
+<P><STRONG><a name="[54]"></a>__aeabi_drsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+
+<P><STRONG><a name="[55]"></a>__aeabi_dmul</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, dmul.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
+
+<P><STRONG><a name="[56]"></a>__aeabi_ddiv</STRONG> (Thumb, 234 bytes, Stack size 40 bytes, ddiv.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_ddiv &rArr; _double_round
+</UL>
+<BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
+
+<P><STRONG><a name="[57]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
+
+<P><STRONG><a name="[58]"></a>__aeabi_d2iz</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, dfixi.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __aeabi_d2iz &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
+
+<P><STRONG><a name="[79]"></a>__aeabi_uidiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, uidiv_div0.o(.text), UNUSED)
+
+<P><STRONG><a name="[5b]"></a>__aeabi_uidivmod</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, uidiv_div0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
-<P><STRONG><a name="[59]"></a>__aeabi_idiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv_div0.o(.text), UNUSED)
+<P><STRONG><a name="[7a]"></a>__aeabi_idiv$div0</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv_div0.o(.text), UNUSED)
 
-<P><STRONG><a name="[4b]"></a>__aeabi_idivmod</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, idiv_div0.o(.text))
+<P><STRONG><a name="[5a]"></a>__aeabi_idivmod</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, idiv_div0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART0_DriverIRQHandler
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
 </UL>
 
-<P><STRONG><a name="[4a]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+<P><STRONG><a name="[4f]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[5a]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[7b]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+
+<P><STRONG><a name="[59]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+</UL>
+
+<P><STRONG><a name="[7c]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
+
+<P><STRONG><a name="[50]"></a>__aeabi_lasr</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, llsshr.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_lasr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+
+<P><STRONG><a name="[7d]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llsshr.o(.text), UNUSED)
+
+<P><STRONG><a name="[5e]"></a>__strtod_int</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, strtod.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_local_sscanf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atof
+</UL>
+
+<P><STRONG><a name="[7e]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
+
+<P><STRONG><a name="[52]"></a>_double_round</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, depilogue.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+</UL>
+
+<P><STRONG><a name="[51]"></a>_double_epilogue</STRONG> (Thumb, 164 bytes, Stack size 48 bytes, depilogue.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_clz
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
+<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
+<LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2d
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+</UL>
+
+<P><STRONG><a name="[4d]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
+</UL>
+
+<P><STRONG><a name="[7f]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+
+<P><STRONG><a name="[4b]"></a>isspace</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, isspace_c.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = isspace
+</UL>
+<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ctype_lookup
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> strtod.o(.text)
+</UL>
+<P><STRONG><a name="[5d]"></a>_scanf_real</STRONG> (Thumb, 0 bytes, Stack size 104 bytes, scanf_fp.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = _scanf_real
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_local_sscanf
+</UL>
+
+<P><STRONG><a name="[65]"></a>_scanf_really_real</STRONG> (Thumb, 584 bytes, Stack size 104 bytes, scanf_fp.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
+</UL>
+
+<P><STRONG><a name="[49]"></a>_sgetc</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, _sgetc.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> strtod.o(.text)
+</UL>
+<P><STRONG><a name="[4a]"></a>_sbackspace</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, _sgetc.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> strtod.o(.text)
+</UL>
+<P><STRONG><a name="[63]"></a>__aeabi_lmul</STRONG> (Thumb, 48 bytes, Stack size 12 bytes, llmul.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
+</UL>
+
+<P><STRONG><a name="[80]"></a>_ll_mul</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, llmul.o(.text), UNUSED)
+
+<P><STRONG><a name="[61]"></a>__ctype_lookup</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, ctype_c.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;isspace
+</UL>
+
+<P><STRONG><a name="[64]"></a>__aeabi_ul2d</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, dfltul.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
+<BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
+</UL>
+
+<P><STRONG><a name="[67]"></a>__aeabi_d2f</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, d2f.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
+</UL>
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
+</UL>
+
+<P><STRONG><a name="[68]"></a>_float_round</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, fepilogue.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+</UL>
+
+<P><STRONG><a name="[81]"></a>_float_epilogue</STRONG> (Thumb, 114 bytes, Stack size 12 bytes, fepilogue.o(.text), UNUSED)
 
 <P><STRONG><a name="[41]"></a>PIN_INT0_DriverIRQHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(.text.PIN_INT0_DriverIRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
@@ -438,51 +615,115 @@ Global Symbols
 <P><STRONG><a name="[2c]"></a>USART0_DriverIRQHandler</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, main.o(.text.USART0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = USART0_DriverIRQHandler &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc804.o(.text)
 </UL>
-<P><STRONG><a name="[51]"></a>changeDIR</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, layer1.o(.text.changeDIR))
+<P><STRONG><a name="[6d]"></a>changeDIR</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, layer1.o(.text.changeDIR))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4e]"></a>gpsdataextract</STRONG> (Thumb, 84 bytes, Stack size 40 bytes, layer2.o(.text.gpsdataextract))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = gpsdataextract &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[69]"></a>gpsdataextract</STRONG> (Thumb, 316 bytes, Stack size 96 bytes, layer2.o(.text.gpsdataextract))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = gpsdataextract &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atof
+<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[50]"></a>initPort</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.initPort))
+<P><STRONG><a name="[6c]"></a>initPort</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.initPort))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 96 bytes, Stack size 80 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = main &rArr; gpsdataextract &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 112 bytes, Stack size 80 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = main &rArr; gpsdataextract &rArr; atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
 </UL>
-<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
-<LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartinit
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeDIR
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPort
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartinit
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changeDIR
+<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPort
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[4f]"></a>uartinit</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, layer1.o(.text.uartinit))
+<P><STRONG><a name="[70]"></a>sendcharuart</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, layer1.o(.text.sendcharuart))
+<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartsendstring
+</UL>
+
+<P><STRONG><a name="[6b]"></a>uartinit</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, layer1.o(.text.uartinit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = uartinit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5b]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[6e]"></a>uartsendstring</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, layer2.o(.text.uartsendstring))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = uartsendstring
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendcharuart
+</UL>
+<BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
 
-<P><STRONG><a name="[5c]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[5f]"></a>__ARM_clz</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, depilogue.o(i.__ARM_clz))
+<BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+</UL>
 
-<P><STRONG><a name="[5d]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[71]"></a>__read_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__read_errno))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atof
+</UL>
+
+<P><STRONG><a name="[82]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+
+<P><STRONG><a name="[83]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+
+<P><STRONG><a name="[84]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+
+<P><STRONG><a name="[72]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
+<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atof
+</UL>
+
+<P><STRONG><a name="[66]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, scanf_fp.o(i._is_digit), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
+</UL>
+
+<P><STRONG><a name="[6a]"></a>atof</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, atof.o(i.atof))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = atof &rArr; __strtod_int &rArr; _local_sscanf &rArr; _scanf_real
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtod_int
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__read_errno
+</UL>
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpsdataextract
+</UL>
 <P>
 <H3>
 Local Symbols
-</H3><P>
+</H3>
+<P><STRONG><a name="[5c]"></a>_local_sscanf</STRONG> (Thumb, 64 bytes, Stack size 56 bytes, strtod.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = _local_sscanf &rArr; _scanf_real
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_real
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__strtod_int
+</UL>
+
+<P><STRONG><a name="[62]"></a>_fp_value</STRONG> (Thumb, 286 bytes, Stack size 72 bytes, scanf_fp.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lmul
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ul2d
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
+</UL>
+<P>
 <H3>
 Undefined Global Symbols
 </H3><HR></body></html>
