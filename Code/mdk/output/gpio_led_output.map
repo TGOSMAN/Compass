@@ -17,6 +17,8 @@ Section Cross References
     layer1.o(.ARM.exidx.text.pininterruptsetup) refers to layer1.o(.text.pininterruptsetup) for [Anonymous Symbol]
     layer1.o(.ARM.exidx.text.I2Csendframewrite) refers to layer1.o(.text.I2Csendframewrite) for [Anonymous Symbol]
     layer1.o(.ARM.exidx.text.I2Csendframeread) refers to layer1.o(.text.I2Csendframeread) for [Anonymous Symbol]
+    layer2.o(.text.toRadians) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.ARM.exidx.text.toRadians) refers to layer2.o(.text.toRadians) for [Anonymous Symbol]
     layer2.o(.text.gpsinit) refers to strlen.o(.text) for strlen
     layer2.o(.text.gpsinit) refers to layer1.o(.text.sendcharuart) for sendcharuart
     layer2.o(.text.gpsinit) refers to layer2.o(.rodata.str1.1) for [Anonymous Symbol]
@@ -38,6 +40,12 @@ Section Cross References
     layer2.o(.text.convertLongitudeToDecimal) refers to dmul.o(.text) for __aeabi_dmul
     layer2.o(.text.convertLongitudeToDecimal) refers to dadd.o(.text) for __aeabi_dsub
     layer2.o(.ARM.exidx.text.convertLongitudeToDecimal) refers to layer2.o(.text.convertLongitudeToDecimal) for [Anonymous Symbol]
+    layer2.o(.text.calculateBearing) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.text.calculateBearing) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.text.calculateBearing) refers to sin.o(i.sin) for sin
+    layer2.o(.text.calculateBearing) refers to cos.o(i.cos) for cos
+    layer2.o(.text.calculateBearing) refers to atan2.o(i.atan2) for atan2
+    layer2.o(.ARM.exidx.text.calculateBearing) refers to layer2.o(.text.calculateBearing) for [Anonymous Symbol]
     layer2.o(.text.gpsdataextract) refers to idiv_div0.o(.text) for __aeabi_idivmod
     layer2.o(.text.gpsdataextract) refers to atof.o(i.atof) for atof
     layer2.o(.text.gpsdataextract) refers to ddiv.o(.text) for __aeabi_ddiv
@@ -45,6 +53,11 @@ Section Cross References
     layer2.o(.text.gpsdataextract) refers to dflti.o(.text) for __aeabi_i2d
     layer2.o(.text.gpsdataextract) refers to dmul.o(.text) for __aeabi_dmul
     layer2.o(.text.gpsdataextract) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.text.gpsdataextract) refers to sin.o(i.sin) for sin
+    layer2.o(.text.gpsdataextract) refers to cos.o(i.cos) for cos
+    layer2.o(.text.gpsdataextract) refers to atan2.o(i.atan2) for atan2
+    layer2.o(.text.gpsdataextract) refers to layer2.o(.data.destilat) for [Anonymous Symbol]
+    layer2.o(.text.gpsdataextract) refers to layer2.o(.data.destilong) for [Anonymous Symbol]
     layer2.o(.ARM.exidx.text.gpsdataextract) refers to layer2.o(.text.gpsdataextract) for [Anonymous Symbol]
     layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframeread) for I2Csendframeread
     layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframewrite) for I2Csendframewrite
@@ -75,6 +88,16 @@ Section Cross References
     startup_lpc804.o(.text) refers to main.o(.text.USART0_DriverIRQHandler) for USART0_DriverIRQHandler
     startup_lpc804.o(.text) refers to main.o(.text.PIN_INT0_DriverIRQHandler) for PIN_INT0_DriverIRQHandler
     startup_lpc804.o(.isr_vector) refers to startup_lpc804.o(.text) for Reset_Handler
+    atan2.o(i.__softfp_atan2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2.o(i.__softfp_atan2) refers to atan2.o(i.atan2) for atan2
+    atan2.o(i.atan2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2.o(i.atan2) refers to dunder.o(i.__mathlib_dbl_infnan2) for __mathlib_dbl_infnan2
+    atan2.o(i.atan2) refers to atan.o(i.atan) for atan
+    atan2.o(i.atan2) refers to ddiv.o(.text) for __aeabi_ddiv
+    atan2.o(i.atan2) refers to dadd.o(.text) for __aeabi_dsub
+    atan2.o(i.atan2) refers to cdcmple.o(.text) for __aeabi_cdcmpeq
+    atan2.o(i.atan2) refers to errno.o(i.__set_errno) for __set_errno
+    atan2.o(i.atan2) refers to qnan.o(.constdata) for __mathlib_zero
     atof.o(i.__softfp_atof) refers (Special) to iusefp.o(.text) for __I$use$fp
     atof.o(i.__softfp_atof) refers to errno.o(i.__read_errno) for __read_errno
     atof.o(i.__softfp_atof) refers to strtod.o(.text) for __strtod_int
@@ -83,6 +106,24 @@ Section Cross References
     atof.o(i.atof) refers to errno.o(i.__read_errno) for __read_errno
     atof.o(i.atof) refers to strtod.o(.text) for __strtod_int
     atof.o(i.atof) refers to errno.o(i.__set_errno) for __set_errno
+    cos.o(i.__softfp_cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos.o(i.__softfp_cos) refers to cos.o(i.cos) for cos
+    cos.o(i.cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos.o(i.cos) refers to errno.o(i.__set_errno) for __set_errno
+    cos.o(i.cos) refers to dunder.o(i.__mathlib_dbl_invalid) for __mathlib_dbl_invalid
+    cos.o(i.cos) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    cos.o(i.cos) refers to rred.o(i.__ieee754_rem_pio2) for __ieee754_rem_pio2
+    cos.o(i.cos) refers to sin_i.o(i.__kernel_sin) for __kernel_sin
+    cos.o(i.cos) refers to cos_i.o(i.__kernel_cos) for __kernel_cos
+    sin.o(i.__softfp_sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin.o(i.__softfp_sin) refers to sin.o(i.sin) for sin
+    sin.o(i.sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin.o(i.sin) refers to errno.o(i.__set_errno) for __set_errno
+    sin.o(i.sin) refers to dunder.o(i.__mathlib_dbl_invalid) for __mathlib_dbl_invalid
+    sin.o(i.sin) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    sin.o(i.sin) refers to rred.o(i.__ieee754_rem_pio2) for __ieee754_rem_pio2
+    sin.o(i.sin) refers to cos_i.o(i.__kernel_cos) for __kernel_cos
+    sin.o(i.sin) refers to sin_i.o(i.__kernel_sin) for __kernel_sin
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -103,6 +144,55 @@ Section Cross References
     dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
     dfixi.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     dfixi.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    atan.o(i.__softfp_atan) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan.o(i.__softfp_atan) refers to atan.o(i.atan) for atan
+    atan.o(i.atan) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan.o(i.atan) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    atan.o(i.atan) refers to fpclassify.o(i.__ARM_fpclassify) for __ARM_fpclassify
+    atan.o(i.atan) refers to dunder.o(i.__mathlib_dbl_underflow) for __mathlib_dbl_underflow
+    atan.o(i.atan) refers to dadd.o(.text) for __aeabi_dadd
+    atan.o(i.atan) refers to dscalb.o(.text) for __ARM_scalbn
+    atan.o(i.atan) refers to ddiv.o(.text) for __aeabi_ddiv
+    atan.o(i.atan) refers to dmul.o(.text) for __aeabi_dmul
+    atan.o(i.atan) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    atan.o(i.atan) refers to atan.o(.constdata) for .constdata
+    atan.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos_i.o(i.__kernel_cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos_i.o(i.__kernel_cos) refers to dfixi.o(.text) for __aeabi_d2iz
+    cos_i.o(i.__kernel_cos) refers to dmul.o(.text) for __aeabi_dmul
+    cos_i.o(i.__kernel_cos) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    cos_i.o(i.__kernel_cos) refers to dadd.o(.text) for __aeabi_dsub
+    cos_i.o(i.__kernel_cos) refers to dscalb.o(.text) for __ARM_scalbn
+    cos_i.o(i.__kernel_cos) refers to cos_i.o(.constdata) for .constdata
+    cos_i.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dunder.o(i.__mathlib_dbl_divzero) refers to ddiv.o(.text) for __aeabi_ddiv
+    dunder.o(i.__mathlib_dbl_infnan) refers to dscalb.o(.text) for __ARM_scalbn
+    dunder.o(i.__mathlib_dbl_infnan2) refers to dadd.o(.text) for __aeabi_dadd
+    dunder.o(i.__mathlib_dbl_invalid) refers to ddiv.o(.text) for __aeabi_ddiv
+    dunder.o(i.__mathlib_dbl_overflow) refers to dscalb.o(.text) for __ARM_scalbn
+    dunder.o(i.__mathlib_dbl_posinfnan) refers to dmul.o(.text) for __aeabi_dmul
+    dunder.o(i.__mathlib_dbl_underflow) refers to dscalb.o(.text) for __ARM_scalbn
+    qnan.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ieee754_rem_pio2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ieee754_rem_pio2) refers to dadd.o(.text) for __aeabi_dsub
+    rred.o(i.__ieee754_rem_pio2) refers to dmul.o(.text) for __aeabi_dmul
+    rred.o(i.__ieee754_rem_pio2) refers to dfixi.o(.text) for __aeabi_d2iz
+    rred.o(i.__ieee754_rem_pio2) refers to dflti.o(.text) for __aeabi_i2d
+    rred.o(i.__ieee754_rem_pio2) refers to rred.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
+    rred.o(i.__ieee754_rem_pio2) refers to dfltui.o(.text) for __aeabi_ui2d
+    rred.o(i.__ieee754_rem_pio2) refers to dscalb.o(.text) for __ARM_scalbn
+    rred.o(i.__ieee754_rem_pio2) refers to rred.o(.constdata) for .constdata
+    rred.o(i.__use_accurate_range_reduction) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin_i.o(i.__kernel_sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin_i.o(i.__kernel_sin) refers to fpclassify.o(i.__ARM_fpclassify) for __ARM_fpclassify
+    sin_i.o(i.__kernel_sin) refers to dunder.o(i.__mathlib_dbl_underflow) for __mathlib_dbl_underflow
+    sin_i.o(i.__kernel_sin) refers to dmul.o(.text) for __aeabi_dmul
+    sin_i.o(i.__kernel_sin) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    sin_i.o(i.__kernel_sin) refers to dscalb.o(.text) for __ARM_scalbn
+    sin_i.o(i.__kernel_sin) refers to dadd.o(.text) for __aeabi_dsub
+    sin_i.o(i.__kernel_sin) refers to sin_i.o(.constdata) for .constdata
+    sin_i.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
     entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
     entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
@@ -119,6 +209,11 @@ Section Cross References
     depilogue.o(.text) refers to depilogue.o(i.__ARM_clz) for __ARM_clz
     depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    cdcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    fpclassify.o(i.__ARM_fpclassify) refers (Special) to iusefp.o(.text) for __I$use$fp
+    poly.o(i.__kernel_poly) refers (Special) to iusefp.o(.text) for __I$use$fp
+    poly.o(i.__kernel_poly) refers to dmul.o(.text) for __aeabi_dmul
+    poly.o(i.__kernel_poly) refers to dadd.o(.text) for __aeabi_dadd
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
     isspace_c.o(.text) refers to ctype_c.o(.text) for __ctype_lookup
     scanf_fp.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -128,12 +223,16 @@ Section Cross References
     scanf_fp.o(.text) refers to ddiv.o(.text) for __aeabi_ddiv
     scanf_fp.o(.text) refers to scanf_fp.o(i._is_digit) for _is_digit
     scanf_fp.o(.text) refers to d2f.o(.text) for __aeabi_d2f
+    dscalb.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltui.o(.text) refers to depilogue.o(.text) for _double_epilogue
     ctype_c.o(.text) refers to ctype_c.o(.constdata) for .constdata
     dfltul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     dfltul.o(.text) refers to depilogue.o(.text) for _double_epilogue
     d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers to fepilogue.o(.text) for _float_round
     fepilogue.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ARM_common_ll_muluu) refers (Special) to iusefp.o(.text) for __I$use$fp
     depilogue.o(i.__ARM_clz) refers (Special) to iusefp.o(.text) for __I$use$fp
     scanf_fp.o(i._is_digit) refers (Special) to iusefp.o(.text) for __I$use$fp
 
@@ -166,6 +265,8 @@ Removing Unused input sections from the image.
     Removing layer1.o(.text.I2Csendframeread), (56 bytes).
     Removing layer1.o(.ARM.exidx.text.I2Csendframeread), (8 bytes).
     Removing layer2.o(.text), (0 bytes).
+    Removing layer2.o(.text.toRadians), (20 bytes).
+    Removing layer2.o(.ARM.exidx.text.toRadians), (8 bytes).
     Removing layer2.o(.text.gpsinit), (76 bytes).
     Removing layer2.o(.ARM.exidx.text.gpsinit), (8 bytes).
     Removing layer2.o(.ARM.exidx.text.uartsendstring), (8 bytes).
@@ -173,6 +274,8 @@ Removing Unused input sections from the image.
     Removing layer2.o(.ARM.exidx.text.convertLatitudeToDecimal), (8 bytes).
     Removing layer2.o(.text.convertLongitudeToDecimal), (100 bytes).
     Removing layer2.o(.ARM.exidx.text.convertLongitudeToDecimal), (8 bytes).
+    Removing layer2.o(.text.calculateBearing), (244 bytes).
+    Removing layer2.o(.ARM.exidx.text.calculateBearing), (8 bytes).
     Removing layer2.o(.ARM.exidx.text.gpsdataextract), (8 bytes).
     Removing layer2.o(.text.IMUinit), (82 bytes).
     Removing layer2.o(.ARM.exidx.text.IMUinit), (8 bytes).
@@ -187,7 +290,7 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
 
-44 unused section(s) (total 1337 bytes) removed from the image.
+48 unused section(s) (total 1617 bytes) removed from the image.
 
 ==============================================================================
 
@@ -236,11 +339,25 @@ Image Symbol Table
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpscalb.c              0x00000000   Number         0  dscalb.o ABSOLUTE
+    ../mathlib/atan.c                        0x00000000   Number         0  atan.o ABSOLUTE
+    ../mathlib/atan2.c                       0x00000000   Number         0  atan2.o ABSOLUTE
     ../mathlib/atof.c                        0x00000000   Number         0  atof.o ABSOLUTE
+    ../mathlib/cos.c                         0x00000000   Number         0  cos.o ABSOLUTE
+    ../mathlib/cos_i.c                       0x00000000   Number         0  cos_i.o ABSOLUTE
+    ../mathlib/dunder.c                      0x00000000   Number         0  dunder.o ABSOLUTE
+    ../mathlib/fpclassify.c                  0x00000000   Number         0  fpclassify.o ABSOLUTE
+    ../mathlib/poly.c                        0x00000000   Number         0  poly.o ABSOLUTE
+    ../mathlib/qnan.c                        0x00000000   Number         0  qnan.o ABSOLUTE
+    ../mathlib/rred.c                        0x00000000   Number         0  rred.o ABSOLUTE
+    ../mathlib/sin.c                         0x00000000   Number         0  sin.o ABSOLUTE
+    ../mathlib/sin_i.c                       0x00000000   Number         0  sin_i.o ABSOLUTE
     Layer1.c                                 0x00000000   Number         0  layer1.o ABSOLUTE
     Layer2.c                                 0x00000000   Number         0  layer2.o ABSOLUTE
+    cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
@@ -271,62 +388,102 @@ Image Symbol Table
     .text                                    0x000008e8   Section        0  strtod.o(.text)
     .text                                    0x0000099c   Section        0  iusefp.o(.text)
     .text                                    0x0000099c   Section        0  depilogue.o(.text)
-    .text                                    0x00000a5c   Section       36  init.o(.text)
-    .text                                    0x00000a80   Section        0  isspace_c.o(.text)
-    _fp_value                                0x00000a91   Thumb Code   286  scanf_fp.o(.text)
-    .text                                    0x00000a90   Section        0  scanf_fp.o(.text)
-    .text                                    0x00000e04   Section        0  _sgetc.o(.text)
-    .text                                    0x00000e48   Section        0  llmul.o(.text)
-    .text                                    0x00000e78   Section        0  ctype_c.o(.text)
-    .text                                    0x00000e9c   Section        0  dfltul.o(.text)
-    .text                                    0x00000eb8   Section        0  d2f.o(.text)
-    .text                                    0x00000ef0   Section        0  fepilogue.o(.text)
-    [Anonymous Symbol]                       0x00000f74   Section        0  main.o(.text.PIN_INT0_DriverIRQHandler)
-    __arm_cp.0_0                             0x00000f84   Number         4  main.o(.text.PIN_INT0_DriverIRQHandler)
-    [Anonymous Symbol]                       0x00000f88   Section        0  main.o(.text.USART0_DriverIRQHandler)
-    __arm_cp.1_0                             0x00000fe8   Number         4  main.o(.text.USART0_DriverIRQHandler)
-    [Anonymous Symbol]                       0x00000fec   Section        0  layer1.o(.text.changeDIR)
-    __arm_cp.1_0                             0x0000100c   Number         4  layer1.o(.text.changeDIR)
-    __arm_cp.1_1                             0x00001010   Number         4  layer1.o(.text.changeDIR)
-    [Anonymous Symbol]                       0x00001014   Section        0  layer2.o(.text.gpsdataextract)
-    __arm_cp.4_1                             0x00001150   Number         4  layer2.o(.text.gpsdataextract)
-    __arm_cp.4_2                             0x00001154   Number         4  layer2.o(.text.gpsdataextract)
-    __arm_cp.4_3                             0x00001158   Number         4  layer2.o(.text.gpsdataextract)
-    [Anonymous Symbol]                       0x0000115c   Section        0  layer1.o(.text.initPort)
-    [Anonymous Symbol]                       0x00001170   Section        0  main.o(.text.main)
-    __arm_cp.3_0                             0x000011e0   Number         4  main.o(.text.main)
-    __arm_cp.3_1                             0x000011e4   Number         4  main.o(.text.main)
-    __arm_cp.3_2                             0x000011e8   Number         4  main.o(.text.main)
-    __arm_cp.3_3                             0x000011ec   Number         4  main.o(.text.main)
-    __arm_cp.3_4                             0x000011f0   Number         4  main.o(.text.main)
-    [Anonymous Symbol]                       0x000011f4   Section        0  layer1.o(.text.sendcharuart)
-    __arm_cp.7_0                             0x00001208   Number         4  layer1.o(.text.sendcharuart)
-    [Anonymous Symbol]                       0x0000120c   Section        0  layer1.o(.text.uartinit)
-    __arm_cp.6_0                             0x00001280   Number         4  layer1.o(.text.uartinit)
-    __arm_cp.6_1                             0x00001284   Number         4  layer1.o(.text.uartinit)
-    __arm_cp.6_2                             0x00001288   Number         4  layer1.o(.text.uartinit)
-    __arm_cp.6_3                             0x0000128c   Number         4  layer1.o(.text.uartinit)
-    __arm_cp.6_4                             0x00001290   Number         4  layer1.o(.text.uartinit)
-    [Anonymous Symbol]                       0x00001294   Section        0  layer2.o(.text.uartsendstring)
-    i.__ARM_clz                              0x000012b6   Section        0  depilogue.o(i.__ARM_clz)
-    i.__read_errno                           0x000012e4   Section        0  errno.o(i.__read_errno)
-    i.__scatterload_copy                     0x000012f0   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000012fe   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001300   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.__set_errno                            0x00001310   Section        0  errno.o(i.__set_errno)
-    i._is_digit                              0x0000131c   Section        0  scanf_fp.o(i._is_digit)
-    i.atof                                   0x0000132a   Section        0  atof.o(i.atof)
-    .constdata                               0x00001356   Section       64  ctype_c.o(.constdata)
-    [Anonymous Symbol]                       0x00001396   Section        0  main.o(.rodata.str1.1)
+    .text                                    0x00000a5c   Section       40  cdcmple.o(.text)
+    .text                                    0x00000a84   Section       36  init.o(.text)
+    .text                                    0x00000aa8   Section        0  isspace_c.o(.text)
+    _fp_value                                0x00000ab9   Thumb Code   286  scanf_fp.o(.text)
+    .text                                    0x00000ab8   Section        0  scanf_fp.o(.text)
+    .text                                    0x00000e2c   Section        0  _sgetc.o(.text)
+    .text                                    0x00000e70   Section        0  dscalb.o(.text)
+    .text                                    0x00000e9c   Section        0  dfltui.o(.text)
+    .text                                    0x00000eb8   Section        0  llmul.o(.text)
+    .text                                    0x00000ee8   Section        0  ctype_c.o(.text)
+    .text                                    0x00000f0c   Section        0  dfltul.o(.text)
+    .text                                    0x00000f28   Section        0  d2f.o(.text)
+    .text                                    0x00000f60   Section        0  fepilogue.o(.text)
+    [Anonymous Symbol]                       0x00000fe4   Section        0  main.o(.text.PIN_INT0_DriverIRQHandler)
+    __arm_cp.0_0                             0x00000ff4   Number         4  main.o(.text.PIN_INT0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x00000ff8   Section        0  main.o(.text.USART0_DriverIRQHandler)
+    __arm_cp.1_0                             0x00001058   Number         4  main.o(.text.USART0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x0000105c   Section        0  layer1.o(.text.changeDIR)
+    __arm_cp.1_0                             0x0000107c   Number         4  layer1.o(.text.changeDIR)
+    __arm_cp.1_1                             0x00001080   Number         4  layer1.o(.text.changeDIR)
+    [Anonymous Symbol]                       0x00001084   Section        0  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_1                             0x000012cc   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_2                             0x000012d0   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_3                             0x000012d4   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_4                             0x000012d8   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_5                             0x000012dc   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_6                             0x000012e0   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_7                             0x000012e4   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_8                             0x000012e8   Number         4  layer2.o(.text.gpsdataextract)
+    __arm_cp.6_9                             0x000012ec   Number         4  layer2.o(.text.gpsdataextract)
+    [Anonymous Symbol]                       0x000012f0   Section        0  layer1.o(.text.initPort)
+    [Anonymous Symbol]                       0x00001304   Section        0  main.o(.text.main)
+    __arm_cp.3_0                             0x00001374   Number         4  main.o(.text.main)
+    __arm_cp.3_1                             0x00001378   Number         4  main.o(.text.main)
+    __arm_cp.3_2                             0x0000137c   Number         4  main.o(.text.main)
+    __arm_cp.3_3                             0x00001380   Number         4  main.o(.text.main)
+    __arm_cp.3_4                             0x00001384   Number         4  main.o(.text.main)
+    [Anonymous Symbol]                       0x00001388   Section        0  layer1.o(.text.sendcharuart)
+    __arm_cp.7_0                             0x0000139c   Number         4  layer1.o(.text.sendcharuart)
+    [Anonymous Symbol]                       0x000013a0   Section        0  layer1.o(.text.uartinit)
+    __arm_cp.6_0                             0x00001414   Number         4  layer1.o(.text.uartinit)
+    __arm_cp.6_1                             0x00001418   Number         4  layer1.o(.text.uartinit)
+    __arm_cp.6_2                             0x0000141c   Number         4  layer1.o(.text.uartinit)
+    __arm_cp.6_3                             0x00001420   Number         4  layer1.o(.text.uartinit)
+    __arm_cp.6_4                             0x00001424   Number         4  layer1.o(.text.uartinit)
+    [Anonymous Symbol]                       0x00001428   Section        0  layer2.o(.text.uartsendstring)
+    i.__ARM_clz                              0x0000144a   Section        0  depilogue.o(i.__ARM_clz)
+    i.__ARM_common_ll_muluu                  0x00001478   Section        0  rred.o(i.__ARM_common_ll_muluu)
+    i.__ARM_fpclassify                       0x000014ac   Section        0  fpclassify.o(i.__ARM_fpclassify)
+    i.__ieee754_rem_pio2                     0x000014d8   Section        0  rred.o(i.__ieee754_rem_pio2)
+    i.__kernel_cos                           0x00001874   Section        0  cos_i.o(i.__kernel_cos)
+    i.__kernel_poly                          0x00001968   Section        0  poly.o(i.__kernel_poly)
+    i.__kernel_sin                           0x00001a14   Section        0  sin_i.o(i.__kernel_sin)
+    i.__mathlib_dbl_infnan                   0x00001b00   Section        0  dunder.o(i.__mathlib_dbl_infnan)
+    i.__mathlib_dbl_infnan2                  0x00001b0a   Section        0  dunder.o(i.__mathlib_dbl_infnan2)
+    i.__mathlib_dbl_invalid                  0x00001b12   Section        0  dunder.o(i.__mathlib_dbl_invalid)
+    i.__mathlib_dbl_underflow                0x00001b24   Section        0  dunder.o(i.__mathlib_dbl_underflow)
+    i.__read_errno                           0x00001b38   Section        0  errno.o(i.__read_errno)
+    i.__scatterload_copy                     0x00001b44   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00001b52   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00001b54   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.__set_errno                            0x00001b64   Section        0  errno.o(i.__set_errno)
+    i._is_digit                              0x00001b70   Section        0  scanf_fp.o(i._is_digit)
+    i.atan                                   0x00001b80   Section        0  atan.o(i.atan)
+    i.atan2                                  0x00001d9c   Section        0  atan2.o(i.atan2)
+    i.atof                                   0x00001f38   Section        0  atof.o(i.atof)
+    i.cos                                    0x00001f64   Section        0  cos.o(i.cos)
+    i.sin                                    0x00001ffc   Section        0  sin.o(i.sin)
+    atanhi                                   0x00002098   Data          32  atan.o(.constdata)
+    .constdata                               0x00002098   Section      152  atan.o(.constdata)
+    atanlo                                   0x000020b8   Data          32  atan.o(.constdata)
+    aTodd                                    0x000020d8   Data          40  atan.o(.constdata)
+    aTeven                                   0x00002100   Data          48  atan.o(.constdata)
+    C                                        0x00002130   Data          48  cos_i.o(.constdata)
+    .constdata                               0x00002130   Section       48  cos_i.o(.constdata)
+    .constdata                               0x00002160   Section        8  qnan.o(.constdata)
+    pio2s                                    0x00002168   Data          48  rred.o(.constdata)
+    .constdata                               0x00002168   Section      204  rred.o(.constdata)
+    twooverpi                                0x00002198   Data         156  rred.o(.constdata)
+    S                                        0x00002238   Data          40  sin_i.o(.constdata)
+    .constdata                               0x00002238   Section       40  sin_i.o(.constdata)
+    .constdata                               0x00002260   Section       64  ctype_c.o(.constdata)
+    [Anonymous Symbol]                       0x000022a0   Section        0  main.o(.rodata.str1.1)
     _errno                                   0x10000000   Data           4  errno.o(.data)
     .data                                    0x10000000   Section        4  errno.o(.data)
+    destilat                                 0x10000008   Data           8  layer2.o(.data.destilat)
+    [Anonymous Symbol]                       0x10000008   Section        0  layer2.o(.data.destilat)
+    destilong                                0x10000010   Data           8  layer2.o(.data.destilong)
+    [Anonymous Symbol]                       0x10000010   Section        0  layer2.o(.data.destilong)
     CRP_Level                                0xffffffff   Number         0  startup_lpc804.o ABSOLUTE
 
     Global Symbols
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$IEEEJ$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$IEEEX$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __Vectors                                0x00000000   Number       192  startup_lpc804.o(.isr_vector)
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
@@ -433,43 +590,63 @@ Image Symbol Table
     __I$use$fp                               0x0000099d   Thumb Code     0  iusefp.o(.text)
     _double_round                            0x0000099d   Thumb Code    26  depilogue.o(.text)
     _double_epilogue                         0x000009b7   Thumb Code   164  depilogue.o(.text)
-    __scatterload                            0x00000a5d   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000a5d   Thumb Code     0  init.o(.text)
-    isspace                                  0x00000a81   Thumb Code    14  isspace_c.o(.text)
-    _scanf_real                              0x00000baf   Thumb Code     0  scanf_fp.o(.text)
-    _scanf_really_real                       0x00000baf   Thumb Code   584  scanf_fp.o(.text)
-    _sgetc                                   0x00000e05   Thumb Code    32  _sgetc.o(.text)
-    _sbackspace                              0x00000e25   Thumb Code    36  _sgetc.o(.text)
-    __aeabi_lmul                             0x00000e49   Thumb Code    48  llmul.o(.text)
-    _ll_mul                                  0x00000e49   Thumb Code     0  llmul.o(.text)
-    __ctype_lookup                           0x00000e79   Thumb Code    32  ctype_c.o(.text)
-    __aeabi_ul2d                             0x00000e9d   Thumb Code    22  dfltul.o(.text)
-    __aeabi_d2f                              0x00000eb9   Thumb Code    56  d2f.o(.text)
-    _float_round                             0x00000ef1   Thumb Code    16  fepilogue.o(.text)
-    _float_epilogue                          0x00000f01   Thumb Code   114  fepilogue.o(.text)
-    PIN_INT0_DriverIRQHandler                0x00000f75   Thumb Code    16  main.o(.text.PIN_INT0_DriverIRQHandler)
-    USART0_DriverIRQHandler                  0x00000f89   Thumb Code    96  main.o(.text.USART0_DriverIRQHandler)
-    changeDIR                                0x00000fed   Thumb Code    32  layer1.o(.text.changeDIR)
-    gpsdataextract                           0x00001015   Thumb Code   316  layer2.o(.text.gpsdataextract)
-    initPort                                 0x0000115d   Thumb Code    20  layer1.o(.text.initPort)
-    main                                     0x00001171   Thumb Code   112  main.o(.text.main)
-    sendcharuart                             0x000011f5   Thumb Code    20  layer1.o(.text.sendcharuart)
-    uartinit                                 0x0000120d   Thumb Code   116  layer1.o(.text.uartinit)
-    uartsendstring                           0x00001295   Thumb Code    34  layer2.o(.text.uartsendstring)
-    __ARM_clz                                0x000012b7   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __read_errno                             0x000012e5   Thumb Code     6  errno.o(i.__read_errno)
-    __scatterload_copy                       0x000012f1   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000012ff   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001301   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    __set_errno                              0x00001311   Thumb Code     6  errno.o(i.__set_errno)
-    _is_digit                                0x0000131d   Thumb Code    14  scanf_fp.o(i._is_digit)
-    atof                                     0x0000132b   Thumb Code    44  atof.o(i.atof)
-    __ctype_categories                       0x00001356   Data          64  ctype_c.o(.constdata)
-    Region$$Table$$Base                      0x000013dc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000013fc   Number         0  anon$$obj.o(Region$$Table)
-    buffer1                                  0x10000004   Data          92  main.o(.bss.buffer1)
-    buffer2                                  0x10000060   Data          92  main.o(.bss.buffer2)
-    buffer3                                  0x100000bc   Data          92  main.o(.bss.buffer3)
+    __aeabi_cdcmpeq                          0x00000a5d   Thumb Code     0  cdcmple.o(.text)
+    __aeabi_cdcmple                          0x00000a5d   Thumb Code    38  cdcmple.o(.text)
+    __scatterload                            0x00000a85   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000a85   Thumb Code     0  init.o(.text)
+    isspace                                  0x00000aa9   Thumb Code    14  isspace_c.o(.text)
+    _scanf_real                              0x00000bd7   Thumb Code     0  scanf_fp.o(.text)
+    _scanf_really_real                       0x00000bd7   Thumb Code   584  scanf_fp.o(.text)
+    _sgetc                                   0x00000e2d   Thumb Code    32  _sgetc.o(.text)
+    _sbackspace                              0x00000e4d   Thumb Code    36  _sgetc.o(.text)
+    __ARM_scalbn                             0x00000e71   Thumb Code    44  dscalb.o(.text)
+    scalbn                                   0x00000e71   Thumb Code     0  dscalb.o(.text)
+    __aeabi_ui2d                             0x00000e9d   Thumb Code    24  dfltui.o(.text)
+    __aeabi_lmul                             0x00000eb9   Thumb Code    48  llmul.o(.text)
+    _ll_mul                                  0x00000eb9   Thumb Code     0  llmul.o(.text)
+    __ctype_lookup                           0x00000ee9   Thumb Code    32  ctype_c.o(.text)
+    __aeabi_ul2d                             0x00000f0d   Thumb Code    22  dfltul.o(.text)
+    __aeabi_d2f                              0x00000f29   Thumb Code    56  d2f.o(.text)
+    _float_round                             0x00000f61   Thumb Code    16  fepilogue.o(.text)
+    _float_epilogue                          0x00000f71   Thumb Code   114  fepilogue.o(.text)
+    PIN_INT0_DriverIRQHandler                0x00000fe5   Thumb Code    16  main.o(.text.PIN_INT0_DriverIRQHandler)
+    USART0_DriverIRQHandler                  0x00000ff9   Thumb Code    96  main.o(.text.USART0_DriverIRQHandler)
+    changeDIR                                0x0000105d   Thumb Code    32  layer1.o(.text.changeDIR)
+    gpsdataextract                           0x00001085   Thumb Code   584  layer2.o(.text.gpsdataextract)
+    initPort                                 0x000012f1   Thumb Code    20  layer1.o(.text.initPort)
+    main                                     0x00001305   Thumb Code   112  main.o(.text.main)
+    sendcharuart                             0x00001389   Thumb Code    20  layer1.o(.text.sendcharuart)
+    uartinit                                 0x000013a1   Thumb Code   116  layer1.o(.text.uartinit)
+    uartsendstring                           0x00001429   Thumb Code    34  layer2.o(.text.uartsendstring)
+    __ARM_clz                                0x0000144b   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __ARM_common_ll_muluu                    0x00001479   Thumb Code    50  rred.o(i.__ARM_common_ll_muluu)
+    __ARM_fpclassify                         0x000014ad   Thumb Code    40  fpclassify.o(i.__ARM_fpclassify)
+    __ieee754_rem_pio2                       0x000014d9   Thumb Code   838  rred.o(i.__ieee754_rem_pio2)
+    __kernel_cos                             0x00001875   Thumb Code   224  cos_i.o(i.__kernel_cos)
+    __kernel_poly                            0x00001969   Thumb Code   172  poly.o(i.__kernel_poly)
+    __kernel_sin                             0x00001a15   Thumb Code   222  sin_i.o(i.__kernel_sin)
+    __mathlib_dbl_infnan                     0x00001b01   Thumb Code    10  dunder.o(i.__mathlib_dbl_infnan)
+    __mathlib_dbl_infnan2                    0x00001b0b   Thumb Code     8  dunder.o(i.__mathlib_dbl_infnan2)
+    __mathlib_dbl_invalid                    0x00001b13   Thumb Code    16  dunder.o(i.__mathlib_dbl_invalid)
+    __mathlib_dbl_underflow                  0x00001b25   Thumb Code    14  dunder.o(i.__mathlib_dbl_underflow)
+    __read_errno                             0x00001b39   Thumb Code     6  errno.o(i.__read_errno)
+    __scatterload_copy                       0x00001b45   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00001b53   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00001b55   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    __set_errno                              0x00001b65   Thumb Code     6  errno.o(i.__set_errno)
+    _is_digit                                0x00001b71   Thumb Code    14  scanf_fp.o(i._is_digit)
+    atan                                     0x00001b81   Thumb Code   472  atan.o(i.atan)
+    atan2                                    0x00001d9d   Thumb Code   372  atan2.o(i.atan2)
+    atof                                     0x00001f39   Thumb Code    44  atof.o(i.atof)
+    cos                                      0x00001f65   Thumb Code   142  cos.o(i.cos)
+    sin                                      0x00001ffd   Thumb Code   146  sin.o(i.sin)
+    __mathlib_zero                           0x00002160   Data           8  qnan.o(.constdata)
+    __ctype_categories                       0x00002260   Data          64  ctype_c.o(.constdata)
+    Region$$Table$$Base                      0x000022e8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002308   Number         0  anon$$obj.o(Region$$Table)
+    buffer1                                  0x10000018   Data          92  main.o(.bss.buffer1)
+    buffer2                                  0x10000074   Data          92  main.o(.bss.buffer2)
+    buffer3                                  0x100000d0   Data          92  main.o(.bss.buffer3)
     Image$$ARM_LIB_STACK$$ZI$$Limit          0x10000fe0   Number         0  anon$$obj.o ABSOLUTE
 
 
@@ -480,106 +657,135 @@ Memory Map of the image
 
   Image Entry point : 0x00000315
 
-  Load Region LR_m_text (Base: 0x00000000, Size: 0x00001400, Max: 0x00007f00, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x00000000, Size: 0x00002320, Max: 0x00007f00, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000000c0, Max: 0x00000200, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO           82    .isr_vector         startup_lpc804.o
+    0x00000000   0x00000000   0x000000c0   Data   RO           88    .isr_vector         startup_lpc804.o
 
 
     Execution Region ER_m_crp (Exec base: 0x000002fc, Load base: 0x000002fc, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x000002fc   0x000002fc   0x00000004   Data   RO           83    .crp                startup_lpc804.o
+    0x000002fc   0x000002fc   0x00000004   Data   RO           89    .crp                startup_lpc804.o
 
 
-    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x000010fc, Max: 0x00007c00, ABSOLUTE, FIXED)
+    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x00002008, Max: 0x00007c00, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000300   0x00000300   0x00000000   Code   RO           92  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x00000300   0x00000300   0x00000004   Code   RO          113    .ARM.Collect$$$$00000003  mc_p.l(entry4.o)
-    0x00000304   0x00000304   0x00000004   Code   RO          116    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x00000308   0x00000308   0x00000000   Code   RO          118    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x00000308   0x00000308   0x00000000   Code   RO          120    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x00000308   0x00000308   0x00000008   Code   RO          121    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x00000310   0x00000310   0x00000000   Code   RO          123    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x00000310   0x00000310   0x00000000   Code   RO          125    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x00000310   0x00000310   0x00000004   Code   RO          114    .ARM.Collect$$$$00002714  mc_p.l(entry4.o)
-    0x00000314   0x00000314   0x00000138   Code   RO           81  * .text               startup_lpc804.o
-    0x0000044c   0x0000044c   0x0000000e   Code   RO          101    .text               mc_p.l(strlen.o)
+    0x00000300   0x00000300   0x00000000   Code   RO          110  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x00000300   0x00000300   0x00000004   Code   RO          165    .ARM.Collect$$$$00000003  mc_p.l(entry4.o)
+    0x00000304   0x00000304   0x00000004   Code   RO          168    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x00000308   0x00000308   0x00000000   Code   RO          170    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x00000308   0x00000308   0x00000000   Code   RO          172    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x00000308   0x00000308   0x00000008   Code   RO          173    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          175    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          177    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x00000310   0x00000310   0x00000004   Code   RO          166    .ARM.Collect$$$$00002714  mc_p.l(entry4.o)
+    0x00000314   0x00000314   0x00000138   Code   RO           87  * .text               startup_lpc804.o
+    0x0000044c   0x0000044c   0x0000000e   Code   RO          119    .text               mc_p.l(strlen.o)
     0x0000045a   0x0000045a   0x00000002   PAD
-    0x0000045c   0x0000045c   0x00000164   Code   RO          103    .text               mf_p.l(dadd.o)
-    0x000005c0   0x000005c0   0x000000d0   Code   RO          105    .text               mf_p.l(dmul.o)
-    0x00000690   0x00000690   0x000000f0   Code   RO          107    .text               mf_p.l(ddiv.o)
-    0x00000780   0x00000780   0x00000028   Code   RO          109    .text               mf_p.l(dflti.o)
-    0x000007a8   0x000007a8   0x00000048   Code   RO          111    .text               mf_p.l(dfixi.o)
-    0x000007f0   0x000007f0   0x0000003e   Code   RO          133    .text               mc_p.l(uidiv_div0.o)
+    0x0000045c   0x0000045c   0x00000164   Code   RO          121    .text               mf_p.l(dadd.o)
+    0x000005c0   0x000005c0   0x000000d0   Code   RO          123    .text               mf_p.l(dmul.o)
+    0x00000690   0x00000690   0x000000f0   Code   RO          125    .text               mf_p.l(ddiv.o)
+    0x00000780   0x00000780   0x00000028   Code   RO          127    .text               mf_p.l(dflti.o)
+    0x000007a8   0x000007a8   0x00000048   Code   RO          129    .text               mf_p.l(dfixi.o)
+    0x000007f0   0x000007f0   0x0000003e   Code   RO          185    .text               mc_p.l(uidiv_div0.o)
     0x0000082e   0x0000082e   0x00000002   PAD
-    0x00000830   0x00000830   0x00000050   Code   RO          135    .text               mc_p.l(idiv_div0.o)
-    0x00000880   0x00000880   0x00000020   Code   RO          139    .text               mc_p.l(llshl.o)
-    0x000008a0   0x000008a0   0x00000022   Code   RO          141    .text               mc_p.l(llushr.o)
-    0x000008c2   0x000008c2   0x00000026   Code   RO          143    .text               mc_p.l(llsshr.o)
-    0x000008e8   0x000008e8   0x000000b4   Code   RO          152    .text               mc_p.l(strtod.o)
-    0x0000099c   0x0000099c   0x00000000   Code   RO          154    .text               mc_p.l(iusefp.o)
-    0x0000099c   0x0000099c   0x000000be   Code   RO          155    .text               mf_p.l(depilogue.o)
+    0x00000830   0x00000830   0x00000050   Code   RO          187    .text               mc_p.l(idiv_div0.o)
+    0x00000880   0x00000880   0x00000020   Code   RO          191    .text               mc_p.l(llshl.o)
+    0x000008a0   0x000008a0   0x00000022   Code   RO          193    .text               mc_p.l(llushr.o)
+    0x000008c2   0x000008c2   0x00000026   Code   RO          195    .text               mc_p.l(llsshr.o)
+    0x000008e8   0x000008e8   0x000000b4   Code   RO          204    .text               mc_p.l(strtod.o)
+    0x0000099c   0x0000099c   0x00000000   Code   RO          206    .text               mc_p.l(iusefp.o)
+    0x0000099c   0x0000099c   0x000000be   Code   RO          207    .text               mf_p.l(depilogue.o)
     0x00000a5a   0x00000a5a   0x00000002   PAD
-    0x00000a5c   0x00000a5c   0x00000024   Code   RO          160    .text               mc_p.l(init.o)
-    0x00000a80   0x00000a80   0x0000000e   Code   RO          162    .text               mc_p.l(isspace_c.o)
-    0x00000a8e   0x00000a8e   0x00000002   PAD
-    0x00000a90   0x00000a90   0x00000374   Code   RO          164    .text               mc_p.l(scanf_fp.o)
-    0x00000e04   0x00000e04   0x00000044   Code   RO          168    .text               mc_p.l(_sgetc.o)
-    0x00000e48   0x00000e48   0x00000030   Code   RO          170    .text               mc_p.l(llmul.o)
-    0x00000e78   0x00000e78   0x00000024   Code   RO          172    .text               mc_p.l(ctype_c.o)
-    0x00000e9c   0x00000e9c   0x0000001c   Code   RO          175    .text               mf_p.l(dfltul.o)
-    0x00000eb8   0x00000eb8   0x00000038   Code   RO          177    .text               mf_p.l(d2f.o)
-    0x00000ef0   0x00000ef0   0x00000082   Code   RO          179    .text               mf_p.l(fepilogue.o)
-    0x00000f72   0x00000f72   0x00000002   PAD
-    0x00000f74   0x00000f74   0x00000014   Code   RO           61    .text.PIN_INT0_DriverIRQHandler  main.o
-    0x00000f88   0x00000f88   0x00000064   Code   RO           63    .text.USART0_DriverIRQHandler  main.o
-    0x00000fec   0x00000fec   0x00000028   Code   RO            6    .text.changeDIR     layer1.o
-    0x00001014   0x00001014   0x00000148   Code   RO           46    .text.gpsdataextract  layer2.o
-    0x0000115c   0x0000115c   0x00000014   Code   RO            4    .text.initPort      layer1.o
-    0x00001170   0x00001170   0x00000084   Code   RO           67    .text.main          main.o
-    0x000011f4   0x000011f4   0x00000018   Code   RO           18    .text.sendcharuart  layer1.o
-    0x0000120c   0x0000120c   0x00000088   Code   RO           16    .text.uartinit      layer1.o
-    0x00001294   0x00001294   0x00000022   Code   RO           40    .text.uartsendstring  layer2.o
-    0x000012b6   0x000012b6   0x0000002e   Code   RO          158    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x000012e4   0x000012e4   0x0000000c   Code   RO          146    i.__read_errno      mc_p.l(errno.o)
-    0x000012f0   0x000012f0   0x0000000e   Code   RO          183    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x000012fe   0x000012fe   0x00000002   Code   RO          184    i.__scatterload_null  mc_p.l(handlers.o)
-    0x00001300   0x00001300   0x0000000e   Code   RO          185    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x0000130e   0x0000130e   0x00000002   PAD
-    0x00001310   0x00001310   0x0000000c   Code   RO          147    i.__set_errno       mc_p.l(errno.o)
-    0x0000131c   0x0000131c   0x0000000e   Code   RO          166    i._is_digit         mc_p.l(scanf_fp.o)
-    0x0000132a   0x0000132a   0x0000002c   Code   RO           89    i.atof              m_ps.l(atof.o)
-    0x00001356   0x00001356   0x00000040   Data   RO          173    .constdata          mc_p.l(ctype_c.o)
-    0x00001396   0x00001396   0x00000045   Data   RO           72    .rodata.str1.1      main.o
-    0x000013db   0x000013db   0x00000001   PAD
-    0x000013dc   0x000013dc   0x00000020   Data   RO          182    Region$$Table       anon$$obj.o
+    0x00000a5c   0x00000a5c   0x00000028   Code   RO          211    .text               mf_p.l(cdcmple.o)
+    0x00000a84   0x00000a84   0x00000024   Code   RO          217    .text               mc_p.l(init.o)
+    0x00000aa8   0x00000aa8   0x0000000e   Code   RO          219    .text               mc_p.l(isspace_c.o)
+    0x00000ab6   0x00000ab6   0x00000002   PAD
+    0x00000ab8   0x00000ab8   0x00000374   Code   RO          221    .text               mc_p.l(scanf_fp.o)
+    0x00000e2c   0x00000e2c   0x00000044   Code   RO          225    .text               mc_p.l(_sgetc.o)
+    0x00000e70   0x00000e70   0x0000002c   Code   RO          227    .text               mf_p.l(dscalb.o)
+    0x00000e9c   0x00000e9c   0x0000001c   Code   RO          229    .text               mf_p.l(dfltui.o)
+    0x00000eb8   0x00000eb8   0x00000030   Code   RO          231    .text               mc_p.l(llmul.o)
+    0x00000ee8   0x00000ee8   0x00000024   Code   RO          233    .text               mc_p.l(ctype_c.o)
+    0x00000f0c   0x00000f0c   0x0000001c   Code   RO          236    .text               mf_p.l(dfltul.o)
+    0x00000f28   0x00000f28   0x00000038   Code   RO          238    .text               mf_p.l(d2f.o)
+    0x00000f60   0x00000f60   0x00000082   Code   RO          240    .text               mf_p.l(fepilogue.o)
+    0x00000fe2   0x00000fe2   0x00000002   PAD
+    0x00000fe4   0x00000fe4   0x00000014   Code   RO           67    .text.PIN_INT0_DriverIRQHandler  main.o
+    0x00000ff8   0x00000ff8   0x00000064   Code   RO           69    .text.USART0_DriverIRQHandler  main.o
+    0x0000105c   0x0000105c   0x00000028   Code   RO            6    .text.changeDIR     layer1.o
+    0x00001084   0x00001084   0x0000026c   Code   RO           50    .text.gpsdataextract  layer2.o
+    0x000012f0   0x000012f0   0x00000014   Code   RO            4    .text.initPort      layer1.o
+    0x00001304   0x00001304   0x00000084   Code   RO           73    .text.main          main.o
+    0x00001388   0x00001388   0x00000018   Code   RO           18    .text.sendcharuart  layer1.o
+    0x000013a0   0x000013a0   0x00000088   Code   RO           16    .text.uartinit      layer1.o
+    0x00001428   0x00001428   0x00000022   Code   RO           42    .text.uartsendstring  layer2.o
+    0x0000144a   0x0000144a   0x0000002e   Code   RO          209    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x00001478   0x00001478   0x00000032   Code   RO          160    i.__ARM_common_ll_muluu  m_ps.l(rred.o)
+    0x000014aa   0x000014aa   0x00000002   PAD
+    0x000014ac   0x000014ac   0x0000002c   Code   RO          213    i.__ARM_fpclassify  m_ps.l(fpclassify.o)
+    0x000014d8   0x000014d8   0x0000039c   Code   RO          154    i.__ieee754_rem_pio2  m_ps.l(rred.o)
+    0x00001874   0x00001874   0x000000f4   Code   RO          136    i.__kernel_cos      m_ps.l(cos_i.o)
+    0x00001968   0x00001968   0x000000ac   Code   RO          215    i.__kernel_poly     m_ps.l(poly.o)
+    0x00001a14   0x00001a14   0x000000ec   Code   RO          162    i.__kernel_sin      m_ps.l(sin_i.o)
+    0x00001b00   0x00001b00   0x0000000a   Code   RO          140    i.__mathlib_dbl_infnan  m_ps.l(dunder.o)
+    0x00001b0a   0x00001b0a   0x00000008   Code   RO          141    i.__mathlib_dbl_infnan2  m_ps.l(dunder.o)
+    0x00001b12   0x00001b12   0x00000010   Code   RO          142    i.__mathlib_dbl_invalid  m_ps.l(dunder.o)
+    0x00001b22   0x00001b22   0x00000002   PAD
+    0x00001b24   0x00001b24   0x00000014   Code   RO          145    i.__mathlib_dbl_underflow  m_ps.l(dunder.o)
+    0x00001b38   0x00001b38   0x0000000c   Code   RO          198    i.__read_errno      mc_p.l(errno.o)
+    0x00001b44   0x00001b44   0x0000000e   Code   RO          244    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00001b52   0x00001b52   0x00000002   Code   RO          245    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00001b54   0x00001b54   0x0000000e   Code   RO          246    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00001b62   0x00001b62   0x00000002   PAD
+    0x00001b64   0x00001b64   0x0000000c   Code   RO          199    i.__set_errno       mc_p.l(errno.o)
+    0x00001b70   0x00001b70   0x0000000e   Code   RO          223    i._is_digit         mc_p.l(scanf_fp.o)
+    0x00001b7e   0x00001b7e   0x00000002   PAD
+    0x00001b80   0x00001b80   0x0000021c   Code   RO          132    i.atan              m_ps.l(atan.o)
+    0x00001d9c   0x00001d9c   0x0000019c   Code   RO           95    i.atan2             m_ps.l(atan2.o)
+    0x00001f38   0x00001f38   0x0000002c   Code   RO           99    i.atof              m_ps.l(atof.o)
+    0x00001f64   0x00001f64   0x00000098   Code   RO          103    i.cos               m_ps.l(cos.o)
+    0x00001ffc   0x00001ffc   0x0000009c   Code   RO          107    i.sin               m_ps.l(sin.o)
+    0x00002098   0x00002098   0x00000098   Data   RO          133    .constdata          m_ps.l(atan.o)
+    0x00002130   0x00002130   0x00000030   Data   RO          137    .constdata          m_ps.l(cos_i.o)
+    0x00002160   0x00002160   0x00000008   Data   RO          153    .constdata          m_ps.l(qnan.o)
+    0x00002168   0x00002168   0x000000cc   Data   RO          156    .constdata          m_ps.l(rred.o)
+    0x00002234   0x00002234   0x00000004   PAD
+    0x00002238   0x00002238   0x00000028   Data   RO          163    .constdata          m_ps.l(sin_i.o)
+    0x00002260   0x00002260   0x00000040   Data   RO          234    .constdata          mc_p.l(ctype_c.o)
+    0x000022a0   0x000022a0   0x00000045   Data   RO           78    .rodata.str1.1      main.o
+    0x000022e5   0x000022e5   0x00000003   PAD
+    0x000022e8   0x000022e8   0x00000020   Data   RO          243    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x000013fc, Size: 0x00000118, Max: 0x00000f60, ABSOLUTE)
+    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x00002308, Size: 0x0000012c, Max: 0x00000f60, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x000013fc   0x00000004   Data   RW          148    .data               mc_p.l(errno.o)
-    0x10000004        -       0x0000005c   Zero   RW           69    .bss.buffer1        main.o
-    0x10000060        -       0x0000005c   Zero   RW           70    .bss.buffer2        main.o
-    0x100000bc        -       0x0000005c   Zero   RW           71    .bss.buffer3        main.o
+    0x10000000   0x00002308   0x00000004   Data   RW          200    .data               mc_p.l(errno.o)
+    0x10000004   0x0000230c   0x00000004   PAD
+    0x10000008   0x00002310   0x00000008   Data   RW           57    .data.destilat      layer2.o
+    0x10000010   0x00002318   0x00000008   Data   RW           58    .data.destilong     layer2.o
+    0x10000018        -       0x0000005c   Zero   RW           75    .bss.buffer1        main.o
+    0x10000074        -       0x0000005c   Zero   RW           76    .bss.buffer2        main.o
+    0x100000d0        -       0x0000005c   Zero   RW           77    .bss.buffer3        main.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x10000118, Load base: 0x00001400, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x1000012c, Load base: 0x00002320, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000118        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x1000012c        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x00001400, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x00002320, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -594,20 +800,31 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        220         32          0          0          0       4205   layer1.o
-       362         12          0          0          0       4705   layer2.o
+       654         36          0         16          0       5762   layer2.o
        252         28         69          0        276       1842   main.o
        312        156        196          0          0       1644   startup_lpc804.o
 
     ----------------------------------------------------------------------
-      1146        228        298          0        404      12396   Object Totals
+      1438        252        300         16        404      13453   Object Totals
          0          0         32          0        128          0   (incl. Generated)
-         0          0          1          0          0          0   (incl. Padding)
+         0          0          3          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
 
+       540         68        152          0          0        112   atan.o
+       412         40          0          0          0        144   atan2.o
         44          0          0          0          0         76   atof.o
+       152         10          0          0          0        104   cos.o
+       244         20         48          0          0         92   cos_i.o
+        54          6          0          0          0        272   dunder.o
+        44          4          0          0          0         60   fpclassify.o
+       172          0          0          0          0         76   poly.o
+         0          0          8          0          0          0   qnan.o
+       974         86        204          0          0        200   rred.o
+       156         10          0          0          0        104   sin.o
+       236         14         40          0          0        100   sin_i.o
         68          0          0          0          0         76   _sgetc.o
         36          4         64          0          0         60   ctype_c.o
          0          0          0          0          0          0   entry.o
@@ -632,30 +849,33 @@ Image component sizes
         14          0          0          0          0         60   strlen.o
        180         18          0          0          0        120   strtod.o
         62          0          0          0          0         72   uidiv_div0.o
+        40          2          0          0          0         68   cdcmple.o
         56          0          0          0          0         68   d2f.o
        356          4          0          0          0        140   dadd.o
        240          6          0          0          0         84   ddiv.o
        236          0          0          0          0        216   depilogue.o
         72         10          0          0          0         72   dfixi.o
         40          6          0          0          0         68   dflti.o
+        28          4          0          0          0         68   dfltui.o
         28          6          0          0          0         68   dfltul.o
        208          6          0          0          0         88   dmul.o
+        44          0          0          0          0         72   dscalb.o
        130          0          0          0          0        144   fepilogue.o
 
     ----------------------------------------------------------------------
-      3036        108         64          4          0       2200   Library Totals
-        12          0          0          0          0          0   (incl. Padding)
+      6138        372        520          8          0       3672   Library Totals
+        18          0          4          4          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-        44          0          0          0          0         76   m_ps.l
+      3028        258        452          0          0       1340   m_ps.l
       1614         70         64          4          0       1176   mc_p.l
-      1366         38          0          0          0        948   mf_p.l
+      1478         44          0          0          0       1156   mf_p.l
 
     ----------------------------------------------------------------------
-      3036        108         64          4          0       2200   Library Totals
+      6138        372        520          8          0       3672   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -664,15 +884,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4182        336        362          4        404      13748   Grand Totals
-      4182        336        362          4        404      13748   ELF Image Totals
-      4182        336        362          4          0          0   ROM Totals
+      7576        624        820         24        404      15521   Grand Totals
+      7576        624        820         24        404      15521   ELF Image Totals
+      7576        624        820         24          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 4544 (   4.44kB)
-    Total RW  Size (RW Data + ZI Data)               408 (   0.40kB)
-    Total ROM Size (Code + RO Data + RW Data)       4548 (   4.44kB)
+    Total RO  Size (Code + RO Data)                 8396 (   8.20kB)
+    Total RW  Size (RW Data + ZI Data)               428 (   0.42kB)
+    Total ROM Size (Code + RO Data + RW Data)       8420 (   8.22kB)
 
 ==============================================================================
 

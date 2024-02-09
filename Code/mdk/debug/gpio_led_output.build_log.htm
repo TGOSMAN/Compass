@@ -36,16 +36,16 @@ void gpssendmtk(struct PMTKinstruction instruction);
                        ^
 1 warning generated.
 compiling main.c...
-../Layer2.c(4): warning: In file included from...
+compiling Layer1.c...
+assembling startup_LPC804.S...
+../Layer2.c(6): warning: In file included from...
 ../Layer2.h(31): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
 void gpssendmtk(struct PMTKinstruction instruction);
                        ^
 1 warning generated.
 compiling Layer2.c...
-compiling Layer1.c...
-assembling startup_LPC804.S...
 linking...
-Program Size: Code=4182 RO-data=362 RW-data=4 ZI-data=404  
+Program Size: Code=7576 RO-data=820 RW-data=24 ZI-data=404  
 "debug\gpio_led_output.out" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -91,37 +91,37 @@ Package Vendor: NXP
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
       Include file:  devices/LPC804/LPC804_features.h
-      Include file:  devices/LPC804/LPC804.h
       Include file:  devices/LPC804/fsl_device_registers.h
+      Include file:  devices/LPC804/LPC804.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
-      Source file:   devices/LPC804/system_LPC804.c
       Include file:  devices/LPC804/system_LPC804.h
+      Source file:   devices/LPC804/system_LPC804.c
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
-      Include file:  devices/LPC804/drivers/fsl_clock.h
       Source file:   devices/LPC804/drivers/fsl_clock.c
+      Include file:  devices/LPC804/drivers/fsl_clock.h
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
+      Source file:   devices/LPC804/drivers/fsl_common.c
       Include file:  devices/LPC804/drivers/fsl_common.h
       Include file:  devices/LPC804/drivers/fsl_common_arm.h
-      Source file:   devices/LPC804/drivers/fsl_common.c
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
-      Source file:   devices/LPC804/drivers/fsl_gpio.c
       Include file:  devices/LPC804/drivers/fsl_gpio.h
+      Source file:   devices/LPC804/drivers/fsl_gpio.c
 
    * Component: NXP::Device:SDK Drivers:iocon:2.0.2
       Include file:  devices/LPC804/drivers/fsl_iocon.h
 
    * Component: NXP::Device:SDK Drivers:miniusart_adapter:1.0.0
-      Include file:  components/uart/fsl_adapter_uart.h
       Source file:   components/uart/fsl_adapter_miniusart.c
+      Include file:  components/uart/fsl_adapter_uart.h
 
    * Component: NXP::Device:SDK Drivers:power:2.0.0
-      Source file:   devices/LPC804/drivers/fsl_power.c
       Include file:  devices/LPC804/drivers/fsl_power.h
+      Source file:   devices/LPC804/drivers/fsl_power.c
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
       Source file:   devices/LPC804/drivers/fsl_reset.c
@@ -152,10 +152,10 @@ Package Vendor: NXP
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
-      Source file:   devices/LPC804/utilities/str/fsl_str.c
-      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
-      Include file:  devices/LPC804/utilities/str/fsl_str.h
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
+      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
+      Source file:   devices/LPC804/utilities/str/fsl_str.c
+      Include file:  devices/LPC804/utilities/str/fsl_str.h
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
 

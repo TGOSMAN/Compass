@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <limits.h>
 #include "Layer2.h"
 //#include "gpio_led_output.c"
 #include "Layer1.h"
@@ -20,10 +22,16 @@
 #define	IMUADDRESS	0x29
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
-
+#define M_PI       3.14159265358979323846   // pi
+static volatile double destilat = -33.8722;
+static volatile double destilong = 151.2069;
 static struct gpscoords myloco;
 //	double lat;//testing
 //	double longi;//testing
+double toRadians(double degrees) {
+    return degrees * (M_PI/ 180);
+}
+
 void gpsinit(void){
     //ENABLE, RESET and etc
 	// will need to change this to match the new device SAM M10Q
@@ -102,8 +110,9 @@ double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
 void gpsdataextract(struct uartrb currentsentence){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
-		volatile double lat;//testing
-		volatile double longi;//testing
+    volatile double lat;//testing
+    volatile double longi;//testing
+    volatile double bearing;
     char latitudearray[9];
     char longitudearray[10];
 	char hemi;
@@ -122,6 +131,8 @@ void gpsdataextract(struct uartrb currentsentence){
 			/*myloco.latitude*/lat = convertLatitudeToDecimal(latitudearray, 'N');
 			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
 			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, 'E');
+            bearing = calculateBearing(lat,longi,destilat,destilong);
+						bearing = bearing*(180/M_PI);
             *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;
