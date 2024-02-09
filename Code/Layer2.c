@@ -23,8 +23,8 @@
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
 #define M_PI       3.14159265358979323846   // pi
-static volatile double destilat = -33.8722;
-static volatile double destilong = 151.2069;
+static volatile double destilat = -33.67827;
+static volatile double destilong = 150.925118;
 static struct gpscoords myloco;
 //	double lat;//testing
 //	double longi;//testing
@@ -115,7 +115,7 @@ void gpsdataextract(struct uartrb currentsentence){
     volatile double bearing;
     char latitudearray[9];
     char longitudearray[10];
-	char hemi;
+	volatile char hemi;
 		*ISER0 ^= 1<<3;
 		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
             for(int i = 0; i<9;i++){
@@ -126,18 +126,42 @@ void gpsdataextract(struct uartrb currentsentence){
 						longitudearray[9] = '\0';
 						latitudearray[8] = '\0';
 			//take out the coordinates
-			hemi = currentsentence.rb[(currentsentence.head + 31)%82];
+			hemi = currentsentence.rb[(currentsentence.head + 30)%82];
 					
-			/*myloco.latitude*/lat = convertLatitudeToDecimal(latitudearray, 'N');
+			/*myloco.latitude*/lat = convertLatitudeToDecimal(latitudearray, hemi);
 			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
-			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, 'E');
+			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, hemi);
             bearing = calculateBearing(lat,longi,destilat,destilong);
 						bearing = bearing*(180/M_PI);
+						bearing += 360;
             *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;
 		return;
 };
+
+
+void pointing(double bearing){
+	if ((bearing >= 0) && (bearing < 22)){
+		decoder(0x0);
+	} else if ((bearing >= 22) && (bearing < 67)){
+		decoder(0x1);
+	}else if ((bearing >= 67) && (bearing < 112)){
+		decoder(0x2);
+	}else if ((bearing >= 112) && (bearing < 157)){
+		decoder(0x3);
+	}else if ((bearing >= 157) && (bearing < 202)){
+		decoder(0x4);
+	}else if ((bearing >= 202) && (bearing < 247)){
+		decoder(0x5);
+	}else if ((bearing >= 247) && (bearing < 292)){
+		decoder(0x6);
+	}else if ((bearing >= 292) && (bearing < 337)){
+		decoder(0x7);
+	}else if ((bearing >= 337) && (bearing < 360)){
+		decoder(0x8);
+	}
+}
 //void gpsreceive(struct gpscoords coordinates, char *inputmessage){
 //    char latitude[10]={'\0'};
 //    char longitude[11]={'\0'};
