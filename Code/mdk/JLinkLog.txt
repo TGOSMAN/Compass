@@ -1,0 +1,66 @@
+T3230 000:007.811   SEGGER J-Link V7.82 Log File
+T3230 000:008.036   DLL Compiled: Oct 13 2022 13:32:51
+T3230 000:008.065   Logging started @ 2024-02-09 22:47
+T3230 000:008.091 - 8.104ms
+T3230 000:008.127 JLINK_SetWarnOutHandler(...)
+T3230 000:008.155 - 0.041ms
+T3230 000:008.183 JLINK_OpenEx(...)
+T3230 000:011.496   Firmware: J-Link OB-nRF5340-NordicSemi compiled Nov  7 2022 16:22:01
+T3230 000:012.454   Firmware: J-Link OB-nRF5340-NordicSemi compiled Nov  7 2022 16:22:01
+T3230 000:047.511   Hardware: V1.00
+T3230 000:047.602   S/N: 1050785946
+T3230 000:047.640   OEM: SEGGER
+T3230 000:047.677   Feature(s): None
+T3230 000:051.292   USB speed mode: Full speed (12 MBit/s)
+T3230 000:052.437   TELNET listener socket opened on port 19021
+T3230 000:052.666   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T3230 000:052.935   WEBSRV Webserver running on local port 19080
+T3230 000:059.905 - 51.851ms returns "O.K."
+T3230 000:060.123 JLINK_GetEmuCaps()
+T3230 000:060.206 - 0.122ms returns 0xB8EA5A33
+T3230 000:060.440 JLINK_TIF_GetAvailable(...)
+T3230 000:061.281 - 0.901ms
+T3230 000:061.367 JLINK_SetErrorOutHandler(...)
+T3230 000:061.400 - 0.048ms
+T3230 000:061.451 JLINK_ExecCommand("ProjectFile = "C:\Users\thoma\OneDrive\Documents\Compass\Code\mdk\JLinkSettings.ini"", ...). 
+T3230 000:075.435 - 14.029ms returns 0x00
+T3230 000:081.033 JLINK_ExecCommand("Device = LPC804M101JDH24", ...). 
+T3230 000:084.771   Device "LPC804M101" selected.
+T3230 000:085.192 - 4.106ms returns 0x00
+T3230 000:085.235 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T3230 000:085.259 - 0.011ms returns 0x01
+T3230 000:085.280 JLINK_GetHardwareVersion()
+T3230 000:085.299 - 0.028ms returns 10000
+T3230 000:085.324 JLINK_GetDLLVersion()
+T3230 000:085.344 - 0.029ms returns 78200
+T3230 000:085.364 JLINK_GetOEMString(...)
+T3230 000:085.385 JLINK_GetFirmwareString(...)
+T3230 000:085.404 - 0.028ms
+T3230 000:096.589 JLINK_GetDLLVersion()
+T3230 000:096.664 - 0.085ms returns 78200
+T3230 000:096.687 JLINK_GetCompileDateTime()
+T3230 000:096.708 - 0.029ms
+T3230 000:100.531 JLINK_GetFirmwareString(...)
+T3230 000:100.604 - 0.084ms
+T3230 000:103.927 JLINK_GetHardwareVersion()
+T3230 000:104.002 - 0.086ms returns 10000
+T3230 000:107.586 JLINK_GetSN()
+T3230 000:107.662 - 0.088ms returns 1050785946
+T3230 000:110.890 JLINK_GetOEMString(...)
+T3230 001:709.060 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T3230 001:709.865   
+  ***** Error: 
+T3230 001:709.933   Debugger tries to select target interface JTAG.
+This interface is not supported by the connected emulator.
+Selection will be ignored by the DLL.
+T3230 001:709.965 - 0.915ms returns 0x01
+T3230 001:714.264 JLINK_HasError()
+T3230 001:714.352 JLINK_SetSpeed(5000)
+T3230 001:714.379 - 0.037ms
+T3230 001:714.402 JLINK_GetId()
+T3230 001:834.733   Failed to attach to CPU. Trying connect under reset.
+T3230 002:345.617 - 631.329ms returns 0x00000000
+T3230 003:419.575 JLINK_Close()
+T3230 003:429.314 - 9.830ms
+T3230 003:429.443   
+T3230 003:429.504   Closed
