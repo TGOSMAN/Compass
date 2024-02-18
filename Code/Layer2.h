@@ -2,6 +2,9 @@
 #define LAYER2_H
 #include <stdint.h>
 #include "Layer1.h"
+//#define destilat -33.8722
+//#define destilong 151.2069
+
 struct ledorient{
 	uint8_t north;
 	uint8_t south;

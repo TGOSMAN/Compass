@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <limits.h>
 #include "Layer2.h"
 //#include "gpio_led_output.c"
 #include "Layer1.h"
@@ -20,8 +22,15 @@
 #define	IMUADDRESS	0x29
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
-
+#define M_PI       3.14159265358979323846   // pi
+static volatile double destilat = -33.67827;
+static volatile double destilong = 150.925118;
 static struct gpscoords myloco;
+//	double lat;//testing
+//	double longi;//testing
+double toRadians(double degrees) {
+    return degrees * (M_PI/ 180);
+}
 
 void gpsinit(void){
     //ENABLE, RESET and etc
@@ -38,7 +47,8 @@ double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
     double minutes = 0.0;
 
     // Convert the string to a double
-    double rawLatitude = atof(latitudeStr);
+    double rawLatitude = 0.0;
+			rawLatitude = atof(latitudeStr);
 
     // Extract degrees and minutes from the raw latitude
     // Assumes latitude is in DDMM.MMMM format
@@ -62,7 +72,8 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
     double minutes = 0.0;
 
     // Convert the string to a double
-    double rawLongitude = atof(longitudeStr);
+    double rawLongitude = 0.0;
+		rawLongitude= atof(longitudeStr);
 
     // Extract degrees and minutes from the raw latitude
     // Assumes latitude is in DDMM.MMMM format
@@ -79,27 +90,78 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
 
     return decimalDegrees;
 }
+double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
+    // Convert latitude and longitude from degrees to radians
+    lat1 = toRadians(lat1);
+    lon1 = toRadians(lon1);
+    lat2 = toRadians(lat2);
+    lon2 = toRadians(lon2);
+
+    // Calculate the difference in longitude
+    double dLon = lon2 - lon1;
+
+    // Calculate the bearing
+    double y = sin(dLon) * cos(lat2);
+    double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
+    double bearingRadians = atan2(y, x);
+    return bearingRadians;
+}
 
 void gpsdataextract(struct uartrb currentsentence){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+    volatile double lat;//testing
+    volatile double longi;//testing
+    volatile double bearing;
     char latitudearray[9];
     char longitudearray[10];
+	volatile char hemi;
 		*ISER0 ^= 1<<3;
 		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
             for(int i = 0; i<9;i++){
-               latitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+20))%82];
-               longitudearray[i] |= currentsentence.rb[(currentsentence.head +(i+33))%82];
+               latitudearray[i] = currentsentence.rb[(currentsentence.head +(i+20))%82];
+               longitudearray[i] = currentsentence.rb[(currentsentence.head +(i+32))%82];
             }
-            longitudearray[10] |= currentsentence.rb[(currentsentence.head + 42)%82];
+            longitudearray[8] = currentsentence.rb[(currentsentence.head + 41)%82];
+						longitudearray[9] = '\0';
+						latitudearray[8] = '\0';
 			//take out the coordinates
-			myloco.latitude = convertLatitudeToDecimal(latitudearray,currentsentence.rb[(currentsentence.head + 31)%82]);
-			myloco.longitude = convertLongitudeToDecimal(longitudearray, currentsentence.rb[(currentsentence.head + 44)%82]);
+			hemi = currentsentence.rb[(currentsentence.head + 30)%82];
+					
+			/*myloco.latitude*/lat = convertLatitudeToDecimal(latitudearray, hemi);
+			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
+			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, hemi);
+            bearing = calculateBearing(lat,longi,destilat,destilong);
+						bearing = bearing*(180/M_PI);
+						bearing += 360;
             *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;
 		return;
 };
+
+
+void pointing(double bearing){
+	if ((bearing >= 0) && (bearing < 22)){
+		decoder(0x0);
+	} else if ((bearing >= 22) && (bearing < 67)){
+		decoder(0x1);
+	}else if ((bearing >= 67) && (bearing < 112)){
+		decoder(0x2);
+	}else if ((bearing >= 112) && (bearing < 157)){
+		decoder(0x3);
+	}else if ((bearing >= 157) && (bearing < 202)){
+		decoder(0x4);
+	}else if ((bearing >= 202) && (bearing < 247)){
+		decoder(0x5);
+	}else if ((bearing >= 247) && (bearing < 292)){
+		decoder(0x6);
+	}else if ((bearing >= 292) && (bearing < 337)){
+		decoder(0x7);
+	}else if ((bearing >= 337) && (bearing < 360)){
+		decoder(0x8);
+	}
+}
 //void gpsreceive(struct gpscoords coordinates, char *inputmessage){
 //    char latitude[10]={'\0'};
 //    char longitude[11]={'\0'};

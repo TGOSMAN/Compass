@@ -93,7 +93,7 @@ void initPWM(void) {
     *TCR = 0x01;
 
 	//Assign the output to P0_21
-	*PINASSIGN4 &= 0x8;//0x21; 
+	*PINASSIGN4 &= 0x21;//0x21; 
 	return;
 }
 ////////////////////////////Brief/////////////////////////////
@@ -140,9 +140,9 @@ void decoder(uint32_t selection){
     //A1
     bit = (selection&(0x2))>>1;
 		if(bit){
-				*SET0 |= 0x1<<12;//P12 on PCB
+				*SET0 |= 0x1<<4;//P04 on PCB//P07 this causes an error on the circuit board ISP pin is pin12
 		}else{
-				*CLR0 |= 0x1<<12;
+				*CLR0 |= 0x1<<4
 		}
     //A2
     bit = (selection&(0x4))>>2;
@@ -184,8 +184,8 @@ void uartinit(void){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (NVIC + 0x100);
 	//initialise pins:
 	*AHBCLK |= 0x1<<7; // Enable AHB Clock for SWM to work
-	*PINASSIGN0 &= 0xFFFFFF01; // TXD -> P0_1
-	*PINASSIGN0 &= ((0x7<<8)|(0xFFFF00FF));// RXD -> P0_7
+	*PINASSIGN0 &= 0xFFFFFF02; // TXD -> P0_1 PCB:02
+	*PINASSIGN0 &= ((0x7<<9)|(0xFFFF00FF));// RXD -> P0_7 PCB:09
 	*AHBCLK ^= 0x1<<7; // Disable AHB Clock for SWM
 	// initialise Clocks
 	*PDRUNCFG ^= 0x1<<6;//ensure LPOCSC_PD is powered on// why use XOR

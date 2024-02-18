@@ -74,7 +74,7 @@ void USART0_DriverIRQHandler(void){
 }
 */
 
-
+   
 void initbuffer(void){
 	buffer1.head = 0;
 	buffer1.tail = 0;
@@ -96,13 +96,15 @@ void initbuffer(void){
 
 	initbuffer();
 	uartinit();
+	initPWM();
 	int k = 0;
 	int j = 0;
 	struct ledorient LED;
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	initPort();
 	changeDIR(9,1);
-//uartsendstring("$PMTK314,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29<CR><LF>");
+//	uartsendstring("$GPRMC,004530.000,A,3340.6622,S,15055.5859,E,0.25,0.00,040224,,,A*77");
+//	 uartsendstring("$GPRMC,004530.000,A,3340.6622,S,15055.5859,E,0.25,0.00,040224,,,A*77");
 //	LED.north = 0;
 //	LED.south = 4;
 //	initbuffer();

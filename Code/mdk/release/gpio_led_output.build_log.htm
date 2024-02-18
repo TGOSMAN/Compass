@@ -8,7 +8,7 @@ Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Thomas Gosman
 UNSW
 User-based license: Keil MDK Community
-Valid until: Jun 1 2033. Cached until: Jan 7 2024
+Valid until: Jun 1 2033. Cached until: Feb 17 2024
  
 Tool Versions:
 Toolchain:       Keil MDK Community  Version: 5.38.0.0
@@ -24,45 +24,33 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\mdk\gpio_led_output.uvprojx
-Project File Date:  01/03/2024
+C:\Users\thoma\OneDrive\Documents\Compass\Code\mdk\gpio_led_output.uvprojx
+Project File Date:  02/10/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
-Build Project 'gpio_led_output' - Target 'gpio_led_output release'
+Build target 'gpio_led_output release'
+ArmClang: error: no such file or directory: '../board.c'
+ArmClang: error: no input files
 compiling board.c...
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\gpio_led_output.c(2): warning: In file included from...
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\Layer2.h(6): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
-void gpssendmtk(struct PMTKinstruction instruction);
-                       ^
-C:\Users\thoma\OneDrive\Documents\Compass\boards\lpcxpresso804\driver_examples\gpio\led_output\Layer2.h(7): warning: declaration of 'struct gpscoords' will not be visible outside of this function [-Wvisibility]
-void gpsreceive(struct gpscoords, char *inputmessage);
-                       ^
-2 warnings generated.
-compiling gpio_led_output.c...
-compiling fsl_clock.c...
-compiling fsl_common.c...
-compiling pin_mux.c...
-compiling Layer1.c...
+ArmClang: error: no such file or directory: '../clock_config.c'
+ArmClang: error: no input files
 compiling clock_config.c...
-compiling fsl_adapter_miniusart.c...
-compiling fsl_common_arm.c...
-compiling fsl_gpio.c...
-compiling fsl_reset.c...
 compiling fsl_power.c...
-compiling fsl_swm.c...
+compiling fsl_common_arm.c...
+compiling fsl_common.c...
+compiling fsl_gpio.c...
+compiling fsl_clock.c...
+compiling fsl_adapter_miniusart.c...
+compiling fsl_reset.c...
 compiling fsl_syscon.c...
+compiling fsl_swm.c...
+compiling system_LPC804.c...
 compiling fsl_assert.c...
-compiling fsl_debug_console.c...
 compiling fsl_usart.c...
-assembling startup_LPC804.S...
+compiling fsl_debug_console.c...
 compiling fsl_str.c...
-linking...
-release\gpio_led_output.out: Error: L6200E: Symbol USART0_DriverIRQHandler multiply defined (by fsl_usart.o and gpio_led_output.o).
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-"release\gpio_led_output.out" - 1 Error(s), 2 Warning(s).
+"release\gpio_led_output.out" - 4 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -111,22 +99,22 @@ Package Vendor: NXP
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
       Include file:  devices/LPC804/LPC804_features.h
-      Include file:  devices/LPC804/fsl_device_registers.h
       Include file:  devices/LPC804/LPC804.h
+      Include file:  devices/LPC804/fsl_device_registers.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
       Include file:  devices/LPC804/system_LPC804.h
       Source file:   devices/LPC804/system_LPC804.c
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
-      Include file:  devices/LPC804/drivers/fsl_clock.h
       Source file:   devices/LPC804/drivers/fsl_clock.c
+      Include file:  devices/LPC804/drivers/fsl_clock.h
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
       Include file:  devices/LPC804/drivers/fsl_common.h
+      Source file:   devices/LPC804/drivers/fsl_common.c
       Include file:  devices/LPC804/drivers/fsl_common_arm.h
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
-      Source file:   devices/LPC804/drivers/fsl_common.c
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
       Source file:   devices/LPC804/drivers/fsl_gpio.c
@@ -144,15 +132,15 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_power.h
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
-      Include file:  devices/LPC804/drivers/fsl_reset.h
       Source file:   devices/LPC804/drivers/fsl_reset.c
+      Include file:  devices/LPC804/drivers/fsl_reset.h
 
    * Component: NXP::Device:SDK Drivers:rom_api:2.0.1
       Include file:  devices/LPC804/drivers/rom_api.h
 
    * Component: NXP::Device:SDK Drivers:swm:2.1.2
-      Source file:   devices/LPC804/drivers/fsl_swm.c
       Include file:  devices/LPC804/drivers/fsl_swm.h
+      Source file:   devices/LPC804/drivers/fsl_swm.c
 
    * Component: NXP::Device:SDK Drivers:swm_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
@@ -172,17 +160,17 @@ Package Vendor: NXP
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
-      Include file:  devices/LPC804/utilities/str/fsl_str.h
-      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
       Source file:   devices/LPC804/utilities/str/fsl_str.c
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
+      Include file:  devices/LPC804/utilities/str/fsl_str.h
+      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
 
    * Component: NXP::Device:Startup:1.1.0
       Source file:   devices/LPC804/arm/startup_LPC804.S
 Target not created.
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
