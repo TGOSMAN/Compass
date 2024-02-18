@@ -3,7 +3,7 @@
 "debug\layer2.o"
 "debug\main.o"
 "debug\startup_lpc804.o"
---diag_suppress 6314 --strict --scatter "LPC804_flash.scf"
+--diag_suppress 6314 --strict --scatter "debug\gpio_led_output.sct"
 --remove --keep=*(.crp) --entry=Reset_Handler --diag_suppress 6314 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\output\gpio_led_output.map" -o debug\gpio_led_output.out

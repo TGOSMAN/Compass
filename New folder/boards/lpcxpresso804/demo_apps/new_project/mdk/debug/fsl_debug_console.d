@@ -1,0 +1,28 @@
+debug/fsl_debug_console.o: \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\utilities\debug_console_lite\fsl_debug_console.c \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\utilities\debug_console_lite\fsl_debug_console.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\drivers\fsl_common.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\assert.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\fsl_device_registers.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\LPC804.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\6.0.0\CMSIS\Core\Include\core_cm0plus.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\6.0.0\CMSIS\Core\Include\cmsis_version.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\6.0.0\CMSIS\Core\Include\cmsis_compiler.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\ARM\CMSIS\6.0.0\CMSIS\Core\Include\.\m-profile\cmsis_armclang_m.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\system_LPC804.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\LPC804_features.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\drivers\fsl_common_arm.h \
+  RTE\_new_project_debug\RTE_Components.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\drivers\fsl_clock.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\drivers\fsl_reset.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\components\uart\fsl_adapter_uart.h \
+  C:\Users\thoma\AppData\Local\Arm\Packs\NXP\LPC804_DFP\18.0.0\devices\LPC804\utilities\str\fsl_str.h

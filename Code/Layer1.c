@@ -140,9 +140,9 @@ void decoder(uint32_t selection){
     //A1
     bit = (selection&(0x2))>>1;
 		if(bit){
-				*SET0 |= 0x1<<12;//P12 on PCB
+				*SET0 |= 0x1<<4;//P04 on PCB//P07 this causes an error on the circuit board ISP pin is pin12
 		}else{
-				*CLR0 |= 0x1<<12;
+				*CLR0 |= 0x1<<4
 		}
     //A2
     bit = (selection&(0x4))>>2;

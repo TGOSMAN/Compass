@@ -74,7 +74,7 @@ void USART0_DriverIRQHandler(void){
 }
 */
 
-
+   
 void initbuffer(void){
 	buffer1.head = 0;
 	buffer1.tail = 0;
