@@ -205,7 +205,7 @@ void uartinit(void){
 
 	return;
 }
-//reviewed to here
+
 void sendcharuart(uint8_t character){
 	volatile uint32_t *UART0TX = (volatile uint32_t *) (UART0 + 0x1C);
 	volatile uint32_t *UART0STAT = (volatile uint32_t *) (UART0 + 0x8);	
@@ -242,20 +242,20 @@ void I2Cinit (void) {
 	//volatile uint32_t *UART0BRG = (volatile uint32_t *) (UART0 + 0x20);
 
 	*AHBCLK |= 1<<7; //swm clock on 
-	*PINASSIGN5 = 10; //setup SDA on P0_10
-	*PINASSIGN5 = 11<<8;//setup SCL on P0_11
+	*PINASSIGN5 &= ((0x10)|(0xFFFFFF00)); //setup SDA on P0_10
+	*PINASSIGN5 &= ((0x11<<8)|(0xFFFF00FF));//setup SCL on P0_11
 	*AHBCLK ^= 1<<7; //disable SWM clock
 	
-	*FRG0DIV |= 0xFF;//Make this defined
-	*I2C0CLKSEL &= 0x1;//FRO, should be 12Mhz by default
-	*AHBCLK |= 0x1<<5; //I2C0 Clock on
-
 	//Presets
 	*PRESETCTRL0 |= 0x1<<5;//I2C Reset Run
 	*PRESETCTRL0 |= 0x1<<7;
-	//Configuring the CLKDIV from i2C
-	*MSTTIME &= 0xFFFFFFF1;// MSTSCLLOW low for 1 according to recommended settings table
+	
+	*I2C0CLKSEL &= 0xFFFFFF01;;//FRO, should be 12Mhz by default
+	*AHBCLK |= 0x1<<5; //I2C0 Clock on
 	*I2C0CLKDIV |= 0X5;// Assumning FRO is 12Mhz by default
+
+	//Configuring the CLKDIV from i2C
+	*MSTTIME &= 0xFFFFFFCC;// MSTSCLLOW low for 1 according to recommended settings table
 	*I2C0CFG |= 0x11;//master enable and clock stretch enable
 	return;
 }
@@ -275,9 +275,6 @@ void pininterruptsetup(void){
 	*SIENF	|= 1;// Set the level sensitivity register for pin int 0
 	*SIENR	|= 1;//Set the enable  reg for the interrupt on pin interrupt 0
 	*ISER0	|= 1<<24;
-	//	__asm{
-	//		CPSIE i
-	//	}
 	return;
 	
 }
@@ -287,13 +284,17 @@ void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
 	volatile uint32_t *I2C0MSTCTL = (volatile uint32_t *) (0x40050020);
 	volatile uint32_t *I2C0STAT = (volatile uint32_t *) (0x40050004);
-	*I2C0MSTDATA |= address;// consider where teh r/w bit sits might need to shift
+	*I2C0MSTDATA = ((address)<<1|0);// consider where teh r/w bit sits might need to shift
 	*I2C0MSTCTL = 0x2;// start bit
 	while(!((*I2C0STAT)&0x1)){
 	}
 	*I2C0MSTDATA = register1;
 	*I2C0MSTCTL = 0x1; //register address to be sent to IMU
 		while(!((*I2C0STAT)&0x1)){
+	}
+	*I2C0MSTDATA = register1;
+	*I2C0MSTCTL = 0x1;// continue bit
+	while(!((*I2C0STAT)&0x1)){
 	}
 	*I2C0MSTDATA = data;//next data
 	*I2C0MSTCTL = 0x1;
@@ -302,7 +303,7 @@ void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
 	*I2C0MSTCTL = 0x4;
 	return;
 }
-
+//Commit2
 uint8_t I2Csendframeread(uint8_t address, uint8_t register1){
 	uint8_t data;
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
