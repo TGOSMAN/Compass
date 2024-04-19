@@ -303,24 +303,30 @@ void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
 	*I2C0MSTCTL = 0x4;
 	return;
 }
-//Commit2
+
 uint8_t I2Csendframeread(uint8_t address, uint8_t register1){
 	uint8_t data;
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
 	volatile uint32_t *I2C0MSTCTL = (volatile uint32_t *) (0x40050020);
 	volatile uint32_t *I2C0STAT = (volatile uint32_t *) (0x40050004);
-	*I2C0MSTDATA |= address;// consider where teh r/w bit sits might need to shift
+	*I2C0MSTDATA |= (address<<1)|0x0;// consider where teh r/w bit sits might need to shift
 	*I2C0MSTCTL = 0x2;// start bit
 	while(!((*I2C0STAT)&0x1)){
 	}
 	*I2C0MSTDATA = register1;
 	*I2C0MSTCTL = 0x1; //register address to be sent to IMU
-		while(!((*I2C0STAT)&0x1)){
+	while(!((*I2C0STAT)&0x1)){
 	}
-	data = (*I2C0MSTDATA);//next data
+	*I2COMSTDATA = ((address<<1)|0x1);
+	*I2C0MSTCTL = 0x2;
+	while(!((*I2C0STAT)&0x1)){
+		//decoder(4);
+	}
 	*I2C0MSTCTL = 0x1;
 	while(!((*I2C0STAT)&0x1)){
 	}
+	*I2C0MSTCTL = 0x1;
 	*I2C0MSTCTL = 0x4;
+	data = (*I2C0MSTDATA);//next data
 	return data;
 }
