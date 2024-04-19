@@ -20,11 +20,11 @@
 #define EULERMSB	0x1A
 #define EULERLSB	0x1B
 #define	IMUADDRESS	0x29
-#define CALLIB_STAT 0x35
-#define CONFIG_MODE 0x3D
-#define M_PI       3.14159265358979323846   // pi
-static volatile double destilat = -33.67827;
-static volatile double destilong = 150.925118;
+#define CALLIB_STAT 	0x35
+#define CONFIG_MODE 	0x3D
+#define M_PI       	3.14159265358979323846   // pi
+static volatile double destilat = 60.5915;
+static volatile double destilong = -154.9406;
 static struct gpscoords myloco;
 //	double lat;//testing
 //	double longi;//testing
@@ -45,7 +45,7 @@ double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
     double decimalDegrees = 0.0;
     double degrees = 0.0;
     double minutes = 0.0;
-
+	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
     // Convert the string to a double
     double rawLatitude = 0.0;
 			rawLatitude = atof(latitudeStr);
@@ -90,6 +90,7 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
 
     return decimalDegrees;
 }
+
 double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
     // Convert latitude and longitude from degrees to radians
     lat1 = toRadians(lat1);
@@ -132,8 +133,8 @@ void gpsdataextract(struct uartrb currentsentence){
 			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
 			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, hemi);
             bearing = calculateBearing(lat,longi,destilat,destilong);
-						bearing = bearing*(180/M_PI);
-						bearing += 360;
+			bearing = bearing*(180/M_PI);
+			bearing += 360;
             *SET0 |= 0x1<<9;
 		}
 		*ISER0 ^= 1<<3;
@@ -142,6 +143,10 @@ void gpsdataextract(struct uartrb currentsentence){
 
 
 void pointing(double bearing){
+	if(bearing < 0){
+		bearing += 360;
+		//decoder(4);
+	}
 	if ((bearing >= 0) && (bearing < 22)){
 		decoder(0x0);
 	} else if ((bearing >= 22) && (bearing < 67)){
@@ -161,6 +166,7 @@ void pointing(double bearing){
 	}else if ((bearing >= 337) && (bearing < 360)){
 		decoder(0x8);
 	}
+	return;
 }
 //void gpsreceive(struct gpscoords coordinates, char *inputmessage){
 //    char latitude[10]={'\0'};
@@ -200,8 +206,9 @@ void uartsendstring(char *string){
 
 
 void IMUinit(void){
+	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
     uint8_t status = 0;
-	while(status != 3){
+	while(status < 2){
         //check for gyro callibration
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x30;
@@ -209,27 +216,39 @@ void IMUinit(void){
     }
     //blink once
     status = 0;
-    while(status != 3){
+    while(status < 2){
         //mag
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x03;
     }
+	for(int i = 0; i < 4; i++){
+			*NOT0 |= 0x1<<21;
+			delay(500);
+		}
     // blink twice
     status = 0;
-    while(status != 3){
+    while(status < 2){
         // acceler
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x0C;
         status >>= 2;
-    }
-    // blink three times
+}
+	for(int i = 0; i < 6; i++){
+			*NOT0 |= 0x1<<21;
+			delay(500);
+		}
     status = 0;
-    while(status != 3){
+    while(status < 2){
         // syst
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0xC0;
         status >>= 6;
     }
+
+	for(int i = 0; i < 8; i++){
+		*NOT0 |= 0x1<<21;
+		delay(500);
+	}
     // blink four times
     //all callibrated
     I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
