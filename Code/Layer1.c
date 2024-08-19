@@ -100,7 +100,7 @@ void initPWM(void) {
 /*
 Description:
 This changes the PWM that is output using MR0 by:
-    -   First calculating the match value so that it will stay as an integer
+   	-   First calculating the match value so that it will stay as an integer
 	- 	Setting the MR0 register value
 Parameters:
 -   uint32_t percent: this is the percent dutycycle desired
@@ -118,8 +118,8 @@ void pwmdutycycle(uint32_t percent){
 /*
 Description:
 This decoder by :
-		- 	calculating the bit levels of each position then:
-    -   writing to the set and clear registers for an output
+	- 	calculating the bit levels of each position then:
+    	-   writing to the set and clear registers for an output
 Parameters:
 -   uint32_t Selection: This is the number/bits you would input into the decoder normally
 Return: 
@@ -153,7 +153,15 @@ void decoder(uint32_t selection){
 		}
     return;
 }
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+-	A blocking delay funciton that polls a timer for the set ms until it finds a match, which then it will return to callee after
+Parameters:
+-   	uint32_t Selection: This is the number of milliseconds to wait for
+Return: 
+- 	Nothing
+*/
 void delay(uint32_t ms){
 	//let it run with the systemclock/2 hz == 6Mhz
 	volatile uint32_t *CSR = (volatile uint32_t *) (SYSTIC +0x10);
@@ -170,7 +178,20 @@ void delay(uint32_t ms){
 	return;
 }
 
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This initialises the UART By:
+	1. Enabling the AHB Clock
+	2. Selecting Pins
+	3. Selecting the UART Clock
+	4. Configuring the Interrupt
+	5. Adding the UART Configuration
+Parameters:
+-	Nothing
+Return: 
+- 	Nothing
+*/
 void uartinit(void){
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
 	volatile uint32_t *FRG0DIV = (volatile uint32_t *) (SYSCON+0xD0);
@@ -205,7 +226,15 @@ void uartinit(void){
 
 	return;
 }
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+A function which sends a char over an already intialised UART Channel. This is a blocking method which waits until an acknowlge message is received
+Parameters:
+-   uint8_t for the char to send
+Return: 
+- 	Nothing
+*/
 void sendcharuart(uint8_t character){
 	volatile uint32_t *UART0TX = (volatile uint32_t *) (UART0 + 0x1C);
 	volatile uint32_t *UART0STAT = (volatile uint32_t *) (UART0 + 0x8);	
@@ -217,17 +246,19 @@ void sendcharuart(uint8_t character){
 	return;
 }
 
-uint8_t readcharuart(void){
-	uint8_t character = NULL;
-
-	return character;
-}
-
-/*void USART0_DriverIRQHandler(void){
-
-
-}*/
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This initialises the I2C by:
+	1. Enabling the AHB Clock
+	2. Selecting Pins
+	3. Selecting the I2C Clock
+	4. Configuring the I2C Settings
+Parameters:
+-   	Nothing
+Return: 
+- 	Nothing
+*/
 void I2Cinit (void) {
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
 	volatile uint32_t *FRG0DIV = (volatile uint32_t *) (SYSCON+0xD0);
@@ -261,7 +292,15 @@ void I2Cinit (void) {
 }
 
 
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+Enables GPIO Pin Interrupts on P0.7.
+Parameters:
+-   	Nothing
+Return: 
+- 	Nothing
+*/
 void pininterruptsetup(void){
 	volatile uint32_t *PINTSEL0 = (volatile uint32_t *) (SYSCON+0x178);
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
@@ -279,7 +318,17 @@ void pininterruptsetup(void){
 	
 }
 
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+Sends a I2C frame to write to a register within a device whilst acting as a master. 
+Parameters:
+-   	uint8_t address : The device address to write to.
+-	uint8_t register1: The Register to have data written to.
+-	uint8_t data: 	The data to write to the reigster
+Return: 
+- 	Nothing
+*/
 void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
 	volatile uint32_t *I2C0MSTCTL = (volatile uint32_t *) (0x40050020);
@@ -303,7 +352,16 @@ void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
 	*I2C0MSTCTL = 0x4;
 	return;
 }
-
+////////////////////////////Brief/////////////////////////////
+/*
+Description:
+This is a function for an I2C register to be read. This is done in a blocking method.
+Parameters:
+-  	uint8_t address: Device Slave Address for the slave to read data from
+-	uint8_t register: The Register Address of data to read from  
+Return: 
+- 	Nothing
+*/
 uint8_t I2Csendframeread(uint8_t address, uint8_t register1){
 	uint8_t data;
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
@@ -320,7 +378,6 @@ uint8_t I2Csendframeread(uint8_t address, uint8_t register1){
 	*I2COMSTDATA = ((address<<1)|0x1);
 	*I2C0MSTCTL = 0x2;
 	while(!((*I2C0STAT)&0x1)){
-		//decoder(4);
 	}
 	*I2C0MSTCTL = 0x1;
 	while(!((*I2C0STAT)&0x1)){
