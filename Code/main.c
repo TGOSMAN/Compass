@@ -32,49 +32,32 @@ void USART0_DriverIRQHandler(void){
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
 	volatile uint32_t *INTSTAT = (volatile uint32_t *) (0x40064024);
 	volatile uint32_t *RXDATA = (volatile uint32_t *) (0x40064014);
-		//must handle condition where both are open, race condition occurs
+	//must handle condition where both are open, race condition occurs
+	//if the message sent has the beginning signature structure
 	if(((*RXDATA) == '$')){
+		//switch the locking mechanism between the bufffers
 		buffer1.door ^= closed;
 		buffer2.door ^= closed;
+		//configure the buffer in use to start where it finished from -> act like a circular buffer
 		if(!(buffer1.door)){
-			buffer1.head = buffer1.tail;
+			buffer1.head = buffer1.tail; 
 		} else {
 			buffer2.head = buffer2.tail;
 		}
-		//*SET0 |= 0x1<<9;
 	}
-
+	
 	if(buffer1.door == open){
-		buffer1.rb[buffer1.tail%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
+		buffer1.rb[buffer1.tail%BUFFERSIZE] = (*RXDATA);//copy the data
 		buffer1.tail+= 1;
 	} else if (buffer2.door == open){
-		buffer2.rb[buffer2.tail%BUFFERSIZE] = (*RXDATA);//copy the data modulo is expensive use the algorithmic approach
+		buffer2.rb[buffer2.tail%BUFFERSIZE] = (*RXDATA);//copy the data
 		buffer2.tail += 1;
 	}
 	
-//	*NOT0 |= 0x1<<9;
-//	delay(5000);
-//	*NOT0 |= 0x1<<9;
 	return;
 }
-/*void handler(void){
-	 volatile uint32_t *INTSTAT = (volatile uint32_t *) (0x40068024);
-	 volatile uint32_t *RXDATA = (volatile uint32_t *) (0x40068014);	
-	 if((*INTSTAT)&0x1){
-		//(*RXDATA)
-		if(buffer1.head >= 80){
-			buffer1.rb[buffer1.head + 1] = '/0';//null terminate
-			buffer1.head = buffer1.tail;
-		} else {
-			buffer1.rb[buffer1.head + 1] = (*RXDATA);//copy the data 
-			buffer1.head += 1;
-		}
-	 }
-	 return;
-}
-*/
 
-   
+// Function to initalise all ring buffers, to start off wiht one closed one open and a spare closed
 void initbuffer(void){
 	buffer1.head = 0;
 	buffer1.tail = 0;
@@ -103,15 +86,10 @@ void initbuffer(void){
 	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	initPort();
 	changeDIR(9,1);
-//	uartsendstring("$GPRMC,004530.000,A,3340.6622,S,15055.5859,E,0.25,0.00,040224,,,A*77");
-//	 uartsendstring("$GPRMC,004530.000,A,3340.6622,S,15055.5859,E,0.25,0.00,040224,,,A*77");
 //	LED.north = 0;
 //	LED.south = 4;
-//	initbuffer();
 //	I2Cinit();
 	while(1){
-		//uartsendstring("$PMTK104*37<CR><LF>");
-		//uartsendstring("$Good Thank You");
 		if (buffer1.door == closed){
 			//buffer1.rb = {'\0'};
 			k = 0;
