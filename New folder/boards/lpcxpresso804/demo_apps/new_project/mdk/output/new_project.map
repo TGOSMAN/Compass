@@ -4,49 +4,80 @@ Component: Arm Compiler for Embedded 6.19 Tool: armlink [5e73cb00]
 
 Section Cross References
 
-    main.o(.text.main) refers to pin_mux.o(.text.BOARD_InitBootPins) for BOARD_InitBootPins
-    main.o(.text.main) refers to clock_config.o(.text.BOARD_InitBootClocks) for BOARD_InitBootClocks
+    layer1.o(.ARM.exidx.text.initPort) refers to layer1.o(.text.initPort) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.changeDIR) refers to layer1.o(.text.changeDIR) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.initPWM) refers to layer1.o(.text.initPWM) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.pwmdutycycle) refers to layer1.o(.text.pwmdutycycle) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.decoder) refers to layer1.o(.text.decoder) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.delay) refers to layer1.o(.text.delay) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.uartinit) refers to layer1.o(.text.uartinit) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.sendcharuart) refers to layer1.o(.text.sendcharuart) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.readcharuart) refers to layer1.o(.text.readcharuart) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Cinit) refers to layer1.o(.text.I2Cinit) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.pininterruptsetup) refers to layer1.o(.text.pininterruptsetup) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Csendframewrite) refers to layer1.o(.text.I2Csendframewrite) for [Anonymous Symbol]
+    layer1.o(.ARM.exidx.text.I2Csendframeread) refers to layer1.o(.text.I2Csendframeread) for [Anonymous Symbol]
+    layer2.o(.text.toRadians) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.ARM.exidx.text.toRadians) refers to layer2.o(.text.toRadians) for [Anonymous Symbol]
+    layer2.o(.text.gpsinit) refers to strlen.o(.text) for strlen
+    layer2.o(.text.gpsinit) refers to layer1.o(.text.sendcharuart) for sendcharuart
+    layer2.o(.text.gpsinit) refers to layer2.o(.rodata.str1.1) for [Anonymous Symbol]
+    layer2.o(.ARM.exidx.text.gpsinit) refers to layer2.o(.text.gpsinit) for [Anonymous Symbol]
+    layer2.o(.text.uartsendstring) refers to strlen.o(.text) for strlen
+    layer2.o(.text.uartsendstring) refers to layer1.o(.text.sendcharuart) for sendcharuart
+    layer2.o(.ARM.exidx.text.uartsendstring) refers to layer2.o(.text.uartsendstring) for [Anonymous Symbol]
+    layer2.o(.text.convertLatitudeToDecimal) refers to atof.o(i.atof) for atof
+    layer2.o(.text.convertLatitudeToDecimal) refers to ddiv.o(.text) for __aeabi_ddiv
+    layer2.o(.text.convertLatitudeToDecimal) refers to dfixi.o(.text) for __aeabi_d2iz
+    layer2.o(.text.convertLatitudeToDecimal) refers to dflti.o(.text) for __aeabi_i2d
+    layer2.o(.text.convertLatitudeToDecimal) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.text.convertLatitudeToDecimal) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.ARM.exidx.text.convertLatitudeToDecimal) refers to layer2.o(.text.convertLatitudeToDecimal) for [Anonymous Symbol]
+    layer2.o(.text.convertLongitudeToDecimal) refers to atof.o(i.atof) for atof
+    layer2.o(.text.convertLongitudeToDecimal) refers to ddiv.o(.text) for __aeabi_ddiv
+    layer2.o(.text.convertLongitudeToDecimal) refers to dfixi.o(.text) for __aeabi_d2iz
+    layer2.o(.text.convertLongitudeToDecimal) refers to dflti.o(.text) for __aeabi_i2d
+    layer2.o(.text.convertLongitudeToDecimal) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.text.convertLongitudeToDecimal) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.ARM.exidx.text.convertLongitudeToDecimal) refers to layer2.o(.text.convertLongitudeToDecimal) for [Anonymous Symbol]
+    layer2.o(.text.calculateBearing) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.text.calculateBearing) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.text.calculateBearing) refers to sin.o(i.sin) for sin
+    layer2.o(.text.calculateBearing) refers to cos.o(i.cos) for cos
+    layer2.o(.text.calculateBearing) refers to atan2.o(i.atan2) for atan2
+    layer2.o(.ARM.exidx.text.calculateBearing) refers to layer2.o(.text.calculateBearing) for [Anonymous Symbol]
+    layer2.o(.text.gpsdataextract) refers to idiv_div0.o(.text) for __aeabi_idivmod
+    layer2.o(.text.gpsdataextract) refers to atof.o(i.atof) for atof
+    layer2.o(.text.gpsdataextract) refers to ddiv.o(.text) for __aeabi_ddiv
+    layer2.o(.text.gpsdataextract) refers to dfixi.o(.text) for __aeabi_d2iz
+    layer2.o(.text.gpsdataextract) refers to dflti.o(.text) for __aeabi_i2d
+    layer2.o(.text.gpsdataextract) refers to dmul.o(.text) for __aeabi_dmul
+    layer2.o(.text.gpsdataextract) refers to dadd.o(.text) for __aeabi_dsub
+    layer2.o(.text.gpsdataextract) refers to sin.o(i.sin) for sin
+    layer2.o(.text.gpsdataextract) refers to cos.o(i.cos) for cos
+    layer2.o(.text.gpsdataextract) refers to atan2.o(i.atan2) for atan2
+    layer2.o(.text.gpsdataextract) refers to layer2.o(.data.destilat) for [Anonymous Symbol]
+    layer2.o(.text.gpsdataextract) refers to layer2.o(.data.destilong) for [Anonymous Symbol]
+    layer2.o(.ARM.exidx.text.gpsdataextract) refers to layer2.o(.text.gpsdataextract) for [Anonymous Symbol]
+    layer2.o(.text.pointing) refers to dcmplt.o(.text) for __aeabi_dcmplt
+    layer2.o(.text.pointing) refers to dcmpge.o(.text) for __aeabi_dcmpge
+    layer2.o(.text.pointing) refers to layer1.o(.text.decoder) for decoder
+    layer2.o(.ARM.exidx.text.pointing) refers to layer2.o(.text.pointing) for [Anonymous Symbol]
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframeread) for I2Csendframeread
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.I2Csendframewrite) for I2Csendframewrite
+    layer2.o(.text.IMUinit) refers to layer1.o(.text.delay) for delay
+    layer2.o(.ARM.exidx.text.IMUinit) refers to layer2.o(.text.IMUinit) for [Anonymous Symbol]
+    layer2.o(.text.getbearingdata) refers to layer1.o(.text.I2Csendframeread) for I2Csendframeread
+    layer2.o(.ARM.exidx.text.getbearingdata) refers to layer2.o(.text.getbearingdata) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.PIN_INT0_DriverIRQHandler) refers to main.o(.text.PIN_INT0_DriverIRQHandler) for [Anonymous Symbol]
+    main.o(.text.initbuffer) refers to main.o(.bss.buffer1) for buffer1
+    main.o(.text.initbuffer) refers to main.o(.bss.buffer2) for buffer2
+    main.o(.text.initbuffer) refers to main.o(.bss.buffer3) for buffer3
+    main.o(.ARM.exidx.text.initbuffer) refers to main.o(.text.initbuffer) for [Anonymous Symbol]
+    main.o(.text.main) refers to layer1.o(.text.initPort) for initPort
+    main.o(.text.main) refers to layer1.o(.text.changeDIR) for changeDIR
+    main.o(.text.main) refers to layer1.o(.text.delay) for delay
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
-    peripherals.o(.ARM.exidx.text.BOARD_InitPeripherals) refers to peripherals.o(.text.BOARD_InitPeripherals) for [Anonymous Symbol]
-    peripherals.o(.ARM.exidx.text.BOARD_InitBootPeripherals) refers to peripherals.o(.text.BOARD_InitBootPeripherals) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitBootPins) refers to fsl_swm.o(.text.SWM_SetMovablePinSelect) for SWM_SetMovablePinSelect
-    pin_mux.o(.ARM.exidx.text.BOARD_InitBootPins) refers to pin_mux.o(.text.BOARD_InitBootPins) for [Anonymous Symbol]
-    pin_mux.o(.ARM.exidx.text.BOARD_InitPins) refers to pin_mux.o(.text.BOARD_InitPins) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitDEBUG_UARTPins) refers to fsl_swm.o(.text.SWM_SetMovablePinSelect) for SWM_SetMovablePinSelect
-    pin_mux.o(.ARM.exidx.text.BOARD_InitDEBUG_UARTPins) refers to pin_mux.o(.text.BOARD_InitDEBUG_UARTPins) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitLEDsPins) refers to fsl_gpio.o(.text.GPIO_PinInit) for GPIO_PinInit
-    pin_mux.o(.ARM.exidx.text.BOARD_InitLEDsPins) refers to pin_mux.o(.text.BOARD_InitLEDsPins) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitSWD_DEBUGPins) refers to fsl_swm.o(.text.SWM_SetFixedPinSelect) for SWM_SetFixedPinSelect
-    pin_mux.o(.ARM.exidx.text.BOARD_InitSWD_DEBUGPins) refers to pin_mux.o(.text.BOARD_InitSWD_DEBUGPins) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitI2CPins) refers to fsl_swm.o(.text.SWM_SetMovablePinSelect) for SWM_SetMovablePinSelect
-    pin_mux.o(.ARM.exidx.text.BOARD_InitI2CPins) refers to pin_mux.o(.text.BOARD_InitI2CPins) for [Anonymous Symbol]
-    pin_mux.o(.text.BOARD_InitBUTTONsPins) refers to fsl_gpio.o(.text.GPIO_PinInit) for GPIO_PinInit
-    pin_mux.o(.ARM.exidx.text.BOARD_InitBUTTONsPins) refers to pin_mux.o(.text.BOARD_InitBUTTONsPins) for [Anonymous Symbol]
-    board.o(.text.BOARD_InitDebugConsole) refers to fsl_reset.o(.text.RESET_PeripheralReset) for RESET_PeripheralReset
-    board.o(.text.BOARD_InitDebugConsole) refers to fsl_clock.o(.text.CLOCK_GetMainClkFreq) for CLOCK_GetMainClkFreq
-    board.o(.text.BOARD_InitDebugConsole) refers to fsl_debug_console.o(.text.DbgConsole_Init) for DbgConsole_Init
-    board.o(.text.BOARD_InitDebugConsole) refers to fsl_assert.o(.text.__aeabi_assert) for __aeabi_assert
-    board.o(.ARM.exidx.text.BOARD_InitDebugConsole) refers to board.o(.text.BOARD_InitDebugConsole) for [Anonymous Symbol]
-    clock_config.o(.text.BOARD_InitBootClocks) refers to fsl_clock.o(.text.CLOCK_SetFroOscFreq) for CLOCK_SetFroOscFreq
-    clock_config.o(.text.BOARD_InitBootClocks) refers to fsl_clock.o(.text.CLOCK_SetMainClkSrc) for CLOCK_SetMainClkSrc
-    clock_config.o(.text.BOARD_InitBootClocks) refers to fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq) for CLOCK_SetFRG0ClkFreq
-    clock_config.o(.text.BOARD_InitBootClocks) refers to system_lpc804.o(.data.SystemCoreClock) for SystemCoreClock
-    clock_config.o(.ARM.exidx.text.BOARD_InitBootClocks) refers to clock_config.o(.text.BOARD_InitBootClocks) for [Anonymous Symbol]
-    clock_config.o(.text.BOARD_BootClockFRO30M) refers to fsl_clock.o(.text.CLOCK_SetFroOscFreq) for CLOCK_SetFroOscFreq
-    clock_config.o(.text.BOARD_BootClockFRO30M) refers to fsl_clock.o(.text.CLOCK_SetMainClkSrc) for CLOCK_SetMainClkSrc
-    clock_config.o(.text.BOARD_BootClockFRO30M) refers to fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq) for CLOCK_SetFRG0ClkFreq
-    clock_config.o(.text.BOARD_BootClockFRO30M) refers to system_lpc804.o(.data.SystemCoreClock) for SystemCoreClock
-    clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO30M) refers to clock_config.o(.text.BOARD_BootClockFRO30M) for [Anonymous Symbol]
-    clock_config.o(.text.BOARD_BootClockFRO18M) refers to fsl_clock.o(.text.CLOCK_SetFroOscFreq) for CLOCK_SetFroOscFreq
-    clock_config.o(.text.BOARD_BootClockFRO18M) refers to fsl_clock.o(.text.CLOCK_SetMainClkSrc) for CLOCK_SetMainClkSrc
-    clock_config.o(.text.BOARD_BootClockFRO18M) refers to fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq) for CLOCK_SetFRG0ClkFreq
-    clock_config.o(.text.BOARD_BootClockFRO18M) refers to system_lpc804.o(.data.SystemCoreClock) for SystemCoreClock
-    clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO18M) refers to clock_config.o(.text.BOARD_BootClockFRO18M) for [Anonymous Symbol]
-    clock_config.o(.text.BOARD_BootClockFRO24M) refers to fsl_clock.o(.text.CLOCK_SetFroOscFreq) for CLOCK_SetFroOscFreq
-    clock_config.o(.text.BOARD_BootClockFRO24M) refers to fsl_clock.o(.text.CLOCK_SetMainClkSrc) for CLOCK_SetMainClkSrc
-    clock_config.o(.text.BOARD_BootClockFRO24M) refers to fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq) for CLOCK_SetFRG0ClkFreq
-    clock_config.o(.text.BOARD_BootClockFRO24M) refers to system_lpc804.o(.data.SystemCoreClock) for SystemCoreClock
-    clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO24M) refers to clock_config.o(.text.BOARD_BootClockFRO24M) for [Anonymous Symbol]
     fsl_adapter_miniusart.o(.text.HAL_UartInit) refers to fsl_usart.o(.text.USART_GetDefaultConfig) for USART_GetDefaultConfig
     fsl_adapter_miniusart.o(.text.HAL_UartInit) refers to fsl_usart.o(.text.USART_Init) for USART_Init
     fsl_adapter_miniusart.o(.text.HAL_UartInit) refers to fsl_assert.o(.text.__aeabi_assert) for __aeabi_assert
@@ -305,7 +336,44 @@ Section Cross References
     startup_lpc804.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     startup_lpc804.o(.text) refers to fsl_usart.o(.text.USART0_DriverIRQHandler) for USART0_DriverIRQHandler
     startup_lpc804.o(.text) refers to fsl_usart.o(.text.USART1_DriverIRQHandler) for USART1_DriverIRQHandler
+    startup_lpc804.o(.text) refers to main.o(.text.PIN_INT0_DriverIRQHandler) for PIN_INT0_DriverIRQHandler
     startup_lpc804.o(.isr_vector) refers to startup_lpc804.o(.text) for Reset_Handler
+    atan2.o(i.__softfp_atan2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2.o(i.__softfp_atan2) refers to atan2.o(i.atan2) for atan2
+    atan2.o(i.atan2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan2.o(i.atan2) refers to dunder.o(i.__mathlib_dbl_infnan2) for __mathlib_dbl_infnan2
+    atan2.o(i.atan2) refers to atan.o(i.atan) for atan
+    atan2.o(i.atan2) refers to ddiv.o(.text) for __aeabi_ddiv
+    atan2.o(i.atan2) refers to dadd.o(.text) for __aeabi_dsub
+    atan2.o(i.atan2) refers to cdcmple.o(.text) for __aeabi_cdcmpeq
+    atan2.o(i.atan2) refers to errno.o(i.__set_errno) for __set_errno
+    atan2.o(i.atan2) refers to qnan.o(.constdata) for __mathlib_zero
+    atof.o(i.__softfp_atof) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atof.o(i.__softfp_atof) refers to errno.o(i.__read_errno) for __read_errno
+    atof.o(i.__softfp_atof) refers to strtod.o(.text) for __strtod_int
+    atof.o(i.__softfp_atof) refers to errno.o(i.__set_errno) for __set_errno
+    atof.o(i.atof) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atof.o(i.atof) refers to errno.o(i.__read_errno) for __read_errno
+    atof.o(i.atof) refers to strtod.o(.text) for __strtod_int
+    atof.o(i.atof) refers to errno.o(i.__set_errno) for __set_errno
+    cos.o(i.__softfp_cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos.o(i.__softfp_cos) refers to cos.o(i.cos) for cos
+    cos.o(i.cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos.o(i.cos) refers to errno.o(i.__set_errno) for __set_errno
+    cos.o(i.cos) refers to dunder.o(i.__mathlib_dbl_invalid) for __mathlib_dbl_invalid
+    cos.o(i.cos) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    cos.o(i.cos) refers to rred.o(i.__ieee754_rem_pio2) for __ieee754_rem_pio2
+    cos.o(i.cos) refers to sin_i.o(i.__kernel_sin) for __kernel_sin
+    cos.o(i.cos) refers to cos_i.o(i.__kernel_cos) for __kernel_cos
+    sin.o(i.__softfp_sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin.o(i.__softfp_sin) refers to sin.o(i.sin) for sin
+    sin.o(i.sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin.o(i.sin) refers to errno.o(i.__set_errno) for __set_errno
+    sin.o(i.sin) refers to dunder.o(i.__mathlib_dbl_invalid) for __mathlib_dbl_invalid
+    sin.o(i.sin) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    sin.o(i.sin) refers to rred.o(i.__ieee754_rem_pio2) for __ieee754_rem_pio2
+    sin.o(i.sin) refers to cos_i.o(i.__kernel_cos) for __kernel_cos
+    sin.o(i.sin) refers to sin_i.o(i.__kernel_sin) for __kernel_sin
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -313,6 +381,7 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry4.o(.ARM.Collect$$$$00000003) for _main_stk
+    idiv.o(.text) refers to uidiv_div0.o(.text) for __aeabi_uidivmod
     uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     malloc2.o(i.__free$2region) refers to mvars.o(.data) for __microlib_freelist
@@ -349,6 +418,69 @@ Section Cross References
     strtoul.o(.text) refers to errno.o(i.__aeabi_errno_addr) for __aeabi_errno_addr
     strtoul.o(.text) refers to ctype_o.o(.text) for __rt_ctype_table
     strtoul.o(.text) refers to _strtoul.o(.text) for _strtoul
+    dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
+    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    ddiv.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    ddiv.o(.text) refers to depilogue.o(.text) for _double_round
+    dcmplt.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dcmpge.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dflti.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dfixi.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfixi.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    atan.o(i.__softfp_atan) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan.o(i.__softfp_atan) refers to atan.o(i.atan) for atan
+    atan.o(i.atan) refers (Special) to iusefp.o(.text) for __I$use$fp
+    atan.o(i.atan) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
+    atan.o(i.atan) refers to fpclassify.o(i.__ARM_fpclassify) for __ARM_fpclassify
+    atan.o(i.atan) refers to dunder.o(i.__mathlib_dbl_underflow) for __mathlib_dbl_underflow
+    atan.o(i.atan) refers to dadd.o(.text) for __aeabi_dadd
+    atan.o(i.atan) refers to dscalb.o(.text) for __ARM_scalbn
+    atan.o(i.atan) refers to ddiv.o(.text) for __aeabi_ddiv
+    atan.o(i.atan) refers to dmul.o(.text) for __aeabi_dmul
+    atan.o(i.atan) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    atan.o(i.atan) refers to atan.o(.constdata) for .constdata
+    atan.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos_i.o(i.__kernel_cos) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cos_i.o(i.__kernel_cos) refers to dfixi.o(.text) for __aeabi_d2iz
+    cos_i.o(i.__kernel_cos) refers to dmul.o(.text) for __aeabi_dmul
+    cos_i.o(i.__kernel_cos) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    cos_i.o(i.__kernel_cos) refers to dadd.o(.text) for __aeabi_dsub
+    cos_i.o(i.__kernel_cos) refers to dscalb.o(.text) for __ARM_scalbn
+    cos_i.o(i.__kernel_cos) refers to cos_i.o(.constdata) for .constdata
+    cos_i.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dunder.o(i.__mathlib_dbl_divzero) refers to ddiv.o(.text) for __aeabi_ddiv
+    dunder.o(i.__mathlib_dbl_infnan) refers to dscalb.o(.text) for __ARM_scalbn
+    dunder.o(i.__mathlib_dbl_infnan2) refers to dadd.o(.text) for __aeabi_dadd
+    dunder.o(i.__mathlib_dbl_invalid) refers to ddiv.o(.text) for __aeabi_ddiv
+    dunder.o(i.__mathlib_dbl_overflow) refers to dscalb.o(.text) for __ARM_scalbn
+    dunder.o(i.__mathlib_dbl_posinfnan) refers to dmul.o(.text) for __aeabi_dmul
+    dunder.o(i.__mathlib_dbl_underflow) refers to dscalb.o(.text) for __ARM_scalbn
+    qnan.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ieee754_rem_pio2) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ieee754_rem_pio2) refers to dadd.o(.text) for __aeabi_dsub
+    rred.o(i.__ieee754_rem_pio2) refers to dmul.o(.text) for __aeabi_dmul
+    rred.o(i.__ieee754_rem_pio2) refers to dfixi.o(.text) for __aeabi_d2iz
+    rred.o(i.__ieee754_rem_pio2) refers to dflti.o(.text) for __aeabi_i2d
+    rred.o(i.__ieee754_rem_pio2) refers to rred.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
+    rred.o(i.__ieee754_rem_pio2) refers to dfltui.o(.text) for __aeabi_ui2d
+    rred.o(i.__ieee754_rem_pio2) refers to dscalb.o(.text) for __ARM_scalbn
+    rred.o(i.__ieee754_rem_pio2) refers to rred.o(.constdata) for .constdata
+    rred.o(i.__use_accurate_range_reduction) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin_i.o(i.__kernel_sin) refers (Special) to iusefp.o(.text) for __I$use$fp
+    sin_i.o(i.__kernel_sin) refers to fpclassify.o(i.__ARM_fpclassify) for __ARM_fpclassify
+    sin_i.o(i.__kernel_sin) refers to dunder.o(i.__mathlib_dbl_underflow) for __mathlib_dbl_underflow
+    sin_i.o(i.__kernel_sin) refers to dmul.o(.text) for __aeabi_dmul
+    sin_i.o(i.__kernel_sin) refers to poly.o(i.__kernel_poly) for __kernel_poly
+    sin_i.o(i.__kernel_sin) refers to dscalb.o(.text) for __ARM_scalbn
+    sin_i.o(i.__kernel_sin) refers to dadd.o(.text) for __aeabi_dsub
+    sin_i.o(i.__kernel_sin) refers to sin_i.o(.constdata) for .constdata
+    sin_i.o(.constdata) refers (Special) to iusefp.o(.text) for __I$use$fp
     entry4.o(.ARM.Collect$$$$00000003) refers to entry4.o(.ARM.Collect$$$$00002714) for __lit__00000000
     entry4.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
@@ -371,47 +503,102 @@ Section Cross References
     isxdigit_o.o(.text) refers to ctype_o.o(.text) for __rt_ctype_table
     _strtoul.o(.text) refers to _chval.o(.text) for _chval
     _strtoul.o(.text) refers to errno.o(i.__aeabi_errno_addr) for __aeabi_errno_addr
+    strtod.o(.text) refers to scanf_fp.o(.text) for _scanf_real
+    strtod.o(.text) refers to _sgetc.o(.text) for _sgetc
+    strtod.o(.text) refers to isspace_o.o(.text) for isspace
+    depilogue.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    depilogue.o(.text) refers to depilogue.o(i.__ARM_clz) for __ARM_clz
+    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    cdcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    fpclassify.o(i.__ARM_fpclassify) refers (Special) to iusefp.o(.text) for __I$use$fp
+    poly.o(i.__kernel_poly) refers (Special) to iusefp.o(.text) for __I$use$fp
+    poly.o(i.__kernel_poly) refers to dmul.o(.text) for __aeabi_dmul
+    poly.o(i.__kernel_poly) refers to dadd.o(.text) for __aeabi_dadd
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+    isspace_c.o(.text) refers to ctype_c.o(.text) for __ctype_lookup
+    scanf_fp.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    scanf_fp.o(.text) refers to llmul.o(.text) for __aeabi_lmul
+    scanf_fp.o(.text) refers to dfltul.o(.text) for __aeabi_ul2d
+    scanf_fp.o(.text) refers to dmul.o(.text) for __aeabi_dmul
+    scanf_fp.o(.text) refers to ddiv.o(.text) for __aeabi_ddiv
+    scanf_fp.o(.text) refers to scanf_fp.o(i._is_digit) for _is_digit
+    scanf_fp.o(.text) refers to d2f.o(.text) for __aeabi_d2f
+    dscalb.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltui.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    ctype_c.o(.text) refers to ctype_c.o(.constdata) for .constdata
+    dfltul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    d2f.o(.text) refers to fepilogue.o(.text) for _float_round
+    fepilogue.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    rred.o(i.__ARM_common_ll_muluu) refers (Special) to iusefp.o(.text) for __I$use$fp
+    depilogue.o(i.__ARM_clz) refers (Special) to iusefp.o(.text) for __I$use$fp
+    scanf_fp.o(i._is_digit) refers (Special) to iusefp.o(.text) for __I$use$fp
 
 
 ==============================================================================
 
 Removing Unused input sections from the image.
 
+    Removing layer1.o(.text), (0 bytes).
+    Removing layer1.o(.ARM.exidx.text.initPort), (8 bytes).
+    Removing layer1.o(.ARM.exidx.text.changeDIR), (8 bytes).
+    Removing layer1.o(.text.initPWM), (76 bytes).
+    Removing layer1.o(.ARM.exidx.text.initPWM), (8 bytes).
+    Removing layer1.o(.text.pwmdutycycle), (24 bytes).
+    Removing layer1.o(.ARM.exidx.text.pwmdutycycle), (8 bytes).
+    Removing layer1.o(.text.decoder), (84 bytes).
+    Removing layer1.o(.ARM.exidx.text.decoder), (8 bytes).
+    Removing layer1.o(.ARM.exidx.text.delay), (8 bytes).
+    Removing layer1.o(.text.uartinit), (136 bytes).
+    Removing layer1.o(.ARM.exidx.text.uartinit), (8 bytes).
+    Removing layer1.o(.text.sendcharuart), (24 bytes).
+    Removing layer1.o(.ARM.exidx.text.sendcharuart), (8 bytes).
+    Removing layer1.o(.text.readcharuart), (4 bytes).
+    Removing layer1.o(.ARM.exidx.text.readcharuart), (8 bytes).
+    Removing layer1.o(.text.I2Cinit), (104 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Cinit), (8 bytes).
+    Removing layer1.o(.text.pininterruptsetup), (72 bytes).
+    Removing layer1.o(.ARM.exidx.text.pininterruptsetup), (8 bytes).
+    Removing layer1.o(.text.I2Csendframewrite), (56 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Csendframewrite), (8 bytes).
+    Removing layer1.o(.text.I2Csendframeread), (56 bytes).
+    Removing layer1.o(.ARM.exidx.text.I2Csendframeread), (8 bytes).
+    Removing layer2.o(.text), (0 bytes).
+    Removing layer2.o(.text.toRadians), (20 bytes).
+    Removing layer2.o(.ARM.exidx.text.toRadians), (8 bytes).
+    Removing layer2.o(.text.gpsinit), (76 bytes).
+    Removing layer2.o(.ARM.exidx.text.gpsinit), (8 bytes).
+    Removing layer2.o(.text.uartsendstring), (34 bytes).
+    Removing layer2.o(.ARM.exidx.text.uartsendstring), (8 bytes).
+    Removing layer2.o(.text.convertLatitudeToDecimal), (100 bytes).
+    Removing layer2.o(.ARM.exidx.text.convertLatitudeToDecimal), (8 bytes).
+    Removing layer2.o(.text.convertLongitudeToDecimal), (100 bytes).
+    Removing layer2.o(.ARM.exidx.text.convertLongitudeToDecimal), (8 bytes).
+    Removing layer2.o(.text.calculateBearing), (244 bytes).
+    Removing layer2.o(.ARM.exidx.text.calculateBearing), (8 bytes).
+    Removing layer2.o(.text.gpsdataextract), (728 bytes).
+    Removing layer2.o(.ARM.exidx.text.gpsdataextract), (8 bytes).
+    Removing layer2.o(.text.pointing), (368 bytes).
+    Removing layer2.o(.ARM.exidx.text.pointing), (8 bytes).
+    Removing layer2.o(.text.IMUinit), (82 bytes).
+    Removing layer2.o(.ARM.exidx.text.IMUinit), (8 bytes).
+    Removing layer2.o(.text.getbearingdata), (130 bytes).
+    Removing layer2.o(.ARM.exidx.text.getbearingdata), (8 bytes).
+    Removing layer2.o(.rodata.str1.1), (85 bytes).
+    Removing layer2.o(.data.destilat), (8 bytes).
+    Removing layer2.o(.data.destilong), (8 bytes).
     Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.PIN_INT0_DriverIRQHandler), (8 bytes).
+    Removing main.o(.text.initbuffer), (48 bytes).
+    Removing main.o(.ARM.exidx.text.initbuffer), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.bss.buffer1), (92 bytes).
+    Removing main.o(.bss.buffer2), (92 bytes).
+    Removing main.o(.bss.buffer3), (92 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
-    Removing peripherals.o(.text), (0 bytes).
-    Removing peripherals.o(.text.BOARD_InitPeripherals), (2 bytes).
-    Removing peripherals.o(.ARM.exidx.text.BOARD_InitPeripherals), (8 bytes).
-    Removing peripherals.o(.text.BOARD_InitBootPeripherals), (2 bytes).
-    Removing peripherals.o(.ARM.exidx.text.BOARD_InitBootPeripherals), (8 bytes).
-    Removing pin_mux.o(.text), (0 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitBootPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitPins), (2 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitDEBUG_UARTPins), (76 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitDEBUG_UARTPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitLEDsPins), (100 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitLEDsPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitSWD_DEBUGPins), (88 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitSWD_DEBUGPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitI2CPins), (72 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitI2CPins), (8 bytes).
-    Removing pin_mux.o(.text.BOARD_InitBUTTONsPins), (88 bytes).
-    Removing pin_mux.o(.ARM.exidx.text.BOARD_InitBUTTONsPins), (8 bytes).
-    Removing board.o(.text), (0 bytes).
-    Removing board.o(.text.BOARD_InitDebugConsole), (96 bytes).
-    Removing board.o(.ARM.exidx.text.BOARD_InitDebugConsole), (8 bytes).
-    Removing board.o(.rodata.ExtClockIn), (4 bytes).
-    Removing clock_config.o(.text), (0 bytes).
-    Removing clock_config.o(.ARM.exidx.text.BOARD_InitBootClocks), (8 bytes).
-    Removing clock_config.o(.text.BOARD_BootClockFRO30M), (104 bytes).
-    Removing clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO30M), (8 bytes).
-    Removing clock_config.o(.text.BOARD_BootClockFRO18M), (104 bytes).
-    Removing clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO18M), (8 bytes).
-    Removing clock_config.o(.text.BOARD_BootClockFRO24M), (104 bytes).
-    Removing clock_config.o(.ARM.exidx.text.BOARD_BootClockFRO24M), (8 bytes).
     Removing fsl_adapter_miniusart.o(.text), (0 bytes).
     Removing fsl_adapter_miniusart.o(.text.HAL_UartInit), (184 bytes).
     Removing fsl_adapter_miniusart.o(.ARM.exidx.text.HAL_UartInit), (8 bytes).
@@ -428,6 +615,7 @@ Removing Unused input sections from the image.
     Removing fsl_adapter_miniusart.o(.rodata.str1.1), (196 bytes).
     Removing fsl_adapter_miniusart.o(.rodata.cst8), (8 bytes).
     Removing fsl_clock.o(.text), (0 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq), (196 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetFRG0ClkFreq), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_GetFRG0ClkFreq), (140 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetFRG0ClkFreq), (8 bytes).
@@ -445,8 +633,14 @@ Removing Unused input sections from the image.
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_GetFreq), (8 bytes).
     Removing fsl_clock.o(.text.CLOCK_InitExtClkin), (40 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_InitExtClkin), (8 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetMainClkSrc), (48 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetMainClkSrc), (8 bytes).
+    Removing fsl_clock.o(.text.CLOCK_SetFroOscFreq), (32 bytes).
     Removing fsl_clock.o(.ARM.exidx.text.CLOCK_SetFroOscFreq), (8 bytes).
+    Removing fsl_clock.o(.bss.g_Ext_Clk_Freq), (4 bytes).
+    Removing fsl_clock.o(.data.g_LP_Osc_Freq), (4 bytes).
+    Removing fsl_clock.o(.bss.g_Fro_Osc_Freq), (4 bytes).
+    Removing fsl_clock.o(.rodata.str1.1), (102 bytes).
     Removing fsl_common.o(.text), (0 bytes).
     Removing fsl_common.o(.text.SDK_Malloc), (64 bytes).
     Removing fsl_common.o(.ARM.exidx.text.SDK_Malloc), (8 bytes).
@@ -485,11 +679,13 @@ Removing Unused input sections from the image.
     Removing fsl_reset.o(.ARM.exidx.text.RESET_PeripheralReset), (8 bytes).
     Removing fsl_reset.o(.rodata.str1.1), (110 bytes).
     Removing fsl_swm.o(.text), (0 bytes).
+    Removing fsl_swm.o(.text.SWM_SetMovablePinSelect), (96 bytes).
     Removing fsl_swm.o(.ARM.exidx.text.SWM_SetMovablePinSelect), (8 bytes).
     Removing fsl_swm.o(.text.SWM_SetFixedMovablePinSelect), (108 bytes).
     Removing fsl_swm.o(.ARM.exidx.text.SWM_SetFixedMovablePinSelect), (8 bytes).
     Removing fsl_swm.o(.text.SWM_SetFixedPinSelect), (60 bytes).
     Removing fsl_swm.o(.ARM.exidx.text.SWM_SetFixedPinSelect), (8 bytes).
+    Removing fsl_swm.o(.rodata.str1.1), (107 bytes).
     Removing fsl_syscon.o(.text), (0 bytes).
     Removing fsl_syscon.o(.text.SYSCON_AttachSignal), (12 bytes).
     Removing fsl_syscon.o(.ARM.exidx.text.SYSCON_AttachSignal), (8 bytes).
@@ -541,7 +737,9 @@ Removing Unused input sections from the image.
     Removing system_lpc804.o(.text.SystemCoreClockUpdate), (76 bytes).
     Removing system_lpc804.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing fsl_assert.o(.text), (0 bytes).
+    Removing fsl_assert.o(.text.fsl_assert_hook), (4 bytes).
     Removing fsl_assert.o(.ARM.exidx.text.fsl_assert_hook), (8 bytes).
+    Removing fsl_assert.o(.text.__aeabi_assert), (76 bytes).
     Removing fsl_assert.o(.ARM.exidx.text.__aeabi_assert), (8 bytes).
     Removing fsl_debug_console.o(.text), (0 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Init), (76 bytes).
@@ -552,7 +750,9 @@ Removing Unused input sections from the image.
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_EnterLowpower), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_ExitLowpower), (32 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_ExitLowpower), (8 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_Printf), (28 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Printf), (8 bytes).
+    Removing fsl_debug_console.o(.text.DbgConsole_Vprintf), (1140 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Vprintf), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Putchar), (40 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Putchar), (8 bytes).
@@ -560,13 +760,29 @@ Removing Unused input sections from the image.
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Scanf), (8 bytes).
     Removing fsl_debug_console.o(.text.DbgConsole_Getchar), (44 bytes).
     Removing fsl_debug_console.o(.ARM.exidx.text.DbgConsole_Getchar), (8 bytes).
+    Removing fsl_debug_console.o(.bss.s_debugConsole), (20 bytes).
     Removing fsl_str.o(.text), (0 bytes).
     Removing fsl_str.o(.text.StrFormatPrintf), (706 bytes).
     Removing fsl_str.o(.ARM.exidx.text.StrFormatPrintf), (8 bytes).
     Removing fsl_str.o(.text.StrFormatScanf), (712 bytes).
     Removing fsl_str.o(.ARM.exidx.text.StrFormatScanf), (8 bytes).
+    Removing dadd.o(.text), (356 bytes).
+    Removing dmul.o(.text), (208 bytes).
+    Removing ddiv.o(.text), (240 bytes).
+    Removing dcmplt.o(.text), (44 bytes).
+    Removing dcmpge.o(.text), (44 bytes).
+    Removing dflti.o(.text), (40 bytes).
+    Removing dfixi.o(.text), (72 bytes).
+    Removing depilogue.o(.text), (190 bytes).
+    Removing cdcmple.o(.text), (40 bytes).
+    Removing dscalb.o(.text), (44 bytes).
+    Removing dfltui.o(.text), (28 bytes).
+    Removing dfltul.o(.text), (28 bytes).
+    Removing d2f.o(.text), (56 bytes).
+    Removing fepilogue.o(.text), (130 bytes).
+    Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-187 unused section(s) (total 9862 bytes) removed from the image.
+239 unused section(s) (total 15478 bytes) removed from the image.
 
 ==============================================================================
 
@@ -592,7 +808,10 @@ Image Symbol Table
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isupper_o.o ABSOLUTE
     ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isxdigit_o.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  isspace_c.o ABSOLUTE
+    ../clib/microlib/ctype/ctype.c           0x00000000   Number         0  ctype_c.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv_div0.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  idiv_div0.o ABSOLUTE
@@ -613,6 +832,7 @@ Image Symbol Table
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc2.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr2.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca2.o ABSOLUTE
@@ -625,11 +845,41 @@ Image Symbol Table
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memset.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  strtoul.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _strtoul.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  strtod.o ABSOLUTE
     ../clib/scanf.c                          0x00000000   Number         0  _chval.o ABSOLUTE
-    board.c                                  0x00000000   Number         0  board.o ABSOLUTE
-    clock_config.c                           0x00000000   Number         0  clock_config.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  scanf_fp.o ABSOLUTE
+    ../clib/scanf.c                          0x00000000   Number         0  _sgetc.o ABSOLUTE
+    ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
+    ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  dcmplt.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  dcmpge.o ABSOLUTE
+    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpscalb.c              0x00000000   Number         0  dscalb.o ABSOLUTE
+    ../mathlib/atan.c                        0x00000000   Number         0  atan.o ABSOLUTE
+    ../mathlib/atan2.c                       0x00000000   Number         0  atan2.o ABSOLUTE
+    ../mathlib/atof.c                        0x00000000   Number         0  atof.o ABSOLUTE
+    ../mathlib/cos.c                         0x00000000   Number         0  cos.o ABSOLUTE
+    ../mathlib/cos_i.c                       0x00000000   Number         0  cos_i.o ABSOLUTE
+    ../mathlib/dunder.c                      0x00000000   Number         0  dunder.o ABSOLUTE
+    ../mathlib/fpclassify.c                  0x00000000   Number         0  fpclassify.o ABSOLUTE
+    ../mathlib/poly.c                        0x00000000   Number         0  poly.o ABSOLUTE
+    ../mathlib/qnan.c                        0x00000000   Number         0  qnan.o ABSOLUTE
+    ../mathlib/rred.c                        0x00000000   Number         0  rred.o ABSOLUTE
+    ../mathlib/sin.c                         0x00000000   Number         0  sin.o ABSOLUTE
+    ../mathlib/sin_i.c                       0x00000000   Number         0  sin_i.o ABSOLUTE
+    Layer1.c                                 0x00000000   Number         0  layer1.o ABSOLUTE
+    Layer2.c                                 0x00000000   Number         0  layer2.o ABSOLUTE
+    cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     fsl_adapter_miniusart.c                  0x00000000   Number         0  fsl_adapter_miniusart.o ABSOLUTE
     fsl_assert.c                             0x00000000   Number         0  fsl_assert.o ABSOLUTE
@@ -647,8 +897,6 @@ Image Symbol Table
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
-    peripherals.c                            0x00000000   Number         0  peripherals.o ABSOLUTE
-    pin_mux.c                                0x00000000   Number         0  pin_mux.o ABSOLUTE
     system_LPC804.c                          0x00000000   Number         0  system_lpc804.o ABSOLUTE
     .ARM.Collect$$$$00000000                 0x00000300   Section        0  entry.o(.ARM.Collect$$$$00000000)
     .ARM.Collect$$$$00000003                 0x00000300   Section        4  entry4.o(.ARM.Collect$$$$00000003)
@@ -661,76 +909,44 @@ Image Symbol Table
     .ARM.Collect$$$$0000000F                 0x00000310   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
     .ARM.Collect$$$$00002714                 0x00000310   Section        4  entry4.o(.ARM.Collect$$$$00002714)
     [Anonymous Symbol]                       0x00000314   Section        0  startup_lpc804.o(.text)
-    .text                                    0x00000454   Section        0  uldiv.o(.text)
-    .text                                    0x000004b4   Section        0  memcpy.o(.text)
-    .text                                    0x000004dc   Section        0  strlen.o(.text)
-    .text                                    0x000004ea   Section        0  uidiv_div0.o(.text)
-    .text                                    0x00000528   Section        0  llshl.o(.text)
-    .text                                    0x00000548   Section        0  llushr.o(.text)
-    .text                                    0x0000056c   Section       36  init.o(.text)
-    [Anonymous Symbol]                       0x00000590   Section        0  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_0                             0x000005e0   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_1                             0x000005e4   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_2                             0x000005e8   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_3                             0x000005ec   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_4                             0x000005f0   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    __arm_cp.0_5                             0x000005f4   Number         4  clock_config.o(.text.BOARD_InitBootClocks)
-    [Anonymous Symbol]                       0x000005f8   Section        0  pin_mux.o(.text.BOARD_InitBootPins)
-    __arm_cp.0_0                             0x00000638   Number         4  pin_mux.o(.text.BOARD_InitBootPins)
-    __arm_cp.0_1                             0x0000063c   Number         4  pin_mux.o(.text.BOARD_InitBootPins)
-    __arm_cp.0_2                             0x00000640   Number         4  pin_mux.o(.text.BOARD_InitBootPins)
-    [Anonymous Symbol]                       0x00000644   Section        0  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_0                             0x000006e4   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_1                             0x000006e8   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_2                             0x000006ec   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_3                             0x000006f0   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_4                             0x000006f4   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_5                             0x000006f8   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    __arm_cp.0_6                             0x000006fc   Number         4  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    [Anonymous Symbol]                       0x00000708   Section        0  fsl_clock.o(.text.CLOCK_SetFroOscFreq)
-    __arm_cp.10_0                            0x00000720   Number         4  fsl_clock.o(.text.CLOCK_SetFroOscFreq)
-    __arm_cp.10_1                            0x00000724   Number         4  fsl_clock.o(.text.CLOCK_SetFroOscFreq)
-    [Anonymous Symbol]                       0x00000728   Section        0  fsl_clock.o(.text.CLOCK_SetMainClkSrc)
-    __arm_cp.9_0                             0x00000754   Number         4  fsl_clock.o(.text.CLOCK_SetMainClkSrc)
-    [Anonymous Symbol]                       0x00000758   Section        0  fsl_debug_console.o(.text.DbgConsole_Printf)
-    [Anonymous Symbol]                       0x00000774   Section        0  fsl_debug_console.o(.text.DbgConsole_Vprintf)
-    __arm_cp.5_0                             0x00000be4   Number         4  fsl_debug_console.o(.text.DbgConsole_Vprintf)
-    [Anonymous Symbol]                       0x00000be8   Section        0  fsl_swm.o(.text.SWM_SetMovablePinSelect)
-    __arm_cp.0_1                             0x00000c40   Number         4  fsl_swm.o(.text.SWM_SetMovablePinSelect)
-    __arm_cp.0_2                             0x00000c44   Number         4  fsl_swm.o(.text.SWM_SetMovablePinSelect)
-    [Anonymous Symbol]                       0x00000c48   Section        0  system_lpc804.o(.text.SystemInit)
-    __arm_cp.0_0                             0x00000c5c   Number         4  system_lpc804.o(.text.SystemInit)
-    __arm_cp.0_1                             0x00000c60   Number         4  system_lpc804.o(.text.SystemInit)
-    __arm_cp.0_2                             0x00000c64   Number         4  system_lpc804.o(.text.SystemInit)
-    __arm_cp.0_3                             0x00000c68   Number         4  system_lpc804.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00000c6c   Section        0  system_lpc804.o(.text.SystemInitHook)
-    [Anonymous Symbol]                       0x00000c70   Section        0  fsl_usart.o(.text.USART0_DriverIRQHandler)
-    __arm_cp.18_2                            0x00000c80   Number         4  fsl_usart.o(.text.USART0_DriverIRQHandler)
-    [Anonymous Symbol]                       0x00000c84   Section        0  fsl_usart.o(.text.USART1_DriverIRQHandler)
-    __arm_cp.19_0                            0x00000c94   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
-    __arm_cp.19_1                            0x00000c98   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
-    __arm_cp.19_2                            0x00000c9c   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
-    [Anonymous Symbol]                       0x00000ca0   Section        0  fsl_assert.o(.text.__aeabi_assert)
-    [Anonymous Symbol]                       0x00000cec   Section        0  fsl_assert.o(.text.fsl_assert_hook)
-    [Anonymous Symbol]                       0x00000cf0   Section        0  main.o(.text.main)
-    i.__scatterload_copy                     0x00000cfa   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000d08   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00000d0a   Section       14  handlers.o(i.__scatterload_zeroinit)
-    [Anonymous Symbol]                       0x00000d18   Section        0  fsl_clock.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00000d7e   Section        0  fsl_swm.o(.rodata.str1.1)
-    s_usartIsr                               0x10000008   Data           4  fsl_usart.o(.data.s_usartIsr)
-    [Anonymous Symbol]                       0x10000008   Section        0  fsl_usart.o(.data.s_usartIsr)
-    s_debugConsole                           0x10000014   Data          20  fsl_debug_console.o(.bss.s_debugConsole)
-    [Anonymous Symbol]                       0x10000014   Section        0  fsl_debug_console.o(.bss.s_debugConsole)
-    s_usartHandle                            0x10000028   Data           8  fsl_usart.o(.bss.s_usartHandle)
-    [Anonymous Symbol]                       0x10000028   Section        0  fsl_usart.o(.bss.s_usartHandle)
+    .text                                    0x00000454   Section       36  init.o(.text)
+    [Anonymous Symbol]                       0x00000478   Section        0  main.o(.text.PIN_INT0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x00000488   Section        0  system_lpc804.o(.text.SystemInit)
+    __arm_cp.0_0                             0x0000049c   Number         4  system_lpc804.o(.text.SystemInit)
+    __arm_cp.0_1                             0x000004a0   Number         4  system_lpc804.o(.text.SystemInit)
+    __arm_cp.0_2                             0x000004a4   Number         4  system_lpc804.o(.text.SystemInit)
+    __arm_cp.0_3                             0x000004a8   Number         4  system_lpc804.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x000004ac   Section        0  system_lpc804.o(.text.SystemInitHook)
+    [Anonymous Symbol]                       0x000004b0   Section        0  fsl_usart.o(.text.USART0_DriverIRQHandler)
+    __arm_cp.18_2                            0x000004c0   Number         4  fsl_usart.o(.text.USART0_DriverIRQHandler)
+    [Anonymous Symbol]                       0x000004c4   Section        0  fsl_usart.o(.text.USART1_DriverIRQHandler)
+    __arm_cp.19_0                            0x000004d4   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
+    __arm_cp.19_1                            0x000004d8   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
+    __arm_cp.19_2                            0x000004dc   Number         4  fsl_usart.o(.text.USART1_DriverIRQHandler)
+    [Anonymous Symbol]                       0x000004e0   Section        0  layer1.o(.text.changeDIR)
+    __arm_cp.1_0                             0x00000500   Number         4  layer1.o(.text.changeDIR)
+    __arm_cp.1_1                             0x00000504   Number         4  layer1.o(.text.changeDIR)
+    [Anonymous Symbol]                       0x00000508   Section        0  layer1.o(.text.delay)
+    __arm_cp.5_0                             0x00000530   Number         4  layer1.o(.text.delay)
+    __arm_cp.5_1                             0x00000534   Number         4  layer1.o(.text.delay)
+    [Anonymous Symbol]                       0x00000538   Section        0  layer1.o(.text.initPort)
+    __arm_cp.0_0                             0x0000054c   Number         4  layer1.o(.text.initPort)
+    [Anonymous Symbol]                       0x00000550   Section        0  main.o(.text.main)
+    __arm_cp.2_0                             0x0000058c   Number         4  main.o(.text.main)
+    i.__scatterload_copy                     0x00000590   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0000059e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000005a0   Section       14  handlers.o(i.__scatterload_zeroinit)
+    s_usartIsr                               0x10000004   Data           4  fsl_usart.o(.data.s_usartIsr)
+    [Anonymous Symbol]                       0x10000004   Section        0  fsl_usart.o(.data.s_usartIsr)
+    s_usartHandle                            0x10000008   Data           8  fsl_usart.o(.bss.s_usartHandle)
+    [Anonymous Symbol]                       0x10000008   Section        0  fsl_usart.o(.bss.s_usartHandle)
     CRP_Level                                0xffffffff   Number         0  startup_lpc804.o ABSOLUTE
 
     Global Symbols
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$IEEEX$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __Vectors                                0x00000000   Number       192  startup_lpc804.o(.isr_vector)
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
@@ -760,7 +976,6 @@ Image Symbol Table
     I2C0_DriverIRQHandler                    0x00000325   Thumb Code     4  startup_lpc804.o(.text)
     I2C1_DriverIRQHandler                    0x00000325   Thumb Code     4  startup_lpc804.o(.text)
     MRT0_DriverIRQHandler                    0x00000325   Thumb Code     4  startup_lpc804.o(.text)
-    PIN_INT0_DriverIRQHandler                0x00000325   Thumb Code     4  startup_lpc804.o(.text)
     PIN_INT1_DriverIRQHandler                0x00000325   Thumb Code     4  startup_lpc804.o(.text)
     PIN_INT2_DriverIRQHandler                0x00000325   Thumb Code     4  startup_lpc804.o(.text)
     PIN_INT3_DriverIRQHandler                0x00000325   Thumb Code     4  startup_lpc804.o(.text)
@@ -815,46 +1030,25 @@ Image Symbol Table
     PIN_INT5_IRQHandler                      0x000003b1   Thumb Code     4  startup_lpc804.o(.text)
     PIN_INT6_IRQHandler                      0x000003b5   Thumb Code     4  startup_lpc804.o(.text)
     PIN_INT7_IRQHandler                      0x000003b9   Thumb Code     4  startup_lpc804.o(.text)
-    __aeabi_uldivmod                         0x00000455   Thumb Code    96  uldiv.o(.text)
-    ___aeabi_memcpy4$ret                     0x000004b5   Thumb Code     0  memcpy.o(.text)
-    ___aeabi_memcpy8$ret                     0x000004b5   Thumb Code     0  memcpy.o(.text)
-    __aeabi_memcpy                           0x000004b5   Thumb Code    40  memcpy.o(.text)
-    memcpy                                   0x000004b5   Thumb Code     0  memcpy.o(.text)
-    strlen                                   0x000004dd   Thumb Code    14  strlen.o(.text)
-    __aeabi_uidiv                            0x000004eb   Thumb Code     0  uidiv_div0.o(.text)
-    __aeabi_uidivmod                         0x000004eb   Thumb Code    62  uidiv_div0.o(.text)
-    __aeabi_llsl                             0x00000529   Thumb Code    32  llshl.o(.text)
-    _ll_shift_l                              0x00000529   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x00000549   Thumb Code    34  llushr.o(.text)
-    _ll_ushift_r                             0x00000549   Thumb Code     0  llushr.o(.text)
-    __scatterload                            0x0000056d   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x0000056d   Thumb Code     0  init.o(.text)
-    BOARD_InitBootClocks                     0x00000591   Thumb Code    80  clock_config.o(.text.BOARD_InitBootClocks)
-    BOARD_InitBootPins                       0x000005f9   Thumb Code    64  pin_mux.o(.text.BOARD_InitBootPins)
-    CLOCK_SetFRG0ClkFreq                     0x00000645   Thumb Code   160  fsl_clock.o(.text.CLOCK_SetFRG0ClkFreq)
-    CLOCK_SetFroOscFreq                      0x00000709   Thumb Code    24  fsl_clock.o(.text.CLOCK_SetFroOscFreq)
-    CLOCK_SetMainClkSrc                      0x00000729   Thumb Code    44  fsl_clock.o(.text.CLOCK_SetMainClkSrc)
-    DbgConsole_Printf                        0x00000759   Thumb Code    28  fsl_debug_console.o(.text.DbgConsole_Printf)
-    DbgConsole_Vprintf                       0x00000775   Thumb Code  1136  fsl_debug_console.o(.text.DbgConsole_Vprintf)
-    SWM_SetMovablePinSelect                  0x00000be9   Thumb Code    56  fsl_swm.o(.text.SWM_SetMovablePinSelect)
-    SystemInit                               0x00000c49   Thumb Code    20  system_lpc804.o(.text.SystemInit)
-    SystemInitHook                           0x00000c6d   Thumb Code     2  system_lpc804.o(.text.SystemInitHook)
-    USART0_DriverIRQHandler                  0x00000c71   Thumb Code    16  fsl_usart.o(.text.USART0_DriverIRQHandler)
-    USART1_DriverIRQHandler                  0x00000c85   Thumb Code    16  fsl_usart.o(.text.USART1_DriverIRQHandler)
-    __aeabi_assert                           0x00000ca1   Thumb Code    32  fsl_assert.o(.text.__aeabi_assert)
-    fsl_assert_hook                          0x00000ced   Thumb Code     4  fsl_assert.o(.text.fsl_assert_hook)
-    main                                     0x00000cf1   Thumb Code    10  main.o(.text.main)
-    __scatterload_copy                       0x00000cfb   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000d09   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00000d0b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00000dec   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000e0c   Number         0  anon$$obj.o(Region$$Table)
+    __scatterload                            0x00000455   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000455   Thumb Code     0  init.o(.text)
+    PIN_INT0_DriverIRQHandler                0x00000479   Thumb Code    16  main.o(.text.PIN_INT0_DriverIRQHandler)
+    SystemInit                               0x00000489   Thumb Code    20  system_lpc804.o(.text.SystemInit)
+    SystemInitHook                           0x000004ad   Thumb Code     2  system_lpc804.o(.text.SystemInitHook)
+    USART0_DriverIRQHandler                  0x000004b1   Thumb Code    16  fsl_usart.o(.text.USART0_DriverIRQHandler)
+    USART1_DriverIRQHandler                  0x000004c5   Thumb Code    16  fsl_usart.o(.text.USART1_DriverIRQHandler)
+    changeDIR                                0x000004e1   Thumb Code    32  layer1.o(.text.changeDIR)
+    delay                                    0x00000509   Thumb Code    40  layer1.o(.text.delay)
+    initPort                                 0x00000539   Thumb Code    20  layer1.o(.text.initPort)
+    main                                     0x00000551   Thumb Code    60  main.o(.text.main)
+    __scatterload_copy                       0x00000591   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0000059f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000005a1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x000005b0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000005d0   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x10000000   Data           4  system_lpc804.o(.data.SystemCoreClock)
-    g_LP_Osc_Freq                            0x10000004   Data           4  fsl_clock.o(.data.g_LP_Osc_Freq)
-    g_Ext_Clk_Freq                           0x1000000c   Data           4  fsl_clock.o(.bss.g_Ext_Clk_Freq)
-    g_Fro_Osc_Freq                           0x10000010   Data           4  fsl_clock.o(.bss.g_Fro_Osc_Freq)
-    Image$$ARM_LIB_HEAP$$ZI$$Base            0x10000030   Number         0  anon$$obj.o ABSOLUTE
-    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x10000070   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_HEAP$$ZI$$Base            0x10000010   Number         0  anon$$obj.o ABSOLUTE
+    Image$$ARM_LIB_HEAP$$ZI$$Limit           0x10000050   Number         0  anon$$obj.o ABSOLUTE
     Image$$ARM_LIB_STACK$$ZI$$Limit          0x10000fe0   Number         0  anon$$obj.o ABSOLUTE
 
 
@@ -865,90 +1059,71 @@ Memory Map of the image
 
   Image Entry point : 0x00000315
 
-  Load Region LR_m_text (Base: 0x00000000, Size: 0x00000e18, Max: 0x00007f00, ABSOLUTE)
+  Load Region LR_m_text (Base: 0x00000000, Size: 0x000005d8, Max: 0x00007f00, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000000c0, Max: 0x00000200, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO          340    .isr_vector         startup_lpc804.o
+    0x00000000   0x00000000   0x000000c0   Data   RO          355    .isr_vector         startup_lpc804.o
 
 
     Execution Region ER_m_crp (Exec base: 0x000002fc, Load base: 0x000002fc, Size: 0x00000004, Max: 0x00000004, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x000002fc   0x000002fc   0x00000004   Data   RO          341    .crp                startup_lpc804.o
+    0x000002fc   0x000002fc   0x00000004   Data   RO          356    .crp                startup_lpc804.o
 
 
-    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x00000b0c, Max: 0x00007c00, ABSOLUTE, FIXED)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x00000300   0x00000300   0x00000000   Code   RO          346  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x00000300   0x00000300   0x00000004   Code   RO          406    .ARM.Collect$$$$00000003  mc_p.l(entry4.o)
-    0x00000304   0x00000304   0x00000004   Code   RO          409    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x00000308   0x00000308   0x00000000   Code   RO          411    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x00000308   0x00000308   0x00000000   Code   RO          413    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x00000308   0x00000308   0x00000008   Code   RO          414    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x00000310   0x00000310   0x00000000   Code   RO          416    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x00000310   0x00000310   0x00000000   Code   RO          418    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x00000310   0x00000310   0x00000004   Code   RO          407    .ARM.Collect$$$$00002714  mc_p.l(entry4.o)
-    0x00000314   0x00000314   0x00000140   Code   RO          339  * .text               startup_lpc804.o
-    0x00000454   0x00000454   0x00000060   Code   RO          355    .text               mc_p.l(uldiv.o)
-    0x000004b4   0x000004b4   0x00000028   Code   RO          359    .text               mc_p.l(memcpy.o)
-    0x000004dc   0x000004dc   0x0000000e   Code   RO          365    .text               mc_p.l(strlen.o)
-    0x000004ea   0x000004ea   0x0000003e   Code   RO          424    .text               mc_p.l(uidiv_div0.o)
-    0x00000528   0x00000528   0x00000020   Code   RO          430    .text               mc_p.l(llshl.o)
-    0x00000548   0x00000548   0x00000022   Code   RO          432    .text               mc_p.l(llushr.o)
-    0x0000056a   0x0000056a   0x00000002   PAD
-    0x0000056c   0x0000056c   0x00000024   Code   RO          470    .text               mc_p.l(init.o)
-    0x00000590   0x00000590   0x00000068   Code   RO           56    .text.BOARD_InitBootClocks  clock_config.o
-    0x000005f8   0x000005f8   0x0000004c   Code   RO           24    .text.BOARD_InitBootPins  pin_mux.o
-    0x00000644   0x00000644   0x000000c4   Code   RO           93    .text.CLOCK_SetFRG0ClkFreq  fsl_clock.o
-    0x00000708   0x00000708   0x00000020   Code   RO          113    .text.CLOCK_SetFroOscFreq  fsl_clock.o
-    0x00000728   0x00000728   0x00000030   Code   RO          111    .text.CLOCK_SetMainClkSrc  fsl_clock.o
-    0x00000758   0x00000758   0x0000001c   Code   RO          309    .text.DbgConsole_Printf  fsl_debug_console.o
-    0x00000774   0x00000774   0x00000474   Code   RO          311    .text.DbgConsole_Vprintf  fsl_debug_console.o
-    0x00000be8   0x00000be8   0x00000060   Code   RO          198    .text.SWM_SetMovablePinSelect  fsl_swm.o
-    0x00000c48   0x00000c48   0x00000024   Code   RO          275    .text.SystemInit    system_lpc804.o
-    0x00000c6c   0x00000c6c   0x00000002   Code   RO          277    .text.SystemInitHook  system_lpc804.o
-    0x00000c6e   0x00000c6e   0x00000002   PAD
-    0x00000c70   0x00000c70   0x00000014   Code   RO          258    .text.USART0_DriverIRQHandler  fsl_usart.o
-    0x00000c84   0x00000c84   0x0000001c   Code   RO          260    .text.USART1_DriverIRQHandler  fsl_usart.o
-    0x00000ca0   0x00000ca0   0x0000004c   Code   RO          291    .text.__aeabi_assert  fsl_assert.o
-    0x00000cec   0x00000cec   0x00000004   Code   RO          289    .text.fsl_assert_hook  fsl_assert.o
-    0x00000cf0   0x00000cf0   0x0000000a   Code   RO            4    .text.main          main.o
-    0x00000cfa   0x00000cfa   0x0000000e   Code   RO          476    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00000d08   0x00000d08   0x00000002   Code   RO          477    i.__scatterload_null  mc_p.l(handlers.o)
-    0x00000d0a   0x00000d0a   0x0000000e   Code   RO          478    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00000d18   0x00000d18   0x00000066   Data   RO          118    .rodata.str1.1      fsl_clock.o
-    0x00000d7e   0x00000d7e   0x0000006b   Data   RO          204    .rodata.str1.1      fsl_swm.o
-    0x00000de9   0x00000de9   0x00000003   PAD
-    0x00000dec   0x00000dec   0x00000020   Data   RO          475    Region$$Table       anon$$obj.o
-
-
-    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x00000e0c, Size: 0x00000030, Max: 0x00000f60, ABSOLUTE)
+    Execution Region ER_m_text (Exec base: 0x00000300, Load base: 0x00000300, Size: 0x000002d0, Max: 0x00007c00, ABSOLUTE, FIXED)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x00000e0c   0x00000004   Data   RW          281    .data.SystemCoreClock  system_lpc804.o
-    0x10000004   0x00000e10   0x00000004   Data   RW          116    .data.g_LP_Osc_Freq  fsl_clock.o
-    0x10000008   0x00000e14   0x00000004   Data   RW          266    .data.s_usartIsr    fsl_usart.o
-    0x1000000c        -       0x00000004   Zero   RW          115    .bss.g_Ext_Clk_Freq  fsl_clock.o
-    0x10000010        -       0x00000004   Zero   RW          117    .bss.g_Fro_Osc_Freq  fsl_clock.o
-    0x10000014        -       0x00000014   Zero   RW          319    .bss.s_debugConsole  fsl_debug_console.o
-    0x10000028        -       0x00000008   Zero   RW          265    .bss.s_usartHandle  fsl_usart.o
+    0x00000300   0x00000300   0x00000000   Code   RO          377  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x00000300   0x00000300   0x00000004   Code   RO          487    .ARM.Collect$$$$00000003  mc_p.l(entry4.o)
+    0x00000304   0x00000304   0x00000004   Code   RO          490    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x00000308   0x00000308   0x00000000   Code   RO          492    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x00000308   0x00000308   0x00000000   Code   RO          494    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x00000308   0x00000308   0x00000008   Code   RO          495    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          497    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x00000310   0x00000310   0x00000000   Code   RO          499    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x00000310   0x00000310   0x00000004   Code   RO          488    .ARM.Collect$$$$00002714  mc_p.l(entry4.o)
+    0x00000314   0x00000314   0x00000140   Code   RO          354  * .text               startup_lpc804.o
+    0x00000454   0x00000454   0x00000024   Code   RO          566    .text               mc_p.l(init.o)
+    0x00000478   0x00000478   0x00000010   Code   RO           69    .text.PIN_INT0_DriverIRQHandler  main.o
+    0x00000488   0x00000488   0x00000024   Code   RO          290    .text.SystemInit    system_lpc804.o
+    0x000004ac   0x000004ac   0x00000002   Code   RO          292    .text.SystemInitHook  system_lpc804.o
+    0x000004ae   0x000004ae   0x00000002   PAD
+    0x000004b0   0x000004b0   0x00000014   Code   RO          273    .text.USART0_DriverIRQHandler  fsl_usart.o
+    0x000004c4   0x000004c4   0x0000001c   Code   RO          275    .text.USART1_DriverIRQHandler  fsl_usart.o
+    0x000004e0   0x000004e0   0x00000028   Code   RO            6    .text.changeDIR     layer1.o
+    0x00000508   0x00000508   0x00000030   Code   RO           14    .text.delay         layer1.o
+    0x00000538   0x00000538   0x00000018   Code   RO            4    .text.initPort      layer1.o
+    0x00000550   0x00000550   0x00000040   Code   RO           73    .text.main          main.o
+    0x00000590   0x00000590   0x0000000e   Code   RO          593    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x0000059e   0x0000059e   0x00000002   Code   RO          594    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000005a0   0x000005a0   0x0000000e   Code   RO          595    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x000005ae   0x000005ae   0x00000002   PAD
+    0x000005b0   0x000005b0   0x00000020   Data   RO          592    Region$$Table       anon$$obj.o
 
 
-    Execution Region ARM_LIB_HEAP (Exec base: 0x10000030, Load base: 0x00000e18, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region RW_m_data (Exec base: 0x10000000, Load base: 0x000005d0, Size: 0x00000010, Max: 0x00000f60, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000030        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+    0x10000000   0x000005d0   0x00000004   Data   RW          296    .data.SystemCoreClock  system_lpc804.o
+    0x10000004   0x000005d4   0x00000004   Data   RW          281    .data.s_usartIsr    fsl_usart.o
+    0x10000008        -       0x00000008   Zero   RW          280    .bss.s_usartHandle  fsl_usart.o
 
 
-    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x00000e18, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+    Execution Region ARM_LIB_HEAP (Exec base: 0x10000010, Load base: 0x000005d8, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x10000010        -       0x00000040   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x10000fa0, Load base: 0x000005d8, Size: 0x00000040, Max: 0x00000040, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -962,21 +1137,16 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       104         24          0          0          0       5759   clock_config.o
-        80         44          0          0          0       1185   fsl_assert.o
-       276         52        102          4          8      11596   fsl_clock.o
-      1168        270          0          0         20      12563   fsl_debug_console.o
-        96         40        107          0          0       7589   fsl_swm.o
         48         16          0          4          8      22664   fsl_usart.o
-        10          0          0          0          0        411   main.o
-        76         12          0          0          0       9861   pin_mux.o
+       112         20          0          0          0       4277   layer1.o
+        80          4          0          0          0       1316   main.o
        320        160        196          0          0       1695   startup_lpc804.o
         38         16          0          4          0       2916   system_lpc804.o
 
     ----------------------------------------------------------------------
-      2218        634        440         12        164      76239   Object Totals
+       600        216        228          8        136      32868   Object Totals
          0          0         32          0        128          0   (incl. Generated)
-         2          0          3          0          0          0   (incl. Padding)
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -992,25 +1162,19 @@ Image component sizes
          8          4          0          0          0          0   entry9a.o
         30          0          0          0          0          0   handlers.o
         36          8          0          0          0         68   init.o
-        32          0          0          0          0         68   llshl.o
-        34          0          0          0          0         68   llushr.o
-        40          0          0          0          0         68   memcpy.o
-        14          0          0          0          0         60   strlen.o
-        62          0          0          0          0         72   uidiv_div0.o
-        96          0          0          0          0         84   uldiv.o
 
     ----------------------------------------------------------------------
-       366         16          0          0          0        488   Library Totals
+        88         16          0          0          0         68   Library Totals
          2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       364         16          0          0          0        488   mc_p.l
+        86         16          0          0          0         68   mc_p.l
 
     ----------------------------------------------------------------------
-       366         16          0          0          0        488   Library Totals
+        88         16          0          0          0         68   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1019,15 +1183,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2584        650        440         12        164      76639   Grand Totals
-      2584        650        440         12        164      76639   ELF Image Totals
-      2584        650        440         12          0          0   ROM Totals
+       688        232        228          8        136      33080   Grand Totals
+       688        232        228          8        136      33080   ELF Image Totals
+       688        232        228          8          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3024 (   2.95kB)
-    Total RW  Size (RW Data + ZI Data)               176 (   0.17kB)
-    Total ROM Size (Code + RO Data + RW Data)       3036 (   2.96kB)
+    Total RO  Size (Code + RO Data)                  916 (   0.89kB)
+    Total RW  Size (RW Data + ZI Data)               144 (   0.14kB)
+    Total ROM Size (Code + RO Data + RW Data)        924 (   0.90kB)
 
 ==============================================================================
 

@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -385,54 +385,19 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
+              <FileName>Layer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Layer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Layer2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Layer2.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../main.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>board</GroupName>
-          <Files>
-            <File>
-              <FileName>peripherals.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../peripherals.c</FilePath>
-            </File>
-            <File>
-              <FileName>peripherals.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../peripherals.h</FilePath>
-            </File>
-            <File>
-              <FileName>pin_mux.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../pin_mux.c</FilePath>
-            </File>
-            <File>
-              <FileName>pin_mux.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../pin_mux.h</FilePath>
-            </File>
-            <File>
-              <FileName>board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../board.c</FilePath>
-            </File>
-            <File>
-              <FileName>board.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../board.h</FilePath>
-            </File>
-            <File>
-              <FileName>clock_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../clock_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>clock_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../clock_config.h</FilePath>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -832,54 +797,19 @@
           <GroupName>source</GroupName>
           <Files>
             <File>
+              <FileName>Layer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Layer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Layer2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Layer2.c</FilePath>
+            </File>
+            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../main.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>board</GroupName>
-          <Files>
-            <File>
-              <FileName>peripherals.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../peripherals.c</FilePath>
-            </File>
-            <File>
-              <FileName>peripherals.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../peripherals.h</FilePath>
-            </File>
-            <File>
-              <FileName>pin_mux.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../pin_mux.c</FilePath>
-            </File>
-            <File>
-              <FileName>pin_mux.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../pin_mux.h</FilePath>
-            </File>
-            <File>
-              <FileName>board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../board.c</FilePath>
-            </File>
-            <File>
-              <FileName>board.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../board.h</FilePath>
-            </File>
-            <File>
-              <FileName>clock_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../clock_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>clock_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>../clock_config.h</FilePath>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -920,32 +850,32 @@
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="CMSIS" Csub="LPC804_system" Cvendor="NXP" Cversion="1.0.0">
+      <component Cclass="Device" Cgroup="CMSIS" Csub="LPC804_system" Cvendor="NXP" Cversion="1.0.0" condition="device.LPC804_system.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
           <targetInfo name="new_project debug"/>
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="clock" Cvendor="NXP" Cversion="2.3.1">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="clock" Cvendor="NXP" Cversion="2.3.1" condition="driver.clock.condition_id">
+        <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
+        <targetInfos>
+          <targetInfo name="new_project debug" versionMatchMode="fixed"/>
+          <targetInfo name="new_project release" versionMatchMode="fixed"/>
+        </targetInfos>
+      </component>
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="common" Cvendor="NXP" Cversion="2.4.0" condition="driver.common.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
           <targetInfo name="new_project debug"/>
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="common" Cvendor="NXP" Cversion="2.4.0">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="gpio" Cvendor="NXP" Cversion="2.1.7" condition="driver.lpc_gpio.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
-        </targetInfos>
-      </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="gpio" Cvendor="NXP" Cversion="2.1.7">
-        <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
-        <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="SDK Drivers" Csub="iocon" Cvendor="NXP" Cversion="2.0.2">
@@ -955,25 +885,25 @@
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="miniusart_adapter" Cvendor="NXP" Cversion="1.0.0">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="miniusart_adapter" Cvendor="NXP" Cversion="1.0.0" condition="component.miniusart_adapter.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="power" Cvendor="NXP" Cversion="2.0.0">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="power" Cvendor="NXP" Cversion="2.0.0" condition="driver.power_no_lib.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="reset" Cvendor="NXP" Cversion="2.1.2">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="reset" Cvendor="NXP" Cversion="2.1.2" condition="driver.reset.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="SDK Drivers" Csub="rom_api" Cvendor="NXP" Cversion="2.0.1">
@@ -983,11 +913,11 @@
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="swm" Cvendor="NXP" Cversion="2.1.2">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="swm" Cvendor="NXP" Cversion="2.1.2" condition="driver.swm.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="SDK Drivers" Csub="swm_connections" Cvendor="NXP" Cversion="2.0.1">
@@ -997,11 +927,11 @@
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="syscon" Cvendor="NXP" Cversion="2.0.1">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="syscon" Cvendor="NXP" Cversion="2.0.1" condition="driver.syscon.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="SDK Drivers" Csub="syscon_connections" Cvendor="NXP" Cversion="2.0.1">
@@ -1011,25 +941,25 @@
           <targetInfo name="new_project release"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Drivers" Csub="usart" Cvendor="NXP" Cversion="2.5.1">
+      <component Cclass="Device" Cgroup="SDK Drivers" Csub="usart" Cvendor="NXP" Cversion="2.5.1" condition="driver.lpc_miniusart.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Utilities" Csub="assert_lite" Cvendor="NXP" Cversion="1.0.0">
+      <component Cclass="Device" Cgroup="SDK Utilities" Csub="assert_lite" Cvendor="NXP" Cversion="1.0.0" condition="utility.assert_lite.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console_lite" Cvendor="NXP" Cversion="1.0.0">
+      <component Cclass="Device" Cgroup="SDK Utilities" Csub="debug_console_lite" Cvendor="NXP" Cversion="1.0.0" condition="utility.debug_console_lite.condition_id">
         <package name="LPC804_DFP" schemaVersion="1.4" url="https://mcuxpresso.nxp.com/cmsis_pack/repo/" vendor="NXP" version="18.0.0"/>
         <targetInfos>
-          <targetInfo name="new_project debug"/>
-          <targetInfo name="new_project release"/>
+          <targetInfo name="new_project debug" versionMatchMode=""/>
+          <targetInfo name="new_project release" versionMatchMode=""/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="SDK Utilities" Csub="misc_utilities" Cvendor="NXP" Cversion="1.1.1">
@@ -1059,5 +989,14 @@
       </file>
     </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>new_project</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

@@ -1,9 +1,7 @@
 --cpu Cortex-M0+
+"debug\layer1.o"
+"debug\layer2.o"
 "debug\main.o"
-"debug\peripherals.o"
-"debug\pin_mux.o"
-"debug\board.o"
-"debug\clock_config.o"
 "debug\fsl_adapter_miniusart.o"
 "debug\fsl_clock.o"
 "debug\fsl_common.o"

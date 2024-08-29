@@ -90,7 +90,6 @@ __Vectors:
       .section .crp, "a"
       .long 0xFFFFFFFF
     #endif
-
     .text
     .thumb
 
@@ -106,6 +105,7 @@ Reset_Handler:
     blx   r0
     ldr   r0,=__main
     bx    r0
+
 
     .pool
     .size Reset_Handler, . - Reset_Handler
