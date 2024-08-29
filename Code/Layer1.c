@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "Layer1.h"
+#include "Layer2.h"
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -93,14 +94,14 @@ void initPWM(void) {
     *TCR = 0x01;
 
 	//Assign the output to P0_21
-	*PINASSIGN4 &= 0x21;
+	*PINASSIGN4 &= 0x8;//0x21; 
 	return;
 }
 ////////////////////////////Brief/////////////////////////////
 /*
 Description:
 This changes the PWM that is output using MR0 by:
-   	-   First calculating the match value so that it will stay as an integer
+    -   First calculating the match value so that it will stay as an integer
 	- 	Setting the MR0 register value
 Parameters:
 -   uint32_t percent: this is the percent dutycycle desired
@@ -118,8 +119,8 @@ void pwmdutycycle(uint32_t percent){
 /*
 Description:
 This decoder by :
-	- 	calculating the bit levels of each position then:
-    	-   writing to the set and clear registers for an output
+		- 	calculating the bit levels of each position then:
+    -   writing to the set and clear registers for an output
 Parameters:
 -   uint32_t Selection: This is the number/bits you would input into the decoder normally
 Return: 
@@ -140,9 +141,9 @@ void decoder(uint32_t selection){
     //A1
     bit = (selection&(0x2))>>1;
 		if(bit){
-				*SET0 |= 0x1<<12;//P04 on PCB//P07 this causes an error on the circuit board ISP pin is pin12
+				*SET0 |= 0x1<<4;//P12 on PCB
 		}else{
-				*CLR0 |= 0x1<<12;
+				*CLR0 |= 0x1<<4;
 		}
     //A2
     bit = (selection&(0x4))>>2;
@@ -153,15 +154,7 @@ void decoder(uint32_t selection){
 		}
     return;
 }
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
--	A blocking delay funciton that polls a timer for the set ms until it finds a match, which then it will return to callee after
-Parameters:
--   	uint32_t Selection: This is the number of milliseconds to wait for
-Return: 
-- 	Nothing
-*/
+
 void delay(uint32_t ms){
 	//let it run with the systemclock/2 hz == 6Mhz
 	volatile uint32_t *CSR = (volatile uint32_t *) (SYSTIC +0x10);
@@ -178,20 +171,7 @@ void delay(uint32_t ms){
 	return;
 }
 
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-This initialises the UART By:
-	1. Enabling the AHB Clock
-	2. Selecting Pins
-	3. Selecting the UART Clock
-	4. Configuring the Interrupt
-	5. Adding the UART Configuration
-Parameters:
--	Nothing
-Return: 
-- 	Nothing
-*/
+
 void uartinit(void){
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
 	volatile uint32_t *FRG0DIV = (volatile uint32_t *) (SYSCON+0xD0);
@@ -205,8 +185,8 @@ void uartinit(void){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (NVIC + 0x100);
 	//initialise pins:
 	*AHBCLK |= 0x1<<7; // Enable AHB Clock for SWM to work
-	*PINASSIGN0 &= 0xFFFFFF09; // TXD -> P0_1 PCB:02
-	*PINASSIGN0 &= ((0x8<<8)|(0xFFFF00FF));// RXD -> P0_7 PCB:09
+	*PINASSIGN0 &= 0xFFFFFF08; // TXD -> P0_1->9
+	*PINASSIGN0 &= ((0x9<<8)|(0xFFFF00FF));// RXD -> P0_7/8
 	*AHBCLK ^= 0x1<<7; // Disable AHB Clock for SWM
 	// initialise Clocks
 	*PDRUNCFG ^= 0x1<<6;//ensure LPOCSC_PD is powered on// why use XOR
@@ -226,15 +206,7 @@ void uartinit(void){
 
 	return;
 }
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-A function which sends a char over an already intialised UART Channel. This is a blocking method which waits until an acknowlge message is received
-Parameters:
--   uint8_t for the char to send
-Return: 
-- 	Nothing
-*/
+
 void sendcharuart(uint8_t character){
 	volatile uint32_t *UART0TX = (volatile uint32_t *) (UART0 + 0x1C);
 	volatile uint32_t *UART0STAT = (volatile uint32_t *) (UART0 + 0x8);	
@@ -246,61 +218,62 @@ void sendcharuart(uint8_t character){
 	return;
 }
 
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-This initialises the I2C by:
-	1. Enabling the AHB Clock
-	2. Selecting Pins
-	3. Selecting the I2C Clock
-	4. Configuring the I2C Settings
-Parameters:
--   	Nothing
-Return: 
-- 	Nothing
-*/
+uint8_t readcharuart(void){
+	uint8_t character = NULL;
+
+	return character;
+}
+
+/*void USART0_DriverIRQHandler(void){
+
+
+}*/
+
 void I2Cinit (void) {
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
 	volatile uint32_t *FRG0DIV = (volatile uint32_t *) (SYSCON+0xD0);
+	volatile uint32_t *FRG0MULT = (volatile uint32_t *) (SYSCON+0xD4);
+	volatile uint32_t *FRG0CLKSEL = (volatile uint32_t *) (SYSCON+0xD8);
 	volatile uint32_t *PDRUNCFG = (volatile uint32_t *) (SYSCON+0x238);
 	volatile uint32_t *PINASSIGN5 = (volatile uint32_t *) (SWM + 0x14);
-	volatile uint32_t *I2C0CLKSEL = (volatile uint32_t *) (SYSCON+0xA4);
-	volatile uint32_t *PRESETCTRL0 = (volatile uint32_t *) (SYSCON+0x88);
+	volatile uint32_t *I2C0CLKSEL = (volatile uint32_t *) (SYSCON + 0xA4);
+	volatile uint32_t *PRESETCTRL0 = (volatile uint32_t *) (SYSCON + 0x88);
 	volatile uint32_t *I2C0CLKDIV = (volatile uint32_t *) (I2C0 + 0x14);
 	volatile uint32_t *I2C0CFG = (volatile uint32_t *) (I2C0);
 	volatile uint32_t *MSTTIME = (volatile uint32_t *) (I2C0 + 0x24);
+	volatile uint32_t *TIMEOUT = (volatile uint32_t *) (I2C0 + 0x10);
 	//volatile uint32_t *UART0CFG = (volatile uint32_t *) (UART0);
 	//volatile uint32_t *UART0BRG = (volatile uint32_t *) (UART0 + 0x20);
+	//Syscon Section
+	//*FRG0CLKSEL |= 0x1;
 
 	*AHBCLK |= 1<<7; //swm clock on 
-	*PINASSIGN5 &= ((0x10)|(0xFFFFFF00)); //setup SDA on P0_10
-	*PINASSIGN5 &= ((0x11<<8)|(0xFFFF00FF));//setup SCL on P0_11
+	*PINASSIGN5 &= ((0x10)|(0xFFFFFF00)); //setup SDA on P0_16
+	*PINASSIGN5 &= ((0x11<<8)|(0xFFFF00FF));//setup SCL on P0_17
 	*AHBCLK ^= 1<<7; //disable SWM clock
-	
-	//Presets
-	*PRESETCTRL0 |= 0x1<<5;//I2C Reset Run
+		
+	*PRESETCTRL0 |= 0x1<<5;
 	*PRESETCTRL0 |= 0x1<<7;
 	
-	*I2C0CLKSEL &= 0xFFFFFF01;;//FRO, should be 12Mhz by default
-	*AHBCLK |= 0x1<<5; //I2C0 Clock on
-	*I2C0CLKDIV |= 0X5;// Assumning FRO is 12Mhz by default
-
+	//*FRG0DIV &= 0xFFFFFF01;//Make this defined will have to change back to to 0xFF for USART to work
+	//*FRG0MULT &= 0xFFFFFF05;
+	*I2C0CLKSEL &= 0xFFFFFF01;//FRG0//FRO, should be 12Mhz by default
+	*AHBCLK |= 0x1<<5;//5; //I2C0 Clock on
+	*I2C0CLKDIV |= 0x5;
+	//Presets
+	//*PRESETCTRL0 |= 0x1<<5;//I2C Reset Run
+	//*PRESETCTRL0 |= 0x1<<7;
 	//Configuring the CLKDIV from i2C
-	*MSTTIME &= 0xFFFFFFCC;// MSTSCLLOW low for 1 according to recommended settings table
-	*I2C0CFG |= 0x11;//master enable and clock stretch enable
+	*MSTTIME &= 0xFFFFFFCC;// MSTSCLLOW low for 1 according to recommended settings table/3bits for scllow
+	*I2C0CFG |= 0x19;//master enable and clock stretch enable
+	//*I2C0CLKDIV |= 0x5;// Assumning FRO is 12Mhz by default --> needs to be higher than the 400khz signal since there is timing restraints for the high time and low time
+	/*uartsendstring("AHBCLK:");*/
+	//internal clock printout
 	return;
 }
 
 
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-Enables GPIO Pin Interrupts on P0.7.
-Parameters:
--   	Nothing
-Return: 
-- 	Nothing
-*/
+
 void pininterruptsetup(void){
 	volatile uint32_t *PINTSEL0 = (volatile uint32_t *) (SYSCON+0x178);
 	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
@@ -308,82 +281,88 @@ void pininterruptsetup(void){
 	volatile uint32_t *SIENR = (volatile uint32_t *) (PININT + 0x008);
 	volatile uint32_t *SIENF = (volatile uint32_t *) (PININT + 0x014);
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (NVIC + 0x100);
-	*PINTSEL0 |= 0x7;//P0.7 will correspond to pin interrupt 0
+	
+	*PINTSEL0 |= 0xD;//P0.13 will correspond to pin interrupt 0
 	*AHBCLK |= 1<<28;// pin interrup turned on
 	*ISEL	|= 1;// set level sensitive pin int on pin int 0
 	*SIENF	|= 1;// Set the level sensitivity register for pin int 0
 	*SIENR	|= 1;//Set the enable  reg for the interrupt on pin interrupt 0
 	*ISER0	|= 1<<24;
+	//	__asm{
+	//		CPSIE i
+	//	}
 	return;
 	
 }
 
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-Sends a I2C frame to write to a register within a device whilst acting as a master. 
-Parameters:
--   	uint8_t address : The device address to write to.
--	uint8_t register1: The Register to have data written to.
--	uint8_t data: 	The data to write to the reigster
-Return: 
-- 	Nothing
-*/
+
 void I2Csendframewrite(uint8_t address, uint8_t register1, uint8_t data){
+	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
 	volatile uint32_t *I2C0MSTCTL = (volatile uint32_t *) (0x40050020);
 	volatile uint32_t *I2C0STAT = (volatile uint32_t *) (0x40050004);
+	volatile uint32_t *MONRXDAT = (volatile uint32_t *) (0x40050080);
+	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
+	volatile uint32_t *I2C0CFG = (volatile uint32_t *) (I2C0);
+	volatile uint32_t *PRESETCTRL0 = (volatile uint32_t *) (SYSCON + 0x88);
+	volatile uint32_t *PINASSIGN5 = (volatile uint32_t *) (SWM + 0x14);
+
 	*I2C0MSTDATA = ((address)<<1|0);// consider where teh r/w bit sits might need to shift
 	*I2C0MSTCTL = 0x2;// start bit
 	while(!((*I2C0STAT)&0x1)){
 	}
-	*I2C0MSTDATA = register1;
-	*I2C0MSTCTL = 0x1; //register address to be sent to IMU
-		while(!((*I2C0STAT)&0x1)){
-	}
+
 	*I2C0MSTDATA = register1;
 	*I2C0MSTCTL = 0x1;// continue bit
 	while(!((*I2C0STAT)&0x1)){
+
 	}
 	*I2C0MSTDATA = data;//next data
-	*I2C0MSTCTL = 0x1;
+	*I2C0MSTCTL = 0x1;// continue bit
 	while(!((*I2C0STAT)&0x1)){
+
 	}
 	*I2C0MSTCTL = 0x4;
 	return;
 }
-////////////////////////////Brief/////////////////////////////
-/*
-Description:
-This is a function for an I2C register to be read. This is done in a blocking method.
-Parameters:
--  	uint8_t address: Device Slave Address for the slave to read data from
--	uint8_t register: The Register Address of data to read from  
-Return: 
-- 	Nothing
-*/
+
 uint8_t I2Csendframeread(uint8_t address, uint8_t register1){
 	uint8_t data;
 	volatile uint32_t *I2C0MSTDATA = (volatile uint32_t *) (0x40050028);
 	volatile uint32_t *I2C0MSTCTL = (volatile uint32_t *) (0x40050020);
 	volatile uint32_t *I2C0STAT = (volatile uint32_t *) (0x40050004);
-	*I2C0MSTDATA |= (address<<1)|0x0;// consider where teh r/w bit sits might need to shift
+	volatile uint32_t *MONRXDAT = (volatile uint32_t *) (0x40050080);
+	volatile uint32_t *AHBCLK = (volatile uint32_t *) (SYSCON+0x80);
+	volatile uint32_t *I2C0CFG = (volatile uint32_t *) (I2C0);
+	volatile uint32_t *PRESETCTRL0 = (volatile uint32_t *) (SYSCON + 0x88);
+	volatile uint32_t *PINASSIGN5 = (volatile uint32_t *) (SWM + 0x14);
+	*I2C0CFG |= 0x1;
+	*I2C0MSTDATA = ((address)<<1|0x0);// consider where teh r/w bit sits might need to shift
 	*I2C0MSTCTL = 0x2;// start bit
+
 	while(!((*I2C0STAT)&0x1)){
+		if((*I2C0STAT)&(1<<24)){
+			*I2C0STAT |= 0x1<<24;
+			return 0;
+		}
 	}
 	*I2C0MSTDATA = register1;
+
 	*I2C0MSTCTL = 0x1; //register address to be sent to IMU
 	while(!((*I2C0STAT)&0x1)){
+		if((*I2C0STAT)&(1<<24)){
+			*I2C0STAT |= 0x1<<24;
+			return 0;
+		}
 	}
-	*I2COMSTDATA = ((address<<1)|0x1);
+	*I2C0MSTDATA = ((address<<1)|1);
 	*I2C0MSTCTL = 0x2;
 	while(!((*I2C0STAT)&0x1)){
+
 	}
 	*I2C0MSTCTL = 0x1;
-	while(!((*I2C0STAT)&0x1)){
-	}
-	*I2C0MSTCTL = 0x1;
+
 	*I2C0MSTCTL = 0x4;
-	data = (*I2C0MSTDATA);//next data
+	data = (*I2C0MSTDATA);
 	return data;
 }
