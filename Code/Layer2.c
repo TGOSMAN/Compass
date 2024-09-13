@@ -17,15 +17,25 @@
     char Sleep_time2[5];
     char check_sum[2];
 };*/
-#define EULERMSB	0x1A
-#define EULERLSB	0x1B
+#define EULERMSB	0x1B
+#define EULERLSB	0x1A
 #define	IMUADDRESS	0x29
-#define CALLIB_STAT 	0x35
-#define CONFIG_MODE 	0x3D
-#define M_PI       	3.14159265358979323846   // pi
-static volatile double destilat = 60.5915;
-static volatile double destilong = -154.9406;
+#define CALLIB_STAT 0x35
+#define CONFIG_MODE 0x3D
+#define M_PI       3.14159265358979323846   // pi
+#define FIR0	0.0135
+#define FIR1	0.0785
+#define FIR2	0.2409
+#define FIR3	0.3344
+#define FIR4	0.2409
+#define FIR5	0.0785
+#define FIR6 	0.0135
+
+static volatile double destilat = -27.96281;
+static volatile double destilong = 153.408921;
 static struct gpscoords myloco;
+struct ledorient LED;
+
 //	double lat;//testing
 //	double longi;//testing
 double toRadians(double degrees) {
@@ -45,7 +55,7 @@ double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
     double decimalDegrees = 0.0;
     double degrees = 0.0;
     double minutes = 0.0;
-	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+		volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
     // Convert the string to a double
     double rawLatitude = 0.0;
 			rawLatitude = atof(latitudeStr);
@@ -61,6 +71,7 @@ double convertLatitudeToDecimal(char *latitudeStr, char hemisphere) {
     // If the hemisphere is 'S', make the result negative
     if (hemisphere == 'S') {
         decimalDegrees = -decimalDegrees;
+				*SET0 |= 0x1<<21;
     }
 
     return decimalDegrees;
@@ -70,7 +81,6 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
     double decimalDegrees = 0.0;
     double degrees = 0.0;
     double minutes = 0.0;
-
     // Convert the string to a double
     double rawLongitude = 0.0;
 		rawLongitude= atof(longitudeStr);
@@ -82,7 +92,6 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
 
     // Convert to decimal degrees
     decimalDegrees = degrees + (minutes / 60);
-
     // If the hemisphere is 'S', make the result negative
     if (hemisphere == 'W') {
         decimalDegrees = -decimalDegrees;
@@ -90,7 +99,6 @@ double convertLongitudeToDecimal(char *longitudeStr, char hemisphere) {
 
     return decimalDegrees;
 }
-
 double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
     // Convert latitude and longitude from degrees to radians
     lat1 = toRadians(lat1);
@@ -111,12 +119,13 @@ double calculateBearing(double lat1, double lon1, double lat2, double lon2) {
 void gpsdataextract(struct uartrb currentsentence){
 	volatile uint32_t *ISER0 = (volatile uint32_t *) (0xE000E100);
 	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
     volatile double lat;//testing
     volatile double longi;//testing
-    volatile double bearing;
+    volatile double bearing = 0;
     char latitudearray[9];
     char longitudearray[10];
-	volatile char hemi;
+	char hemi;
 		*ISER0 ^= 1<<3;
 		if((currentsentence.rb[(currentsentence.head +3)%82] == 'R')&&(currentsentence.rb[(currentsentence.head +18)%82] == 'A')){
             for(int i = 0; i<9;i++){
@@ -133,41 +142,18 @@ void gpsdataextract(struct uartrb currentsentence){
 			hemi = currentsentence.rb[(currentsentence.head + 44)%82];
 			/*myloco.longitude*/longi = convertLongitudeToDecimal(longitudearray, hemi);
             bearing = calculateBearing(lat,longi,destilat,destilong);
-			bearing = bearing*(180/M_PI);
-			bearing += 360;
-            *SET0 |= 0x1<<9;
+						bearing = bearing*(180/M_PI);
+						bearing += 360;
+						getbearingdata(&LED);
+						bearingdecod(bearing);
+            
 		}
+		//decoder(4);
+//		getbearingdata(&LED);
+//		bearingdecod(bearing);
 		*ISER0 ^= 1<<3;
 		return;
 };
-
-
-void pointing(double bearing){
-	if(bearing < 0){
-		bearing += 360;
-		//decoder(4);
-	}
-	if ((bearing >= 0) && (bearing < 22)){
-		decoder(0x0);
-	} else if ((bearing >= 22) && (bearing < 67)){
-		decoder(0x1);
-	}else if ((bearing >= 67) && (bearing < 112)){
-		decoder(0x2);
-	}else if ((bearing >= 112) && (bearing < 157)){
-		decoder(0x3);
-	}else if ((bearing >= 157) && (bearing < 202)){
-		decoder(0x4);
-	}else if ((bearing >= 202) && (bearing < 247)){
-		decoder(0x5);
-	}else if ((bearing >= 247) && (bearing < 292)){
-		decoder(0x6);
-	}else if ((bearing >= 292) && (bearing < 337)){
-		decoder(0x7);
-	}else if ((bearing >= 337) && (bearing < 360)){
-		decoder(0x8);
-	}
-	return;
-}
 //void gpsreceive(struct gpscoords coordinates, char *inputmessage){
 //    char latitude[10]={'\0'};
 //    char longitude[11]={'\0'};
@@ -195,6 +181,35 @@ void pointing(double bearing){
     free(message);
     return;
 }*/
+void bearingdecod(double bearing){
+//		if(bearing < 0){
+//			bearing += 360;
+////			decoder(4);
+//		}
+		
+		if((22.5 > bearing)&&(bearing >= 0)){
+			decoder(((0 + LED.north)%8));
+		} else if((67.5 >bearing)&&(bearing >= 22.5 )){
+			decoder(((1 + LED.north)%8));
+		} else if ((112.5 > bearing)&&(bearing >= 67.5)){
+			decoder(((2 + LED.north)%8));
+		} else if ((157.5 > bearing)&&(bearing >= 112.5)){
+			decoder(((3 + LED.north)%8));
+		}else if ((202.5 > bearing)&&(bearing >= 157.5)){
+			decoder(((4 + LED.north)%8));
+		}else if ((247.5 > bearing)&&(bearing >= 202.5)){
+			decoder(((5 + LED.north)%8));
+		}else if ((292.5 > bearing)&&(bearing >= 247.5)){
+			decoder(((6 + LED.north)%8));
+		}else if ((337.5 > bearing)&&(bearing >= 292.5)){
+			decoder(((7 + LED.north)%8));
+		} else if ((bearing >= 337.5)){
+			decoder(((0 + LED.north)%8));
+		}
+		
+	return;
+}
+
 
 void uartsendstring(char *string){
     for(int i = 0; i<strlen(string);i++){
@@ -206,9 +221,28 @@ void uartsendstring(char *string){
 
 
 void IMUinit(void){
-	volatile uint32_t *NOT0 = (volatile uint32_t *) (0xA0002300);
-    uint8_t status = 0;
-	while(status < 2){
+  uint8_t status = 0;
+	volatile uint32_t *SET0 = (volatile uint32_t *) (0xA0002200);
+	//decoder(2);
+	decoder(0);
+	*SET0 ^= 1<<10;
+	delay(4000);
+	*SET0 |= 1<<10;
+	delay(2000);
+	I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
+	I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
+	I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
+	I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
+	//delay(5000);
+	delay(2000);
+	*SET0 |= 1<<21;
+	LED.north = 0;
+	LED.south = 4;
+	for(int i = 0; i < 7; i++){
+		LED.buffer[i] = 0;
+	}
+	/*
+	while(status = 3){
         //check for gyro callibration
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x30;
@@ -216,80 +250,88 @@ void IMUinit(void){
     }
     //blink once
     status = 0;
-    while(status < 2){
+    while(status != 3){
         //mag
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x03;
     }
-	for(int i = 0; i < 4; i++){
-			*NOT0 |= 0x1<<21;
-			delay(500);
-		}
     // blink twice
     status = 0;
-    while(status < 2){
+    while(status != 3){
         // acceler
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0x0C;
         status >>= 2;
-}
-	for(int i = 0; i < 6; i++){
-			*NOT0 |= 0x1<<21;
-			delay(500);
-		}
+    }
+    // blink three times
     status = 0;
-    while(status < 2){
+    while(status != 3){
         // syst
         status = I2Csendframeread(IMUADDRESS, CALLIB_STAT);
         status &= 0xC0;
         status >>= 6;
     }
-
-	for(int i = 0; i < 8; i++){
-		*NOT0 |= 0x1<<21;
-		delay(500);
-	}
     // blink four times
     //all callibrated
     I2Csendframewrite(IMUADDRESS,CONFIG_MODE, 0x9);
     // place it in the 9 degrees of freedom
-    delay(7);
+    delay(70);
+		*/
+		
+		
 }
 
 void getbearingdata(struct ledorient *LED){
-	uint16_t heading = 0;
-	uint8_t temp = 0;
-	heading = I2Csendframeread(IMUADDRESS,EULERMSB);
-	temp = I2Csendframeread(IMUADDRESS,EULERLSB);
-	heading = heading << 8;
-	heading |= temp;
-	if ((heading >= 0) && (heading < 22)){
-		LED->north = 0;
-		LED->south = 4;
+	double heading = 0;
+	volatile int16_t headingdata = 0;
+	volatile uint8_t data8[2] = {0};
+	data8[0] = I2Csendframeread(IMUADDRESS,EULERLSB);
+	data8[1] = I2Csendframeread(IMUADDRESS,EULERMSB);
+
+	headingdata = (int16_t)((int32_t)(data8[1]<<8)|data8[0]);
+	headingdata = ((double) headingdata)/16.0;
+	if((headingdata < 0)&&(headingdata > -180)){
+		headingdata += 360;
+	}
+	if ((headingdata >0) && (headingdata < 360)){
+		for(int i = 6; i>0; i--){
+			LED->buffer[i] = LED->buffer[i-1];
+		} 
+		LED->buffer[0] = headingdata;
+		//decoder(4);
+		heading =   (FIR0*(LED->buffer[0])) + (FIR1*(LED->buffer[1])) + (FIR2*(LED->buffer[2])) + (FIR3*(LED->buffer[3])) + (FIR4*(LED->buffer[4])) + (FIR5*(LED->buffer[5])) + (FIR6*(LED->buffer[6]));//I dont know if this is completely valid
+	}	
+	if ((heading > 0.1) && (heading < 22)){
+		//decoder(0);
+		LED->north = 4;
+		LED->south = 0;
 	} else if ((heading >= 22) && (heading < 67)){
-		LED->north = 1;
-		LED->south = 5;
+		//decoder(1);
+		LED->north = 3;
+		LED->south = 7;
 	}else if ((heading >= 67) && (heading < 112)){
+		//decoder(2);
 		LED->north = 2;
 		LED->south = 6;
 	}else if ((heading >= 112) && (heading < 157)){
-		LED->north = 3;
-		LED->south = 7;
+		//decoder(3);
+		LED->north = 1;
+		LED->south = 5;
 	}else if ((heading >= 157) && (heading < 202)){
-		LED->north = 4;
-		LED->south = 0;
+		LED->north = 0;
+		LED->south = 4;
 	}else if ((heading >= 202) && (heading < 247)){
-		LED->north = 5;
+		LED->north = 7;
 		LED->south = 1;
 	}else if ((heading >= 247) && (heading < 292)){
 		LED->north = 6;
 		LED->south = 2;
 	}else if ((heading >= 292) && (heading < 337)){
-		LED->north = 7;
+		LED->north = 5;
 		LED->south = 3;
-	}else if ((heading >= 337) && (heading < 360)){
-		LED->north = 0;
-		LED->south = 4;
+	}else if ((heading >= 337) && (heading <= 360)){
+		LED->north = 4;
+		LED->south = 0;
 	}
     return;
 }

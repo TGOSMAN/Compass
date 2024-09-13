@@ -7,11 +7,11 @@ IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Thomas Gosman
 UNSW
-User-based license: Keil MDK Community
-Valid until: Jun 1 2033. Cached until: Feb 17 2024
+User-based license: Keil MDK Community (non-commercial free of charge)
+Valid until: Jun 1 2033. Cached until: Mar 23 2024
  
 Tool Versions:
-Toolchain:       Keil MDK Community  Version: 5.38.0.0
+Toolchain:       Keil MDK Community (non-commercial free of charge  Version: 5.38.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
 C Compiler:      ArmClang.exe V6.19
 Assembler:       Armasm.exe V6.19
@@ -24,45 +24,38 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\thoma\OneDrive\Documents\Compass\Code\mdk\gpio_led_output.uvprojx
-Project File Date:  02/10/2024
+C:\Users\thoma\OneDrive\Desktop\Compass-beforepcbcompatibility\WIP_I2C\Compass-fd7f116e334899c734246d80db1a72c8df7847e7\Code\mdk\gpio_led_output.uvprojx
+Project File Date:  03/15/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'gpio_led_output release'
-ArmClang: error: no such file or directory: '../board.c'
-ArmClang: error: no input files
-compiling board.c...
 ArmClang: error: no such file or directory: '../clock_config.c'
 ArmClang: error: no input files
 compiling clock_config.c...
-compiling fsl_power.c...
+ArmClang: error: no such file or directory: '../board.c'
+ArmClang: error: no input files
+compiling board.c...
+compiling Layer1.c...
+compiling main.c...
 compiling fsl_common_arm.c...
 compiling fsl_common.c...
 compiling fsl_gpio.c...
-compiling fsl_clock.c...
+compiling fsl_power.c...
 compiling fsl_adapter_miniusart.c...
-compiling fsl_reset.c...
-compiling fsl_syscon.c...
-compiling fsl_swm.c...
-compiling system_LPC804.c...
-compiling fsl_assert.c...
-compiling fsl_usart.c...
-compiling fsl_debug_console.c...
-compiling fsl_str.c...
-"release\gpio_led_output.out" - 4 Error(s), 0 Warning(s).
+compiling fsl_clock.c...
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
-                ARM.CMSIS.5.9.0
+                https://www.keil.com/pack/ARM.CMSIS.6.0.0.pack
+                ARM.CMSIS.6.0.0
                 CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.6.0
+   * Component: CORE Version: 6.0.0
 
 Package Vendor: NXP
-                https://mcuxpresso.nxp.com/cmsis_pack/repo/NXP.LPC804_DFP.17.0.0.pack
-                NXP.LPC804_DFP.17.0.0
+                https://mcuxpresso.nxp.com/cmsis_pack/repo/NXP.LPC804_DFP.18.0.0.pack
+                NXP.LPC804_DFP.18.0.0
                 Device Family Pack for LPC804
    * Component: LPC804_header Version: 1.0.0
    * Component: LPC804_system Version: 1.0.0
@@ -78,7 +71,7 @@ Package Vendor: NXP
    * Component: swm_connections Version: 2.0.1
    * Component: syscon Version: 2.0.1
    * Component: syscon_connections Version: 2.0.1
-   * Component: usart Version: 2.5.0
+   * Component: usart Version: 2.5.1
    * Component: assert_lite Version: 1.0.0
    * Component: debug_console_lite Version: 1.0.0
    * Component: misc_utilities Version: 1.1.1
@@ -86,35 +79,35 @@ Package Vendor: NXP
 
 <h2>Collection of Component include folders:</h2>
   ./RTE/_gpio_led_output_release
-  C:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/components/uart
-  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804
-  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/drivers
-  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/debug_console_lite
-  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/17.0.0/devices/LPC804/utilities/str
+  C:/Users/thoma/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include
+  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/18.0.0/components/uart
+  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/18.0.0/devices/LPC804
+  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/18.0.0/devices/LPC804/drivers
+  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/18.0.0/devices/LPC804/utilities/debug_console_lite
+  C:/Users/thoma/AppData/Local/Arm/Packs/NXP/LPC804_DFP/18.0.0/devices/LPC804/utilities/str
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.6.0
+   * Component: ARM::CMSIS:CORE:6.0.0
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
-      Include file:  devices/LPC804/LPC804_features.h
       Include file:  devices/LPC804/LPC804.h
       Include file:  devices/LPC804/fsl_device_registers.h
+      Include file:  devices/LPC804/LPC804_features.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
       Include file:  devices/LPC804/system_LPC804.h
       Source file:   devices/LPC804/system_LPC804.c
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
-      Source file:   devices/LPC804/drivers/fsl_clock.c
       Include file:  devices/LPC804/drivers/fsl_clock.h
+      Source file:   devices/LPC804/drivers/fsl_clock.c
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
-      Include file:  devices/LPC804/drivers/fsl_common.h
       Source file:   devices/LPC804/drivers/fsl_common.c
-      Include file:  devices/LPC804/drivers/fsl_common_arm.h
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
+      Include file:  devices/LPC804/drivers/fsl_common.h
+      Include file:  devices/LPC804/drivers/fsl_common_arm.h
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
       Source file:   devices/LPC804/drivers/fsl_gpio.c
@@ -132,8 +125,8 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_power.h
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
-      Source file:   devices/LPC804/drivers/fsl_reset.c
       Include file:  devices/LPC804/drivers/fsl_reset.h
+      Source file:   devices/LPC804/drivers/fsl_reset.c
 
    * Component: NXP::Device:SDK Drivers:rom_api:2.0.1
       Include file:  devices/LPC804/drivers/rom_api.h
@@ -146,31 +139,32 @@ Package Vendor: NXP
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
 
    * Component: NXP::Device:SDK Drivers:syscon:2.0.1
-      Include file:  devices/LPC804/drivers/fsl_syscon.h
       Source file:   devices/LPC804/drivers/fsl_syscon.c
+      Include file:  devices/LPC804/drivers/fsl_syscon.h
 
    * Component: NXP::Device:SDK Drivers:syscon_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_syscon_connections.h
 
-   * Component: NXP::Device:SDK Drivers:usart:2.5.0
+   * Component: NXP::Device:SDK Drivers:usart:2.5.1
       Source file:   devices/LPC804/drivers/fsl_usart.c
       Include file:  devices/LPC804/drivers/fsl_usart.h
 
    * Component: NXP::Device:SDK Utilities:assert_lite:1.0.0
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
+      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_assert.h
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
       Source file:   devices/LPC804/utilities/str/fsl_str.c
-      Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
       Include file:  devices/LPC804/utilities/str/fsl_str.h
       Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
+      Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
 
    * Component: NXP::Device:Startup:1.1.0
       Source file:   devices/LPC804/arm/startup_LPC804.S
-Target not created.
-Build Time Elapsed:  00:00:01
+Project build/rebuild aborted.
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

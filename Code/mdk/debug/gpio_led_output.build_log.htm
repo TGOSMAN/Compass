@@ -7,11 +7,11 @@ IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: Thomas Gosman
 UNSW
-User-based license: Keil MDK Community
-Valid until: Jun 1 2033. Cached until: Feb 23 2024
+User-based license: Keil MDK Community (non-commercial free of charge)
+Valid until: Jun 1 2033. Cached until: Apr 20 2024
  
 Tool Versions:
-Toolchain:       Keil MDK Community  Version: 5.38.0.0
+Toolchain:       Keil MDK Community (non-commercial free of charge  Version: 5.38.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
 C Compiler:      ArmClang.exe V6.19
 Assembler:       Armasm.exe V6.19
@@ -24,32 +24,34 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
-C:\Users\thoma\OneDrive\Documents\Compass\Code\mdk\gpio_led_output.uvprojx
-Project File Date:  02/16/2024
+C:\Users\thoma\OneDrive\Desktop\Compass-beforepcbcompatibility\WIP_I2C\WorkingCompass\CompassWIP\Working IMU INTERFACE\Compass-fd7f116e334899c734246d80db1a72c8df7847e7\Code\mdk\gpio_led_output.uvprojx
+Project File Date:  04/07/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'gpio_led_output debug'
 ../main.c(4): warning: In file included from...
-../Layer2.h(31): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
+../Layer2.h(32): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
 void gpssendmtk(struct PMTKinstruction instruction);
                        ^
 1 warning generated.
 compiling main.c...
+../Layer1.c(4): warning: In file included from...
+../Layer2.h(32): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
+void gpssendmtk(struct PMTKinstruction instruction);
+                       ^
+1 warning generated.
 compiling Layer1.c...
-assembling startup_LPC804.S...
 ../Layer2.c(6): warning: In file included from...
-../Layer2.h(31): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
+../Layer2.h(32): warning: declaration of 'struct PMTKinstruction' will not be visible outside of this function [-Wvisibility]
 void gpssendmtk(struct PMTKinstruction instruction);
                        ^
 1 warning generated.
 compiling Layer2.c...
+assembling startup_LPC804.S...
 linking...
-debug\gpio_led_output.sct(7): error: L6236E: No section matches selector - no section to be FIRST/LAST.
-Not enough information to list image symbols.
-Not enough information to list load addresses in the image map.
-Finished: 2 information, 0 warning and 1 error messages.
-"debug\gpio_led_output.out" - 1 Error(s), 2 Warning(s).
+Program Size: Code=9336 RO-data=748 RW-data=24 ZI-data=468  
+"debug\gpio_led_output.out" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -93,27 +95,27 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE:6.0.0
 
    * Component: NXP::Device:CMSIS:LPC804_header:1.0.0
-      Include file:  devices/LPC804/fsl_device_registers.h
       Include file:  devices/LPC804/LPC804.h
+      Include file:  devices/LPC804/fsl_device_registers.h
       Include file:  devices/LPC804/LPC804_features.h
 
    * Component: NXP::Device:CMSIS:LPC804_system:1.0.0
-      Source file:   devices/LPC804/system_LPC804.c
       Include file:  devices/LPC804/system_LPC804.h
+      Source file:   devices/LPC804/system_LPC804.c
 
    * Component: NXP::Device:SDK Drivers:clock:2.3.1
-      Include file:  devices/LPC804/drivers/fsl_clock.h
       Source file:   devices/LPC804/drivers/fsl_clock.c
+      Include file:  devices/LPC804/drivers/fsl_clock.h
 
    * Component: NXP::Device:SDK Drivers:common:2.4.0
       Include file:  devices/LPC804/drivers/fsl_common.h
-      Source file:   devices/LPC804/drivers/fsl_common.c
       Source file:   devices/LPC804/drivers/fsl_common_arm.c
       Include file:  devices/LPC804/drivers/fsl_common_arm.h
+      Source file:   devices/LPC804/drivers/fsl_common.c
 
    * Component: NXP::Device:SDK Drivers:gpio:2.1.7
-      Source file:   devices/LPC804/drivers/fsl_gpio.c
       Include file:  devices/LPC804/drivers/fsl_gpio.h
+      Source file:   devices/LPC804/drivers/fsl_gpio.c
 
    * Component: NXP::Device:SDK Drivers:iocon:2.0.2
       Include file:  devices/LPC804/drivers/fsl_iocon.h
@@ -123,50 +125,49 @@ Package Vendor: NXP
       Source file:   components/uart/fsl_adapter_miniusart.c
 
    * Component: NXP::Device:SDK Drivers:power:2.0.0
-      Include file:  devices/LPC804/drivers/fsl_power.h
       Source file:   devices/LPC804/drivers/fsl_power.c
+      Include file:  devices/LPC804/drivers/fsl_power.h
 
    * Component: NXP::Device:SDK Drivers:reset:2.1.2
-      Include file:  devices/LPC804/drivers/fsl_reset.h
       Source file:   devices/LPC804/drivers/fsl_reset.c
+      Include file:  devices/LPC804/drivers/fsl_reset.h
 
    * Component: NXP::Device:SDK Drivers:rom_api:2.0.1
       Include file:  devices/LPC804/drivers/rom_api.h
 
    * Component: NXP::Device:SDK Drivers:swm:2.1.2
-      Include file:  devices/LPC804/drivers/fsl_swm.h
       Source file:   devices/LPC804/drivers/fsl_swm.c
+      Include file:  devices/LPC804/drivers/fsl_swm.h
 
    * Component: NXP::Device:SDK Drivers:swm_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_swm_connections.h
 
    * Component: NXP::Device:SDK Drivers:syscon:2.0.1
-      Include file:  devices/LPC804/drivers/fsl_syscon.h
       Source file:   devices/LPC804/drivers/fsl_syscon.c
+      Include file:  devices/LPC804/drivers/fsl_syscon.h
 
    * Component: NXP::Device:SDK Drivers:syscon_connections:2.0.1
       Include file:  devices/LPC804/drivers/fsl_syscon_connections.h
 
    * Component: NXP::Device:SDK Drivers:usart:2.5.1
-      Include file:  devices/LPC804/drivers/fsl_usart.h
       Source file:   devices/LPC804/drivers/fsl_usart.c
+      Include file:  devices/LPC804/drivers/fsl_usart.h
 
    * Component: NXP::Device:SDK Utilities:assert_lite:1.0.0
-      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_assert.h
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_assert.c
+      Include file:  devices/LPC804/utilities/debug_console_lite/fsl_assert.h
 
    * Component: NXP::Device:SDK Utilities:debug_console_lite:1.0.0
       Source file:   devices/LPC804/utilities/debug_console_lite/fsl_debug_console.c
-      Source file:   devices/LPC804/utilities/str/fsl_str.c
       Include file:  devices/LPC804/utilities/debug_console_lite/fsl_debug_console.h
+      Source file:   devices/LPC804/utilities/str/fsl_str.c
       Include file:  devices/LPC804/utilities/str/fsl_str.h
 
    * Component: NXP::Device:SDK Utilities:misc_utilities:1.1.1
 
    * Component: NXP::Device:Startup:1.1.0
       Source file:   devices/LPC804/arm/startup_LPC804.S
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

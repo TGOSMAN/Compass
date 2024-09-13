@@ -8,6 +8,7 @@
 struct ledorient{
 	uint8_t north;
 	uint8_t south;
+	double buffer[7];
 };
 struct gpscoords{
     double longitude;
@@ -32,5 +33,7 @@ void gpssendmtk(struct PMTKinstruction instruction);
 void gpsreceive(struct gpscoords, char *inputmessage);
 void uartsendstring(char *string);
 void getbearingdata(struct ledorient *LED);
+void bearingdecod(double bearing);
 void gpsdataextract(struct uartrb currentsentence);
+void IMUinit(void);
 #endif
