@@ -17,8 +17,8 @@
     char Sleep_time2[5];
     char check_sum[2];
 };*/
-#define EULERMSB	0x1A
-#define EULERLSB	0x1B
+#define EULERMSB	0x1B
+#define EULERLSB	0x1A
 #define	IMUADDRESS	0x29
 #define CALLIB_STAT 0x35
 #define CONFIG_MODE 0x3D
@@ -188,23 +188,23 @@ void bearingdecod(double bearing){
 //		}
 		
 		if((22.5 > bearing)&&(bearing >= 0)){
-			decoder(((0 + LED.south)%8));
+			decoder(((0 + LED.north)%8));
 		} else if((67.5 >bearing)&&(bearing >= 22.5 )){
-			decoder(((1 + LED.south)%8));
-		} else if ((112 > bearing)&&(bearing >= 67)){
-			decoder(((2 + LED.south)%8));
-		} else if ((157 > bearing)&&(bearing >= 112)){
-			decoder(((3 + LED.south)%8));
-		}else if ((202 > bearing)&&(bearing >= 157)){
-			decoder(((4 + LED.south)%8));
-		}else if ((247 > bearing)&&(bearing >= 202)){
-			decoder(((5 + LED.south)%8));
-		}else if ((292 > bearing)&&(bearing >= 247)){
-			decoder(((6 + LED.south)%8));
-		}else if ((337 > bearing)&&(bearing >= 292)){
-			decoder(((7 + LED.south)%8));
-		} else if ((bearing >= 337)){
-			decoder(((0 + LED.south)%8));
+			decoder(((1 + LED.north)%8));
+		} else if ((112.5 > bearing)&&(bearing >= 67.5)){
+			decoder(((2 + LED.north)%8));
+		} else if ((157.5 > bearing)&&(bearing >= 112.5)){
+			decoder(((3 + LED.north)%8));
+		}else if ((202.5 > bearing)&&(bearing >= 157.5)){
+			decoder(((4 + LED.north)%8));
+		}else if ((247.5 > bearing)&&(bearing >= 202.5)){
+			decoder(((5 + LED.north)%8));
+		}else if ((292.5 > bearing)&&(bearing >= 247.5)){
+			decoder(((6 + LED.north)%8));
+		}else if ((337.5 > bearing)&&(bearing >= 292.5)){
+			decoder(((7 + LED.north)%8));
+		} else if ((bearing >= 337.5)){
+			decoder(((0 + LED.north)%8));
 		}
 		
 	return;
@@ -282,54 +282,56 @@ void IMUinit(void){
 }
 
 void getbearingdata(struct ledorient *LED){
-	uint16_t heading1 = 0;
-	uint8_t temp = 0;
 	double heading = 0;
-	//temp = I2Csendframeread(IMUADDRESS, CONFIG_MODE);
-	temp = I2Csendframeread(IMUADDRESS,EULERMSB);
-	heading1 = I2Csendframeread(IMUADDRESS,EULERLSB);
-	heading1 |= temp<<4;
-	heading = ((double) heading1)/16.0;
-	if (heading1 != 0){
-		for(int i = 0; i<6; i++){
-			LED->buffer[i + 1] = LED->buffer[i];
+	volatile int16_t headingdata = 0;
+	volatile uint8_t data8[2] = {0};
+	data8[0] = I2Csendframeread(IMUADDRESS,EULERLSB);
+	data8[1] = I2Csendframeread(IMUADDRESS,EULERMSB);
+
+	headingdata = (int16_t)((int32_t)(data8[1]<<8)|data8[0]);
+	headingdata = ((double) headingdata)/16.0;
+	if((headingdata < 0)&&(headingdata > -180)){
+		headingdata += 360;
+	}
+	if ((headingdata >0) && (headingdata < 360)){
+		for(int i = 6; i>0; i--){
+			LED->buffer[i] = LED->buffer[i-1];
 		} 
-		LED->buffer[0] = heading;
+		LED->buffer[0] = headingdata;
 		//decoder(4);
-		heading =   (FIR0*(LED->buffer[0])) + (FIR1*(LED->buffer[1])) + (FIR2*(LED->buffer[2])) + (FIR3*(LED->buffer[3])) + (FIR4*(LED->buffer[4])) + (FIR5*(LED->buffer[5])) + (FIR6*(LED->buffer[6]));
+		heading =   (FIR0*(LED->buffer[0])) + (FIR1*(LED->buffer[1])) + (FIR2*(LED->buffer[2])) + (FIR3*(LED->buffer[3])) + (FIR4*(LED->buffer[4])) + (FIR5*(LED->buffer[5])) + (FIR6*(LED->buffer[6]));//I dont know if this is completely valid
 	}	
-	if ((heading > 0) && (heading < 22)){
+	if ((heading > 0.1) && (heading < 22)){
 		//decoder(0);
-		LED->north = 0;
-		LED->south = 4;
+		LED->north = 4;
+		LED->south = 0;
 	} else if ((heading >= 22) && (heading < 67)){
 		//decoder(1);
-		LED->north = 1;
-		LED->south = 5;
+		LED->north = 3;
+		LED->south = 7;
 	}else if ((heading >= 67) && (heading < 112)){
 		//decoder(2);
 		LED->north = 2;
 		LED->south = 6;
 	}else if ((heading >= 112) && (heading < 157)){
 		//decoder(3);
-		LED->north = 3;
-		LED->south = 7;
+		LED->north = 1;
+		LED->south = 5;
 	}else if ((heading >= 157) && (heading < 202)){
-		LED->north = 4;
-		LED->south = 0;
+		LED->north = 0;
+		LED->south = 4;
 	}else if ((heading >= 202) && (heading < 247)){
-		LED->north = 5;
+		LED->north = 7;
 		LED->south = 1;
 	}else if ((heading >= 247) && (heading < 292)){
 		LED->north = 6;
 		LED->south = 2;
 	}else if ((heading >= 292) && (heading < 337)){
-		LED->north = 7;
+		LED->north = 5;
 		LED->south = 3;
-	}else if ((heading >= 337) && (heading < 360)){
-		LED->north = 0;
-		LED->south = 4;
-	}else if(heading == 0){
+	}else if ((heading >= 337) && (heading <= 360)){
+		LED->north = 4;
+		LED->south = 0;
 	}
     return;
 }
